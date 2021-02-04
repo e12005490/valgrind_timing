@@ -1,0 +1,17 @@
+This is an extension of Valgrind/memcheck to help better detect timing
+vulnerabilities based on Valgrind 3.16.1.
+
+The only modified file in the Valgrind source is memcheck/mc_translate.c.
+Memcheck now detects divisions with undefined operands, and can be used
+as in https://www.post-apocalyptic-crypto.org/timecop/ to detect secret
+branches, secret lookups and variable-time instructions (currently divisions).
+
+To build the sources, run
+
+	cd valgrind-3.16.1
+	./autogen-sh
+	./configure --prefix=`pwd`/inst
+	make
+	make install
+
+The Valgrind binary can then be found under inst/bin/valgrind.
