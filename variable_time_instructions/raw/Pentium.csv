@@ -1,0 +1,140 @@
+NOP;;1
+MOV;r/m, r/m/i;1
+MOV;r/m, sr;1
+MOV;sr , r/m;>= 2 b)
+MOV;m , accum;1
+XCHG;(E)AX, r;2
+XCHG;r , r;3
+XCHG;r , m;>15
+XLAT;;4
+PUSH;r/i;1
+POP;r;1
+PUSH;m;2
+POP;m;3
+PUSH;sr;1 b)
+POP;sr;>= 3 b)
+PUSHF;;3-5
+POPF;;4-6
+PUSHA POPA;;5-9 i)
+PUSHAD POPAD;;5
+LAHF SAHF;;2
+MOVSX MOVZX;r , r/m;3 a)
+LEA;r , m;1
+LDS LES LFS LGS LSS;m;4 c)
+ADD SUB AND OR XOR;r , r/i;1
+ADD SUB AND OR XOR;r , m;2
+ADD SUB AND OR XOR;m , r/i;3
+ADC SBB;r , r/i;1
+ADC SBB;r , m;2
+ADC SBB;m , r/i;3
+CMP;r , r/i;1
+CMP;m , r/i;2
+TEST;r , r;1
+TEST;m , r;2
+TEST;r , i;1
+TEST;m , i;2
+INC DEC;r;1
+INC DEC;m;3
+NEG NOT;r/m;1/3
+MUL IMUL;r8/r16/m8/m16;11
+MUL IMUL;all other versions;9 d)
+DIV;r8/m8;17
+DIV;r16/m16;25
+DIV;r32/m32;41
+IDIV;r8/m8;22
+IDIV;r16/m16;30
+IDIV;r32/m32;46
+CBW CWDE;;3
+CWD CDQ;;2
+SHR SHL SAR SAL;r , i;1
+SHR SHL SAR SAL;m , i;3
+SHR SHL SAR SAL;r/m, CL;4/5
+ROR ROL RCR RCL;r/m, 1;1/3
+ROR ROL;r/m, i(><1);1/3
+ROR ROL;r/m, CL;4/5
+RCR RCL;r/m, i(><1);8/10
+RCR RCL;r/m, CL;7/9
+SHLD SHRD;r, i/CL;4 a)
+SHLD SHRD;m, i/CL;5 a)
+BT;r, r/i;4 a)
+BT;m, i;4 a)
+BT;m, i;9 a)
+BTR BTS BTC;r, r/i;7 a)
+BTR BTS BTC;m, i;8 a)
+BTR BTS BTC;m, r;14 a)
+BSF BSR;r , r/m;7-73 a)
+SETcc;r/m;1/2 a)
+JMP CALL;short/near;1 e)
+JMP CALL;far;>= 3 e)
+conditional jump;short/near;1/4/5/6 e)
+CALL JMP;r/m;2/5 e
+RETN;;2/5 e
+RETN;i;3/6 e)
+RETF;;4/7 e)
+RETF;i;5/8 e)
+J(E)CXZ;short;4-11 e)
+LOOP;short;5-10 e)
+BOUND;r , m;8
+CLC STC CMC CLD STD;;2
+CLI STI;;6-9
+LODS;;2
+REP LODS;;7+3*n g)
+STOS;;3
+REP STOS;;10+n g)
+MOVS;;4
+REP MOVS;;12+n g)
+SCAS;;4
+REP(N)E SCAS;;9+4*n g)
+CMPS;;5
+REP(N)E CMPS;;8+4*n g)
+BSWAP;r;1 a)
+CPUID;;13-16 a)
+RDTSC;;6-13 a) j)
+FLD;r/m32/m64;1
+FLD;m80;3
+FBLD;m80;48-58
+FST(P);r;1
+FST(P);m32/m64;2
+FST(P);m80;3
+FBSTP;m80;148-154
+FILD;m;3
+FIST(P);m;6
+FLDZ FLD1;;2
+FLDPI FLDL2E etc.;;5 s)
+FNSTSW;AX/m16;6
+FLDCW;m16;8
+FNSTCW;m16;2
+FADD(P);r/m;3
+FSUB(R)(P);r/m;3
+FMUL(P);r/m;3
+FDIV(R)(P);r/m;19/33/39 p)
+FCHS FABS;;1
+FCOM(P)(P) FUCOM;r/m;1
+FIADD FISUB(R);m;6
+FIMUL;m;6
+FIDIV(R);m;22/36/42 p)
+FICOM;m;4
+FTST;;1
+FXAM;;17-21
+FPREM;;16-64
+FPREM1;;20-70
+FRNDINT;;9-20
+FSCALE;;20-32
+FXTRACT;;12-66
+FSQRT;;70
+FSIN FCOS;;65-100 r)
+FSINCOS;;89-112 r)
+F2XM1;;53-59 r)
+FYL2X;;103 r)
+FYL2XP1;;105 r)
+FPTAN;;120-147 r)
+FPATAN;;112-134 r)
+FNOP;;1
+FXCH;r;1
+FINCSTP FDECSTP;;2
+FFREE;r;2
+FNCLEX;;6-9
+FNINIT;;12-22
+FNSAVE;m;124-300
+FRSTOR;m;70-95
+WAIT;;1

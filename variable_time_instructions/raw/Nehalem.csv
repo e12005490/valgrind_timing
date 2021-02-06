@@ -1,0 +1,470 @@
+MOV;r,r/i;1
+MOV a);r,m;2
+MOV a);m,r;3
+MOV;m,i;3
+MOV;r,sr;
+MOV;m,sr;
+MOV;sr,r;
+MOV;sr,m;
+MOVNTI;m,r;~270
+MOVSX MOVZX MOVSXD;r,r;1
+MOVSX MOVZX MOVSXD;r,m;
+CMOVcc;r,r;2
+CMOVcc;r,m;
+XCHG;r,r;2
+XCHG;r,m;20 b)
+XLAT;;5
+PUSH;r;3
+PUSH;i;
+PUSH;m;
+PUSH;sr;
+PUSHF(D/Q);;
+PUSHA(D) i);;
+POP;r;2
+POP;(E/R)SP;
+POP;m;
+POP;sr;
+POPF(D/Q);;
+POPA(D) i);;
+LAHF SAHF;;1
+SALC i);;4
+LEA a);r,m;1
+BSWAP;r32;1
+BSWAP;r64;3
+LDS LES LFS LGS LSS;m;
+PREFETCHNTA ;m;
+PREFETCHT0/1/2 ;m;
+LFENCE;;
+MFENCE;;
+SFENCE;;
+ADD SUB;r,r/i;1
+ADD SUB;r,m;
+ADD SUB;m,r/i;6
+ADC SBB;r,r/i;2
+ADC SBB;r,m;2
+ADC SBB;m,r/i;7
+CMP ;r,r/i;1
+CMP ;m,r/i;1
+INC DEC NEG NOT;r;1
+INC DEC NEG NOT;m;6
+AAA AAS DAA DAS i);;3
+AAD i);;15
+AAM i);;20
+MUL IMUL;r8;3
+MUL IMUL;r16;5
+MUL IMUL;r32;5
+MUL IMUL;r64;3
+IMUL;r16,r16;3
+IMUL;r32,r32;3
+IMUL;r64,r64;3
+IMUL;r16,r16,i;3
+IMUL;r32,r32,i;3
+IMUL;r64,r64,i;3
+MUL IMUL;m8;3
+MUL IMUL;m16;5
+MUL IMUL;m32;5
+MUL IMUL;m64;3
+IMUL;r16,m16;3
+IMUL;r32,m32;3
+IMUL;r64,m64;3
+IMUL;r16,m16,i;
+IMUL;r32,m32,i;
+IMUL;r64,m64,i;
+DIV c);r8;11-21
+DIV c);r16;17-22
+DIV c);r32;17-28
+DIV c);r64;28-90
+IDIV c);r8;10-22
+IDIV c);r16;18-23
+IDIV c);r32;17-28
+IDIV c);r64;37-100
+CBW CWDE CDQE;;1
+CWD CDQ CQO;;1
+POPCNT ℓ);r,r;3
+POPCNT ℓ);r,m;
+CRC32 ℓ);r,r;3
+CRC32 ℓ);r,m;
+AND OR XOR;r,r/i;1
+AND OR XOR;r,m;
+AND OR XOR;m,r/i;6
+TEST;r,r/i;1
+TEST;m,r/i;
+SHR SHL SAR;r,i/cl;1
+SHR SHL SAR;m,i/cl;6
+ROR ROL;r,i/cl;1
+ROR ROL;m,i/cl;6
+RCR RCL;r,1;2
+RCR;r8,i/cl;13
+RCL;r8,i/cl;11
+RCR RCL;r16/32/64,i/cl;12-13
+RCR RCL;m,1;7
+RCR ;m8,i/cl;16
+RCL;m8,i/cl;14
+RCR RCL;m16/32/64,i/cl;15
+SHLD;r,r,i/cl;3
+SHLD;m,r,i/cl;8
+SHRD;r,r,i/cl;4
+SHRD;m,r,i/cl;9
+BT;r,r/i;1
+BT;m,r;
+BT;m,i;
+BTR BTS BTC;r,r/i;1
+BTR BTS BTC;m,r;6
+BTR BTS BTC;m,i;6
+BSF BSR;r,r;3
+BSF BSR;r,m;3
+SETcc;r;1
+SETcc;m;
+CLC STC CMC;;1
+CLD;;
+STD;;
+JMP;short/near;0
+JMP i);far;
+JMP;r;0
+JMP;m(near);0
+JMP;m(far);
+Conditional jump;short/near;0
+Fused compare/test and branch e);;0
+J(E/R)CXZ;short;
+LOOP;short;
+LOOP(N)E;short;
+CALL;near;
+CALL i);far;
+CALL;r;
+CALL;m(near);
+CALL;m(far);
+RETN;;
+RETN;i;
+RETF;;
+RETF;i;
+BOUND i);r,m;
+INTO i);;
+LODS;;
+REP LODS;;40+12n
+STOS;;
+REP STOS;small n;12+n
+REP STOS;large n;1 clk / 16 bytes
+MOVS;;
+REP MOVS;small n;12+n
+REP MOVS;large n;1 clk / 16 bytes
+SCAS;;
+REP SCAS;;40+2n
+CMPS;;
+REP CMPS;;42+2n
+NOP (90);;
+Long NOP (0F 1F);;
+PAUSE;;
+ENTER;a,0;
+ENTER;a,b;79+5b
+LEAVE;;
+CPUID;;~200
+RDTSC;;
+RDPMC;;
+FLD;r;1
+FLD;m32/64;3
+FLD;m80;4
+FBLD;m80;45
+FST(P);r;1
+FST(P);m32/m64;4
+FSTP;m80;5
+FBSTP;m80;242
+FXCH;r;0
+FILD;m;6
+FIST(P);m;7
+FISTTP g);m;7
+FLDZ;;
+FLD1;;
+FLDPI FLDL2E etc.;;
+FCMOVcc;r;4
+FNSTSW;AX;
+FNSTSW;m16;
+FLDCW;m16;7
+FNSTCW;m16;5
+FINCSTP FDECSTP;;1
+FFREE(P);r;
+FNSAVE;m;178
+FRSTOR;m;156
+FADD(P) FSUB(R)(P);r;3
+FADD(P) FSUB(R)(P);m;
+FMUL(P);r;5
+FMUL(P);m;
+FDIV(R)(P);r;7-27 d)
+FDIV(R)(P);m;7-27 d)
+FABS;;1
+FCHS;;1
+FCOM(P) FUCOM;r;
+FCOM(P) FUCOM;m;
+FCOMPP FUCOMPP;;
+FCOMI(P) FUCOMI(P);r;
+FIADD FISUB(R);m;3
+FIMUL;m;5
+FIDIV(R);m;7-27 d)
+FICOM(P);m;
+FTST;;
+FXAM;;
+FPREM;;14
+FPREM1;;19
+FRNDINT;;22
+FSCALE;;12
+FXTRACT;;13
+FSQRT;;~27
+FSIN;;40-100
+FCOS;;40-100
+FSINCOS;;~110
+F2XM1;;58
+FYL2X FYL2XP1;;~80
+FPTAN;;~115
+FPATAN;;~120
+FNOP;;
+WAIT;;
+FNCLEX;;
+FNINIT;;
+MOVD k);r32/64,mm/x;2
+MOVD k);m32/64,mm/x;3
+MOVD k);mm/x,r32/64;2
+MOVD k);mm/x,m32/64;2
+MOVQ;mm/x, mm/x;1
+MOVQ;mm/x,m64;2
+MOVQ;m64, mm/x;3
+MOVDQA;xmm, xmm;1
+MOVDQA;xmm, m128;2
+MOVDQA;m128, xmm;3
+MOVDQU;xmm, m128;2
+MOVDQU;m128, xmm;3
+LDDQU g);xmm, m128;2
+MOVDQ2Q;mm, xmm;1
+MOVQ2DQ;xmm,mm;1
+MOVNTQ;m64,mm;~270
+MOVNTDQ;m128,xmm;~270
+MOVNTDQA j);xmm, m128;2
+PACKSSWB/DW PACKUSWB;mm,mm;1
+PACKSSWB/DW PACKUSWB;mm,m64;
+PACKSSWB/DW PACKUSWB;xmm,xmm;1
+PACKSSWB/DW PACKUSWB;xmm,m128;
+PACKUSDW j);xmm,xmm;1
+PACKUSDW j);xmm,m;
+PUNPCKH/LBW/WD/DQ;mm/x, mm/x;1
+PUNPCKH/LBW/WD/DQ;mm/x,m;
+PUNPCKH/LQDQ;xmm,xmm;1
+PUNPCKH/LQDQ;xmm, m128;
+PMOVSX/ZXBW j);xmm,xmm;1
+PMOVSX/ZXBW j);xmm,m64;
+PMOVSX/ZXBD j);xmm,xmm;1
+PMOVSX/ZXBD j);xmm,m32;
+PMOVSX/ZXBQ j);xmm,xmm;1
+PMOVSX/ZXBQ j);xmm,m16;
+PMOVSX/ZXWD j);xmm,xmm;1
+PMOVSX/ZXWD j);xmm,m64;
+PMOVSX/ZXWQ j);xmm,xmm;1
+PMOVSX/ZXWQ j);xmm,m32;
+PMOVSX/ZXDQ j);xmm,xmm;1
+PMOVSX/ZXDQ j);xmm,m64;
+PSHUFB h) ;mm/x, mm/x;1
+PSHUFB h);mm/x,m;
+PSHUFW ;mm,mm,i;1
+PSHUFW ;mm,m64,i;
+PSHUFD;xmm,xmm,i;1
+PSHUFD;xmm,m128,i;
+PSHUFL/HW;xmm,xmm,i;1
+PSHUFL/HW;xmm, m128,i;
+PALIGNR h);mm/x,mm/x,i;1
+PALIGNR h);mm/x,m,i;
+PBLENDVB j);x,x,xmm0;2
+PBLENDVB j);xmm,m,xmm0;
+PBLENDW j);xmm,xmm,i;1
+PBLENDW j);xmm,m,i;
+MASKMOVQ;mm,mm;
+MASKMOVDQU;xmm,xmm;
+PMOVMSKB;r32,mm/x;4
+PEXTRB j);r32,xmm,i;4
+PEXTRB j);m8,xmm,i;
+PEXTRW ;r32,mm/x,i;3
+PEXTRW j);m16,mm/x,i;
+PEXTRD j);r32,xmm,i;3
+PEXTRD j);m32,xmm,i;
+PEXTRQ j,m);r64,xmm,i;3
+PEXTRQ j,m);m64,xmm,i;
+PINSRB j);xmm,r32,i;2
+PINSRB j);xmm,m8,i;
+PINSRW ;mm/x,r32,i;2
+PINSRW ;mm/x,m16,i;
+PINSRD j);xmm,r32,i;2
+PINSRD j);xmm,m32,i;
+PINSRQ j,m);xmm,r64,i;2
+PINSRQ j,m);xmm,m64,i;
+PADD/SUB(U)(S)B/W/D/Q;mm/x, mm/x;1
+PADD/SUB(U)(S)B/W/D/Q;mm/x,m;
+PHADD/SUB(S)W/D h);mm/x, mm/x;3
+PHADD/SUB(S)W/D h);mm/x,m64;
+PCMPEQ/GTB/W/D;mm/x,mm/x;1
+PCMPEQ/GTB/W/D;mm/x,m;
+PCMPEQQ j);xmm,xmm;1
+PCMPEQQ j);xmm,m128;
+PCMPGTQ ℓ);xmm,xmm;3
+PCMPGTQ ℓ);xmm,m128;
+PMULL/HW PMULHUW;mm/x,mm/x;3
+PMULL/HW PMULHUW;mm/x,m;
+PMULHRSW h);mm/x,mm/x;3
+PMULHRSW h);mm/x,m;
+PMULLD j);xmm,xmm;6
+PMULLD j);xmm,m128;
+PMULDQ j);xmm,xmm;3
+PMULDQ j);xmm,m128;
+PMULUDQ;mm/x,mm/x;3
+PMULUDQ;mm/x,m;
+PMADDWD;mm/x,mm/x;3
+PMADDWD;mm/x,m;
+PMADDUBSW h);mm/x,mm/x;3
+PMADDUBSW h);mm/x,m;
+PAVGB/W;mm/x,mm/x;1
+PAVGB/W;mm/x,m;
+PMIN/MAXSB j);xmm,xmm;1
+PMIN/MAXSB j);xmm,m128;
+PMIN/MAXUB;mm/x,mm/x;1
+PMIN/MAXUB;mm/x,m;
+PMIN/MAXSW;mm/x,mm/x;1
+PMIN/MAXSW;mm/x,m;
+PMIN/MAXUW j);xmm,xmm;1
+PMIN/MAXUW j);xmm,m;
+PMIN/MAXU/SD j);xmm,xmm;1
+PMIN/MAXU/SD j);xmm,m128;
+PHMINPOSUW j);xmm,xmm;3
+PHMINPOSUW j);xmm,m128;
+PABSB PABSW PABSD h);mm/x,mm/x;1
+PABSB PABSW PABSD h);mm/x,m;
+PSIGNB PSIGNW PSIGND h);mm/x,mm/x;1
+PSIGNB PSIGNW PSIGND h);mm/x,m;
+PSADBW;mm/x,mm/x;3
+PSADBW;mm/x,m;
+MPSADBW j);xmm,xmm,i;5
+MPSADBW j);xmm,m,i;
+PCLMULQDQ n);xmm,xmm,i;12
+AESDEC, AESDECLAST, AESENC, AESENCLAST n);xmm,xmm;~5
+AESIMC n);xmm,xmm;~5
+AESKEYGENASSIST n);xmm,xmm,i;~5
+PAND(N) POR PXOR;mm/x,mm/x;1
+PAND(N) POR PXOR;mm/x,m;
+PTEST j);xmm,xmm;3
+PTEST j);xmm,m128;
+PSLL/RL/RAW/D/Q;mm,mm/i;1
+PSLL/RL/RAW/D/Q;mm,m64;
+PSLL/RL/RAW/D/Q;xmm,i;1
+PSLL/RL/RAW/D/Q;xmm,xmm;2
+PSLL/RL/RAW/D/Q;xmm,m128;
+PSLL/RLDQ;xmm,i;1
+PCMPESTRI ℓ);xmm,xmm,i;14
+PCMPESTRI ℓ);xmm,m128,i;14
+PCMPESTRM ℓ);xmm,xmm,i;7
+PCMPESTRM ℓ);xmm,m128,i;7
+PCMPISTRI ℓ);xmm,xmm,i;8
+PCMPISTRI ℓ);xmm,m128,i;8
+PCMPISTRM ℓ);xmm,xmm,i;7
+PCMPISTRM ℓ);xmm,m128,i;7
+EMMS;;
+MOVAPS/D;xmm,xmm;1
+MOVAPS/D;xmm,m128;2
+MOVAPS/D;m128,xmm;3
+MOVUPS/D;xmm,m128;2
+MOVUPS/D;m128,xmm;3
+MOVSS/D;xmm,xmm;1
+MOVSS/D;xmm,m32/64;2
+MOVSS/D;m32/64,xmm;3
+MOVHPS/D MOVLPS/D;xmm,m64;3
+MOVH/LPS/D;m64,xmm;5
+MOVLHPS MOVHLPS;xmm,xmm;1
+MOVMSKPS/D;r32,xmm;3
+MOVNTPS/D;m128,xmm;~270
+SHUFPS/D;xmm,xmm,i;1
+SHUFPS/D;xmm,m128,i;
+BLENDPS/PD j);xmm,xmm,i;1
+BLENDPS/PD j);xmm,m128,i;
+BLENDVPS/PD j);x,x,xmm0;2
+BLENDVPS/PD j);xmm,m,xmm0;
+MOVDDUP g);xmm,xmm;1
+MOVDDUP g);xmm,m64;2
+MOVSH/LDUP g);xmm,xmm;1
+MOVSH/LDUP g);xmm,m128;
+UNPCKH/LPS/D;xmm,xmm;1
+UNPCKH/LPS/D;xmm,m128;
+EXTRACTPS j);r32,xmm,i;3
+EXTRACTPS j);m32,xmm,i;
+INSERTPS j);xmm,xmm,i;1
+INSERTPS j);xmm,m32,i;
+CVTPD2PS;xmm,xmm;4
+CVTPD2PS;xmm,m128;
+CVTSD2SS;xmm,xmm;4
+CVTSD2SS;xmm,m64;
+CVTPS2PD;xmm,xmm;2
+CVTPS2PD;xmm,m64;
+CVTSS2SD;xmm,xmm;1
+CVTSS2SD;xmm,m32;
+CVTDQ2PS;xmm,xmm;5
+CVTDQ2PS;xmm,m128;
+CVT(T) PS2DQ;xmm,xmm;5
+CVT(T) PS2DQ;xmm,m128;
+CVTDQ2PD;xmm,xmm;6
+CVTDQ2PD;xmm,m64;
+CVT(T)PD2DQ;xmm,xmm;6
+CVT(T)PD2DQ;xmm,m128;
+CVTPI2PS;xmm,mm;5
+CVTPI2PS;xmm,m64;
+CVT(T)PS2PI;mm,xmm;5
+CVT(T)PS2PI;mm,m128;
+CVTPI2PD;xmm,mm;6
+CVTPI2PD;xmm,m64;
+CVT(T) PD2PI;mm,xmm;6
+CVT(T) PD2PI;mm,m128;
+CVTSI2SS;xmm,r32;5
+CVTSI2SS;xmm,m32;
+CVT(T)SS2SI;r32,xmm;5
+CVT(T)SS2SI;r32,m32;
+CVTSI2SD;xmm,r32;6
+CVTSI2SD;xmm,m32;
+CVT(T)SD2SI;r32,xmm;5
+CVT(T)SD2SI;r32,m64;
+ADDSS/D SUBSS/D;xmm,xmm;3
+ADDSS/D SUBSS/D;xmm,m32/64;
+ADDPS/D SUBPS/D;xmm,xmm;3
+ADDPS/D SUBPS/D;xmm,m128;
+ADDSUBPS/D g);xmm,xmm;3
+ADDSUBPS/D g);xmm,m128;
+HADDPS HSUBPS g);xmm,xmm;5
+HADDPS HSUBPS g);xmm,m128;
+HADDPD HSUBPD g);xmm,xmm;3
+HADDPD HSUBPD g);xmm,m128;
+MULSS MULPS;xmm,xmm;4
+MULSS MULPS;xmm,m;
+MULSD MULPD;xmm,xmm;5
+MULSD MULPD;xmm,m;
+DIVSS DIVPS;xmm,xmm;7-14
+DIVSS DIVPS;xmm,m;
+DIVSD DIVPD;xmm,xmm;7-22
+DIVSD DIVPD;xmm,m;
+RCPSS/PS;xmm,xmm;3
+RCPSS/PS;xmm,m;
+CMPccSS/D CMPccPS/D;xmm,xmm;3
+CMPccSS/D CMPccPS/D;xmm,m;
+COMISS/D UCOMISS/D;xmm,xmm;3
+COMISS/D UCOMISS/D;xmm,m32/64;
+MAXSS/D MINSS/D;xmm,xmm;3
+MAXSS/D MINSS/D;xmm,m32/64;
+MAXPS/D MINPS/D;xmm,xmm;3
+MAXPS/D MINPS/D;xmm,m128;
+ROUNDSS/D ROUNDPS/D j);xmm,xmm,i;3
+ROUNDSS/D ROUNDPS/D j);xmm,m128,i;
+DPPS j);xmm,xmm,i;11
+DPPS j);xmm,m128,i;
+DPPD j);xmm,xmm,i;9
+DPPD j);xmm,m128,i;
+SQRTSS/PS;xmm,xmm;7-18
+SQRTSS/PS;xmm,m;
+SQRTSD/PD;xmm,xmm;7-32
+SQRTSD/PD;xmm,m;
+RSQRTSS/PS;xmm,xmm;3
+RSQRTSS/PS;xmm,m;
+AND/ANDN/OR/XORPS/D;xmm,xmm;1
+AND/ANDN/OR/XORPS/D;xmm,m128;
+LDMXCSR;m32;
+STMXCSR;m32;
+FXSAVE;m4096;90
+FXRSTOR;m4096;

@@ -1,0 +1,12 @@
+(Pentium 4 data is not taken into account (yet) because I have no clue what I'm supposed to think when I see floating-point latencies)
+
+The following actions are taken:
+
+1. The raw data in raw/ is filtered into filtered/ using filter.py
+2. The filtered data is merged as merged.txt using merge.py
+3. The merged data is sorted using sort.sh into sorted.txt
+4. The sorted data is manually filtered into variable.txt, since there are false positives
+5. variable.txt contains all instructions that are variable time in AT LEAST ONE OF THE LISTED CPUs,
+   MEANING A LOT OF FALSE POSITIVES
+
+To avoid false positives, it may be useful to consider only a subset of the data in raw/

@@ -1,0 +1,358 @@
+MOV;r,r;1
+MOV;r,i;1
+MOV;r,m;2
+MOV;m,r;2
+MOV;m,i;
+MOV;r,sr;
+MOV;m,sr;
+MOV;sr,r;20
+MOV;sr,m;20
+MOVNTI;m,r;2
+MOVSX MOVZX;r,r;1
+MOVSXD;r64,r32;1
+MOVSX MOVSXD;r,m;3
+MOVZX;r,m;2
+CMOVcc;r,r;1
+CMOVcc;r,m;5
+XCHG;r,r;3
+XCHG;r,m;18
+XLAT;m;6
+PUSH;r;
+PUSH;i;
+PUSH;m;
+PUSH;sr;
+PUSHF(D/Q);;2
+PUSHA(D);;
+POP;r;
+POP;(E/R)SP;
+POP;m;
+POP;sr;
+POPF(D/Q);;
+POPA(D);;
+LAHF;;1
+SAHF;;1
+SALC;;10
+LEA;r,m;1
+BSWAP;r;1
+LDS LES LFS LGS LSS;m;28
+PREFETCHNTA ;m;
+PREFETCHT0/1/2 ;m;
+LFENCE MFENCE SFENCE;;
+ADD SUB;r,r/i;1
+ADD SUB;r,m;
+ADD SUB;m,r/i;5
+ADC SBB;r,r/i;1
+ADC SBB;r,m;
+ADC SBB;m,r/i;5
+CMP ;r,r/i;1
+CMP ;m,r/i;
+INC DEC NEG NOT;r;1
+INC DEC NEG NOT;m;5
+AAA;;
+AAS;;
+DAA;;
+DAS;;
+AAD;;
+AAM;;
+MUL IMUL;r8;2
+MUL IMUL;r16;3
+MUL IMUL;r32;3
+MUL IMUL;r64;8
+IMUL;r16,r16;2
+IMUL;r32,r32;2
+IMUL;r64,r64;5
+IMUL;r16,r16,i;2
+IMUL;r32,r32,i;2
+IMUL;r64,r64,i;5
+DIV ;r8;22-24
+DIV ;r16;24-28
+DIV ;r32;22-30
+DIV;r64;145-162
+IDIV;r8;21-24
+IDIV;r16;24-28
+IDIV;r32;18-26
+IDIV;r64;182-200
+CBW CWDE CDQE;;1
+CWD CDQ CQO;;1
+AND OR XOR;r,r/i;1
+AND OR XOR;r,m;
+AND OR XOR;m,r/i;5
+TEST;r,r/i;1
+TEST;m,r/i;
+SHR SHL SAR;r,i/cl;1
+ROR ROL;r,i/cl;1
+RCR RCL;r,1;1
+RCR RCL;r,i/cl;28+3n
+SHLD SHRD;r16,r16,i/cl;2
+SHLD SHRD;r32,r32,i/cl;2
+SHLD;r64,r64,i/cl;32
+SHRD;r64,r64,i/cl;42
+BT;r,r/i;1
+BT;m,r;
+BT;m,i;
+BTR BTS BTC;r,r/i;2
+BTR BTS BTC;m,r;10
+BTR BTS BTC;m,i;8
+BSF BSR;r,r;2
+SETcc;r8;1
+SETcc;m;
+CLC STC CMC;;3
+CLD STD;;3
+JMP;short/near;3
+JMP;far;
+JMP;r;3
+JMP;m(near);3
+JMP;m(far);
+Conditional jump;short/near;1-3-8
+J(E/R)CXZ;short;1-3-8
+LOOP;short;1-3-8
+LOOP(N)E;short;24
+CALL;near;3
+CALL;far;
+CALL;r;3
+CALL;m(near);4
+CALL;m(far);
+RETN;;3
+RETN;i;3
+RETF;;
+RETF;i;
+BOUND;r,m;
+INTO;;
+LODSB/W/D/Q;;
+REP LODSB/W/D/Q;;
+STOSB/W/D/Q;;
+REP STOSB/W/D/Q;;
+MOVSB/W/D/Q;;
+REP MOVSB/W/D/Q;;
+SCASB/W/D/Q;;
+REP SCASB;;
+REP SCASW/D/Q;;
+CMPSB/W/D/Q;;
+REP CMPSB/W/D/Q;;
+NOP (90);;0
+long NOP (0F 1F);;0
+PAUSE;;
+ENTER;a,0;
+ENTER;a,b;
+LEAVE;;2
+CPUID;;55-146
+RDTSC;;
+RDPMC;;
+FLD;r;1
+FLD;m32/m64;4
+FLD;m80;4
+FBLD;m80;54
+FST(P);r;1
+FST(P);m32/m64;5
+FSTP;m80;5
+FBSTP;m80;125
+FXCH;r;0
+FILD;m16;7
+FILD;m32;5
+FILD;m64;5
+FIST(T)(P);m16;6
+FIST(T)(P);m32;5
+FIST(T)(P);m64;5
+FLDZ FLD1;;
+FLDPI FLDL2E etc.;;
+FCMOVcc;r;2
+FNSTSW;AX;
+FNSTSW;m16;
+FLDCW;m16;
+FNSTCW;m16;
+FINCSTP FDECSTP;;0
+FFREE(P);;
+FNSAVE;m;319
+FRSTOR;m;196
+FADD(P) FSUB(R)(P);r/m;2
+FMUL(P);r/m;4
+FDIV(R)(P);r/m;14-23
+FABS;;1
+FCHS;;1
+FCOM(P) FUCOM;r/m;
+FCOMPP FUCOMPP;;
+FCOMI(P) FUCOMI(P);r;2
+FIADD FISUB(R);m;
+FIMUL;m;
+FIDIV(R);m;
+FICOM(P);m;
+FTST;;2
+FXAM;;38
+FPREM ;;~130
+FPREM1;;~130
+FRNDINT;;27
+FSCALE;;37
+FXTRACT;;57
+FSQRT;;73
+FSIN FCOS;;~150
+FSINCOS;;270-360
+F2XM1;;50-200
+FYL2X ;;~50
+FYL2XP1;;~50
+FPTAN;;300-370
+FPATAN;;~180
+FNOP;;
+WAIT;;0
+FNCLEX;;
+FNINIT;;
+MOVD;r,mm/x;3
+MOVD;m,mm/x;2
+MOVD;mm/x,r;4
+MOVD;mm/x,m;2
+MOVQ;v,v;1
+MOVQ;mm/x,m64;2
+MOVQ;m64, mm/x;2
+MOVDQA;x,x;1
+MOVDQA;x, m128;2
+MOVDQA;m128, x;2
+MOVDQU;m128, x;2
+MOVDQU;x, m128;2
+LDDQU ;x, m128;2
+MOVDQ2Q;mm, x;1
+MOVQ2DQ;x,mm;1
+MOVNTQ;m64,mm;~360
+MOVNTDQ;m128,x;~360
+MOVNTDQA;x,m128;2
+PACKSSWB/DW PACKUSWB;v,v;1
+PACKUSDW;x,x;1
+PUNPCKH/LBW/WD/DQ;v,v;1
+PUNPCKH/LQDQ;v,v;1
+PSHUFB;v,v;1
+PSHUFW ;mm,mm,i;1
+PSHUFL/HW;x,x,i;1
+PSHUFD;x,x,i;1
+PBLENDVB;x,x,xmm0;2
+PBLENDW;x,x,i;1
+PALIGNR;x,x,i;1
+MASKMOVQ;mm,mm;
+MASKMOVDQU;x,x;
+PMOVMSKB;r32,mm/x;3
+PEXTRW ;r32 ,mm/x,i;3
+PEXTRB/D/Q;r32/64,x,i;3
+PINSRW ;mm/x,r32,i;5
+PINSRB/D/Q;x,r32/64,i;5
+PMOVSX/ZXBW/BD/ BQ/WD/WQ/DQ;x,x;1
+PADD/SUB(U)(S)B/W/D ;v,v;1
+PADDQ PSUBQ;v,v;1
+PHADD(S)W PHSUB(S)W;v,v;3
+PHADDD PHSUBD;v,v;3
+PCMPEQ/GTB/W/D;v,v;1
+PCMPEQQ;x,x;1
+PMULL/HW PMULHUW;v,v;3
+PMULHRSW;v,v;3
+PMULLD;x,x;3
+PMULUDQ;v,v;3
+PMULDQ;x,x;3
+PMADDWD;v,v;4
+PMADDUBSW;v,v;10
+PSADBW;v,v;2
+MPSADBW;x,x,i;2
+PAVGB/W;v,v;1
+PMIN/MAXSW;v,v;1
+PMIN/MAXUB;v,v;1
+PMIN/MAXSB/D;x,x;1
+PMIN/MAXUW/D;x,x;1
+PHMINPOSUW;x,x;2
+PABSB PABSW PABSD;v,v;1
+PSIGNB PSIGNW PSIGND;v,v;1
+PAND(N) POR PXOR;v,v;1
+PTEST;v,v;3
+PSLL/RL/RAW/D/Q;v,v;1
+PSLL/RL/RAW/D/Q;(x)xmm,i;1
+PSLL/RLDQ;x,i;1
+EMMS;;
+MOVAPS/D;x,x;1
+MOVAPS/D;x,m128;2
+MOVAPS/D;m128,x;2
+MOVUPS/D;x,m128;2
+MOVUPS/D;m128,x;2
+MOVSS/D;x,x;1
+MOVSS/D;x,m32/64;2-3
+MOVSS/D;m32/64,x;2-3
+MOVHPS/D;x,m64;6
+MOVLPS/D;x,m64;6
+MOVHPS/D;m64,x;6
+MOVLPS/D;m64,x;2
+MOVLHPS MOVHLPS;x,x;1
+MOVMSKPS/D;r32,x;3
+MOVNTPS/D;m128,x;~360
+SHUFPS;x,x,i;1
+SHUFPD;x,x,i;1
+MOVDDUP;x,x;1
+MOVSH/LDUP;x,x;1
+UNPCKH/LPS;x,x;1
+UNPCKH/LPD;x,x;1
+CVTPD2PS;x,x;5
+CVTSD2SS;x,x;2
+CVTPS2PD;x,x;5
+CVTSS2SD;x,x;2
+CVTDQ2PS;x,x;3
+CVT(T) PS2DQ;x,x;2
+CVTDQ2PD;x,x;5
+CVT(T)PD2DQ;x,x;4
+CVTPI2PS;x,mm;5
+CVT(T)PS2PI;mm,x;4
+CVTPI2PD;x,mm;4
+CVT(T) PD2PI;mm,x;4
+CVTSI2SS;x,r32;5
+CVT(T)SS2SI;r32,x;4
+CVTSI2SD;x,r32;5
+CVT(T)SD2SI;r32,x;4
+ADDSS SUBSS;x,x;2
+ADDSD SUBSD;x,x;2
+ADDPS SUBPS;x,x;2
+ADDPD SUBPD;x,x;2
+ADDSUBPS;x,x;2
+ADDSUBPD;x,x;2
+HADDPS HSUBPS;x,x;5
+HADDPD HSUBPD;x,x;5
+MULSS;x,x;3
+MULSD;x,x;4
+MULPS;x,x;3
+MULPD;x,x;4
+DIVSS;x,x;13
+DIVSD;x,x;13-20
+DIVPS;x,x;24
+DIVPD;x,x;21-38
+RCPSS;x,x;5
+RCPPS;x,x;14
+CMPccSS/D;x,x;2
+CMPccPS/D;x,x;2
+COMISS/D UCOMISS/D;x,x;3
+MAXSS/D MINSS/D;x,x;2
+MAXPS/D MINPS/D;x,x;2
+SQRTSS;x,x;33
+SQRTPS;x,x;64
+SQRTSD;x,x;62
+SQRTPD;x,x;122
+RSQRTSS;x,x;5
+RSQRTPS;x,x;14
+ANDPS/D;x,x;1
+ANDNPS/D;x,x;1
+ORPS/D;x,x;1
+XORPS/D;x,x;1
+LDMXCSR;m32;
+STMXCSR;m32;
+FXSAVE;m4096;
+FXRSTOR;m4096;
+XSTORE;Data available;160-400 clock giving 8 bytes
+XSTORE;No data available;50-80 clock giving 0 bytes
+REP XSTORE;Quality factor = 0;1300 clock per 8 bytes
+REP XSTORE;Quality factor > 0;5455 clock per 8 bytes
+REP XCRYPTECB;128 bits key;15 clock per 16 bytes 
+REP XCRYPTECB;192 bits key;17 clock per 16 bytes 
+REP XCRYPTECB;256 bits key;18 clock per 16 bytes 
+REP XCRYPTCBC;128 bits key;29 clock per 16 bytes 
+REP XCRYPTCBC;192 bits key;33 clock per 16 bytes 
+REP XCRYPTCBC;256 bits key;37 clock per 16 bytes 
+REP XCRYPTCTR;128 bits key;23 clock per 16 bytes 
+REP XCRYPTCTR;192 bits key;26 clock per 16 bytes 
+REP XCRYPTCTR;256 bits key;27 clock per 16 bytes 
+REP XCRYPTCFB;128 bits key;29 clock per 16 bytes 
+REP XCRYPTCFB;192 bits key;33 clock per 16 bytes 
+REP XCRYPTCFB;256 bits key;37 clock per 16 bytes 
+REP XCRYPTOFB;128 bits key;29 clock per 16 bytes 
+REP XCRYPTOFB;192 bits key;33 clock per 16 bytes 
+REP XCRYPTOFB;256 bits key;37 clock per 16 bytes 
+REP XSHA1;;5 clock per byte
+REP XSHA256;;5 clock per byte

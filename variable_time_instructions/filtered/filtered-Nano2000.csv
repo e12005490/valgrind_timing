@@ -1,0 +1,83 @@
+MUL IMUL;r8;7-9
+MUL IMUL;r16;7-9
+MUL IMUL;r32;7-9
+MUL IMUL;r64;8-10
+IMUL;r16,r16;4-6
+IMUL;r32,r32;4-6
+IMUL;r64,r64;5-7
+IMUL;r16,r16,i;4-6
+IMUL;r32,r32,i;4-6
+IMUL;r64,r64,i;5-7
+DIV ;r16;27-35
+DIV ;r32;25-41
+DIV;r64;148-183
+IDIV;r16;27-35
+IDIV;r32;23-39
+IDIV;r64;187-222
+RCR RCL;r,i/cl;28+3n
+Conditional jump;short/near;1-3-8
+J(E/R)CXZ;short;1-3-8
+LOOP;short;1-3-8
+CPUID;;53-173
+FDIV(R)(P);r/m;15-42
+FPREM ;;151-171
+FPREM1;;106-155
+FXTRACT;;36-57
+FSIN FCOS;;51-159
+FSINCOS;;270-360
+F2XM1;;50-200
+FYL2X ;;~60
+FYL2XP1;;~170
+FPTAN;;300-370
+FPATAN;;~170
+MOVD;m32/64,mm/x;2-3
+MOVD;mm/x,m32/64;2-3
+MOVQ;mm/x,m64;2-3
+MOVQ;m64, mm/x;2-3
+MOVDQA;xmm, m128;2-3
+MOVDQA;m128, xmm;2-3
+MOVDQU;m128, xmm;2-3
+MOVDQU;xmm, m128;2-3
+LDDQU ;xmm, m128;2-3
+MOVNTQ;m64,mm;~300
+MOVNTDQ;m128,xmm;~300
+MOVAPS/D;xmm,m128;2-3
+MOVAPS/D;m128,xmm;2-3
+MOVUPS/D;xmm,m128;2-3
+MOVUPS/D;m128,xmm;2-3
+MOVSS/D;x,m32/64;2-3
+MOVSS/D;m32/64,x;2-3
+MOVNTPS/D;m128,xmm;~300
+CVTPD2PS;xmm,xmm;3-4
+CVTPS2PD;xmm,xmm;3-4
+ADDSS SUBSS;xmm,xmm;2-3
+ADDSD SUBSD;xmm,xmm;2-3
+ADDPS SUBPS;xmm,xmm;2-3
+ADDPD SUBPD;xmm,xmm;2-3
+ADDSUBPS;xmm,xmm;2-3
+ADDSUBPD;xmm,xmm;2-3
+DIVSS;xmm,xmm;15-22
+DIVSD;xmm,xmm;15-36
+DIVPS;xmm,xmm;42-82
+DIVPD;xmm,xmm;24-70
+XSTORE;Data available;160-400 clock giving 8 bytes
+XSTORE;No data available;50-80 clock giving 0 bytes
+REP XSTORE;Quality factor = 0;4800 clock per 8 bytes
+REP XSTORE;Quality factor > 0;19200 clock per 8 bytes
+REP XCRYPTECB;128 bits key;44 clock per 16 bytes 
+REP XCRYPTECB;192 bits key;46 clock per 16 bytes 
+REP XCRYPTECB;256 bits key;48 clock per 16 bytes 
+REP XCRYPTCBC;128 bits key;54 clock per 16 bytes 
+REP XCRYPTCBC;192 bits key;59 clock per 16 bytes 
+REP XCRYPTCBC;256 bits key;63 clock per 16 bytes 
+REP XCRYPTCTR;128 bits key;43 clock per 16 bytes 
+REP XCRYPTCTR;192 bits key;46 clock per 16 bytes 
+REP XCRYPTCTR;256 bits key;48 clock per 16 bytes 
+REP XCRYPTCFB;128 bits key;54 clock per 16 bytes 
+REP XCRYPTCFB;192 bits key;59 clock per 16 bytes 
+REP XCRYPTCFB;256 bits key;63 clock per 16 bytes 
+REP XCRYPTOFB;128 bits key;54 clock per 16 bytes 
+REP XCRYPTOFB;192 bits key;59 clock per 16 bytes 
+REP XCRYPTOFB;256 bits key;63 clock per 16 bytes 
+REP XSHA1;;3 clock per byte
+REP XSHA256;;4 clock per byte
