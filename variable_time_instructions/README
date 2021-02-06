@@ -2,11 +2,14 @@
 
 The following actions are taken:
 
-1. The raw data in raw/ is filtered into filtered/ using filter.py
-2. The filtered data is merged as merged.txt using merge.py
-3. The merged data is sorted using sort.sh into sorted.txt
-4. The sorted data is manually filtered into variable.txt, since there are false positives
-5. variable.txt contains all instructions that are variable time in AT LEAST ONE OF THE LISTED CPUs,
+1. The instruction_tables.ods spreadsheet is initially downloaded from https://www.agner.org/optimize/instruction_tables.ods.
+   The sheets here are already somewhat parsed to only include instructions, operands and latencies for the available CPUs.
+   The data is based on the 2021-01-31 version of the spreadsheet.
+2. The raw data in raw/ is filtered into filtered/ using filter.py
+3. The filtered data is merged as merged.txt using merge.py
+4. The merged data is sorted using sort.sh into sorted.txt
+5. The sorted data is manually filtered into variable.txt, since there are false positives
+6. variable.txt contains all instructions that are variable time in AT LEAST ONE OF THE LISTED CPUs,
    MEANING A LOT OF FALSE POSITIVES
 
-To avoid false positives, it may be useful to consider only a subset of the data in raw/
+To avoid false positives, it may be useful to consider only a subset of the data in raw/, e.g. only modern processors.
