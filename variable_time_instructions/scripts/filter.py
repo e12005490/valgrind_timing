@@ -2,9 +2,12 @@
 # In the dataset, constant-time instuctions have a number as latency,
 # so it is easy to filter them out
 
+from helpers import read_lines
+import os
 import sys
 
 def parse(line):
+	"""given a line, returns [name, operands, latency, line]"""
 	s = line.split(';')
 	s.append(line)
 	return s
@@ -17,13 +20,14 @@ def is_int(s):
 		return False
 
 for name in sys.argv[1:]:
-	infile = open(name, "r")
-	lines = infile.read().splitlines()
-	infile.close()
+	lines = read_lines(name)
 
+	# parse lines
 	instr = [parse(l) for l in lines]
+	# filter out instructions without given latencies or with constant
+	# latencies
 	instr = [i for i in instr if i[2] and not is_int(i[2])]
 
-	outfile = open("filtered-{}".format(name), "w")
+	outfile = open("../filtered/filtered-" + os.path.basename(name), "w")
 	outfile.write('\n'.join(i[3] for i in instr))
 	outfile.close()

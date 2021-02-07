@@ -1,642 +1,642 @@
-IDIV;r16
-CMPccSS/D;r,r/m
-DIV;r64/m64
-SAR;r/m, CL
-AESDECLAST;x,x
-ADDSS/D;r,r/m
-FMUL(P);r
-CMOVcc;r,r/m
-DIVPD;xmm,xmm
-FIDIV(R);m16
-CVTDQ2PD;r,r/m
-CVTPI2PS;xmm,mm
-DIVSD;v,v/m
-DIV;r/m32
-VPCOMPRESSD/Q;z{k},z
-BTC;r, r/i
-FSUB(R)(P);m
-STOS;small n
-MOVDQA;xmm,xmm
-IDIV;r64
-PALIGNR;mm,mm,i
-DIV;m32
-VINSERTI64x4;z,z,m,i
-J(E/R)CXZ;short
-FADDFSUB(R);m
-FIDIV(R);m
-FIMUL;m32
-IMUL;r32,r32
-VEXTRACTF128;x,y,i
-MOVDQU;m,xmm
-NEG;m
-VDIVPD;y,y,y/m
-XADD;m,r
-RCPPS;r,r/m
-FDIV(R)(P);m
-n);xmm,xmm,i
-VMOVDQA/U;z,z
-CALL;m(far)
-MAXSS/DMINPS/D;r,r/m
-MOV;sr , r/m
-LEA;r,[r+r*i]
-FNINIT;
-MOVD;r32, mm
-DIVSS;r,r/m
-MOVNTI;m,r
-CVTSD2SS;r,r/m
-DIVSD;xmm,m64
-CMPS;
-(V)MOVSH/LDUP;v,v
-ANDNPS/D;r,r/m
-XCRYPTECB;128 bits key
-MOV;sr,r/m
-RSQRTPS;r,r/m
-SUB;m,r
-MULPS/D;r,r/m
-PADD(U)SB/W;r,r/m
-MOVNTDQ;m128,x
-REP;256 bits key
-VPERM2F128;y,y,y/m,i
-VPSCATTERDD;[r+s*z]{k},z
-FLDPI;
-IDIV;m32
-XSTORE;Quality factor > 0
-FRSTOR;m864
-SUBPS;xmm,xmm
-MULSS;x,x/m
-VMOVNTDQ;m,y
-;r/m32
-MULSD;x,x/m
-MOVNTDQ;m,x
-PADDQ;xmm,r/m
-CVT(T)PD2DQ;r,r/m
-MOVSLDUP;xmm,xmm
-IMUL;r64,r64
-DIVSD;x,x
-XCRYPTCTR;256 bits key
-LES;m
-MOVSH/LDUP;v,m
-SUB;m,i
-VPERMQ;v,v,i
-SHRD;m,r,i/CL
-ROL;r/m, i(><1)
-AESDEC;x,x
-FIADDFISUB(R);m32
-VSHUFF64X2;z,z,z,i
-JMP;r/m
-MOVNTDQ;m,xmm
-REP;128 bits key
-RCL;r/m,i/cl
-REP;small n
-CVTDQ2PS;r,r/m
-XSHA1;
-XCRYPTCTR;192 bits key
-RCL;r,i/cl
-CMPXCHG;m16,r16
-BTR;r, r/i
-FPTAN;
-MOVS;large n
-VRSQRTPS;y,y/m
-etc.;
-RCR;r/m,i/cl
-IMUL;r16
-VMULPS;y,y,y/m
-MOVSX;r , r/m
-LDS;m
-IMUL;all other versions
-AESKEYGENASSIST;x,x
-LEA;r16,[m]
-XCRYPTECB;192 bits key
-MOVUPS/D;r,r
-;r,r/m
-MOVDQA;m128, xmm
-IMUL;r32/m32
-RCL;r16/32/64,i/cl
-VEXTRACTF64X4;y,z
-MOVD;m32/64,mm/x
-VDIVPS;y,y,y
-BT;r, r/i
-VPSHUFB;y,y,y
-PSUB(U)SB/W;r,r/m
-MOVDQU;m128, xmm
-MOVQ;mm/x,m64
-LEA;r32,[m]
-INSERTF128;y,x
-CVT(T)SD2SI;r32,xmm
-IMUL;r64
-VINSERTI128;y,y,x,i
-XCRYPTOFB;256 bits key
-PUNPCKH/LBW/WD/;mm,r/m
-PMADDWD;r,r/m
-MOVS;small n
-VDIVPD;y,y,y
-;
-ADD;m,r
-XSAVEOPT;m
-LOCK;m64
-PSLLDQ;xmm,i
-SUBPD;xmm,xmm
-DIVSS;v,v/m
-jump;short/near
-MOVNTPS/D;m128,x
-BTR;m, i
-VPERMD;v,v,v
-SETcc;r/m
-UNPCKHPS/D;r,r/m
-CPUID;
-SUBSS/D;x,x/m
-IMUL;r32
-SUBSS;xmm,xmm
-MOV;r32/64,r32/64
-VCVTPH2PS;z,y
-MOVHLPS;x,x
-FNSTSW;AX
-VEXTRACTI128;x,y,i
-ADDPS/D;r,r/m
-HADDPS/D;r,r/m
-VMOVDQA/U;y,y
-SUBSS/D;r,r/m
-XCRYPTCBC;256 bits key
-MOVD;mm, r32
-REP;Quality factor > 0
-FPATAN;
-MOVSS/D;m32/64,x
-MOVAPS/D;r,r
-PSHUFB;x,x
-MOVS;
-MOVDQA;xmm, m128
-MOV;r,sr
-MOVQ2DQ;xmm,mm
-VINSERTI32X4;z,z,x,i
-MOVD;r32, xmm
-OUT;
-FLDL2E;
-ENTER;a,b
-BTR;m, r
-XSTORE;No data available
-VCVTPS2PH;y,z,i
-MOVNTDQ;m128,xmm
-EXTRACTPS;m32,x,i
-VCVTPS2PH;x,v,i
-REP;192 bits key
-BT;m, i
-SHRD;r, i/CL
-MUL;r32/m32
-PSUBQ;xmm,r/m
-VFMADDSS/SD;x,x,x,x/m
-RETF;
-PSHUFL/HW;xmm,xmm,i
-FNSAVE;m
-VINSERTI128;y,y,m,i
-AESDEC;xmm,xmm
-VMASKMOVPS/D;m128,x,x
-MUL;all other versions
-STOS;
-RCL;r/m, CL
-SQRTPS;r,r/m
-XOR;m,r/i
-VFMADD132SS/SD;x,x,x/m
-VPMASKMOVD/Q;m,x,x
-RETF;i
-RCR;r,i/cl
-XCRYPTCBC;128 bits key
-PMULUDQ;r,r/m
-CMPXCHG;m,r16/32/64
-CVTPD2PS;xmm,xmm
-MOVDDUP;xmm,xmm
-J(E)CXZ;short
-STI;
-DIV;r8
-LEA;r,[r+r*i+i]
-BSF;r , r/m
-PUNPCKH/LQDQ;mm/x, mm/x
-VUNPCKH/LPS/D;v,v,v
-DIVSS;xmm,xmm
-MOVSQ;
-VCVTPH2PS;v,x
-RCL;r/m, 1
-DIVSS;x,x
-DIVSS;xmm,m32
-VPMASKMOVD/Q;m,v,v
-SHR;r/m, CL
-CVT(T)SS2SI;r32,xmm
-IMUL;r16,r16
-CMPXCHG;m,r
-MUL;r8
-IDIV;r/m32
-UNPCKH/LPS;xmm,xmm
-c);r8
-LOOP;short
-VSUBPS/D;y,y,y/m
-MOVSS/D;x,m32/64
-SAL;r/m, CL
-FDIV(R);m
-PACKUSWB;xmm,r/m
-BTS;m, r
-DIV;r8/m8
-;mm,mm,i
-FSTSW;AX
-IDIV;r32
-RSQRTSS;r,r/m
-VPACKSSWB/DW;mm/x, mm/x
-BTC;m, r
-LOCK;m,r32/64
-;r8
-POR;r,r/m
-IDIV;r8/m8
-DIVSD;r,r/m
-MOVQ;xmm,xmm
 (V)MOVNTPS/D;m,v
-VCOMPRESSPS/D;z{k},z
-FBSTP;m80
-CVT(T)PS2DQ;r,r/m
-SHUFPS/D;r,r/m,i
-PUNPCKH/LBW/WD/DQ;mm/x, mm/x
-PSRAW/D;r,i/r/m
-CVTPS2PD;r,r/m
-VADDPS/D;y,y,y/m
-IDIV;r8
-SUBPS/D;x,x/m
-VPUNPCKH/L(Q)DQ;y/z,y/z,y/z
-LOCK;m8,r8
-PUNPCKHBW/WD/DQ/QDQ;xmm,r/m
-DIVPD;x,x
-IDIV;r/m16
-ADDSUBPD;xmm,xmm
-OR;m,i
-LFS;m
-INSERTQ;xmm,xmm
-IDIV;r/m8
-FIADDFISUB(R);m16
-ADDPD;xmm,xmm
-VPACKSSWB/DW;y/z,y/z,y/z
-MOVDQA;x,x
-VDIVPS;y,y,y/m
-IDIV;r/m64
-IMUL;r16/m16
+(V)MOVSH/LDUP;v,v
+(V)PSHUFD;v,v,i
+;
+;mm,mm,i
+;r,r/m
 ;r/m16
-SQRTSS/PS;xmm,xmm
-VPERMI2PS/PD;z,z,z/m
-ADDSUBPS;xmm,xmm
-DIVPS;x,x/m
-SQRTSS/PS;x,x
-REP;
-VMASKMOVPS/D;v,v,m
-CVT(T)PD2PI;mm,xmm
-CALL;short/near
-ADDSUBPS/D;r,r/m
-CMPXCHG;m,r8/16
-MOVDQ2Q;mm,xmm
-VPACKUSWB/DW;mm/x, mm/x
-FSQRT;
-XCRYPTCFB;256 bits key
-FDIV(R)(P);r
-XCRYPTOFB;192 bits key
-PSUBQ;mm,r/m
-AESIMC;xmm,xmm
-IDIV;m64
-DIV;r32/m32
-XSTORE;Quality factor = 0
-VPMASKMOVD/Q;m,y,y
+;r/m32
+;r16
+;r32
+;r8
+;xmm, m128
+ADC;m,r/i
+ADD;m,i
+ADD;m,r
+ADDPD;xmm,xmm
+ADDPS/D;r,r/m
+ADDPS/D;x,x/m
 ADDPS;xmm,xmm
+ADDSD;xmm,xmm
+ADDSS/D;r,r/m
+ADDSS/D;x,x/m
+ADDSS;xmm,xmm
+ADDSUBPD;xmm,xmm
+ADDSUBPS/D;r,r/m
+ADDSUBPS/D;x,x/m
+ADDSUBPS;xmm,xmm
+AESDEC;x,x
+AESDEC;xmm,xmm
+AESDECLAST;x,x
+AESDECLAST;xmm,xmm
+AESENC;x,x
+AESENC;xmm,xmm
+AESENCLAST;x,x
+AESENCLAST;xmm,xmm
+AESIMC;x,x
+AESIMC;xmm,xmm
+AESKEYGENASSIST;x,x
+AESKEYGENASSIST;xmm,xmm,i
+AND;m,i
+AND;m,r
+AND;m,r/i
+ANDNPS/D;r,r/m
+ANDPS/D;r,r/m
+BSF;r , r/m
+BSR;r , r/m
+BSWAP;r
+BT;m, i
+BT;r, r/i
+BTC;m, i
+BTC;m, r
+BTC;r, r/i
+BTR;m, i
+BTR;m, r
+BTR;r, r/i
+BTS;m, i
+BTS;m, r
+BTS;r, r/i
+CALL;far
+CALL;m(far)
+CALL;r/m
+CALL;short/near
+CLI;
+CMOVcc;r,r/m
+CMPS;
+CMPXCHG16B;m128
+CMPXCHG8B;m64
+CMPXCHG;m,r
+CMPXCHG;m,r16/32/64
+CMPXCHG;m,r32/64
+CMPXCHG;m,r8/16
+CMPXCHG;m16,r16
+CMPXCHG;m8,r8
+CMPccPS/D;r,r/m
+CMPccSS/D;r,r/m
+COMISS/D;r,r/m
+CPUID;
+CVT(T)PD2DQ;r,r/m
+CVT(T)PD2PI;mm,xmm
+CVT(T)PS2DQ;r,r/m
+CVT(T)SD2SI;r32,xmm
+CVT(T)SS2SI;r32,xmm
+CVTDQ2PD;r,r/m
+CVTDQ2PS;r,r/m
+CVTPD2PS;r,r/m
+CVTPD2PS;xmm,xmm
+CVTPI2PD;xmm,mm
+CVTPI2PS;xmm,mm
+CVTPS2PD;r,r/m
+CVTPS2PD;xmm,xmm
+CVTSD2SS;r,r/m
+CVTSI2SD;xmm,r32
+CVTSI2SS;xmm,r32
+CVTSS2SD;r,r/m
+Conditional;short/near
+DEC;m
+DEC;r
+DIV;m16
+DIV;m32
+DIV;m64
+DIV;m8
+DIV;r/m 64
+DIV;r/m16
+DIV;r/m32
+DIV;r16
+DIV;r16/m16
+DIV;r32
+DIV;r32/m32
+DIV;r64
+DIV;r64/m64
+DIV;r8
+DIV;r8/m8
+DIVPD;r,r/m
+DIVPD;v,v/m
+DIVPD;x,x
+DIVPD;x,x/m
+DIVPD;xmm,m128
+DIVPD;xmm,xmm
+DIVPS;r,r/m
+DIVPS;v,v/m
+DIVPS;x,x
+DIVPS;x,x/m
+DIVPS;xmm,m128
+DIVPS;xmm,xmm
+DIVSD;r,r/m
+DIVSD;v,v/m
+DIVSD;x,x
+DIVSD;x,x/m
+DIVSD;xmm,m64
+DIVSD;xmm,xmm
+DIVSS;r,r/m
+DIVSS;v,v/m
+DIVSS;x,x
 DIVSS;x,x/m
-MUL;r64/m64
+DIVSS;xmm,m32
+DIVSS;xmm,xmm
+DQ;mm,r/m
+ENTER;
+ENTER;a,b
+EXTRACTPS;m32,x,i
+F2XM1;
+FABS;
+FADD(P);m
+FADD(P)FSUB(R)(P);r
+FADD(P)FSUB(R)(P);r/m
+FADDFSUB(R);m
+FBLD;m80
+FBSTP;m80
+FCHS;
+FCMOVcc;st0,r
+FCOS;
+FDIV(R)(P);m
+FDIV(R)(P);r
+FDIV(R)(P);r/m
+FDIV(R);m
+FIADDFISUB(R);m16
+FIADDFISUB(R);m32
+FIDIV(R);m
+FIDIV(R);m16
+FIDIV(R);m32
+FIMUL;m16
+FIMUL;m32
+FLDCW;m16
+FLDL2E;
+FLDPI;
+FMUL(P);m
+FMUL(P);r
+FMUL(P);r/m
+FMUL;m
+FNCLEX;
+FNINIT;
+FNSAVE;m
+FNSAVE;m864
+FNSTCW;m16
+FNSTSW;AX
+FNSTSW;m16
+FPATAN;
+FPREM1;
+FPREM;
+FPTAN;
+FRNDINT;
+FRSTOR;m
+FRSTOR;m864
+FSCALE;
+FSIN;
+FSINCOS;
+FSQRT;
+FSTSW;AX
+FSUB(R)(P);m
+FXAM;
+FXTRACT;
+FYL2X;
+FYL2XP1;
+FYL2X ;
+HADDPS/D;r,r/m
+HSUBPS/D;r,r/m
+IDIV;m16
+IDIV;m32
+IDIV;m64
+IDIV;m8
+IDIV;r/m16
+IDIV;r/m32
+IDIV;r/m64
+IDIV;r/m8
+IDIV;r16
+IDIV;r16/m16
+IDIV;r32
+IDIV;r32/m32
+IDIV;r64
+IDIV;r64/m64
+IDIV;r8
+IDIV;r8/m8
+IMUL;all other versions
+IMUL;r16
+IMUL;r16,r16
+IMUL;r16,r16,i
+IMUL;r16/m16
+IMUL;r32
+IMUL;r32,r32
+IMUL;r32,r32,i
+IMUL;r32/m32
+IMUL;r64
+IMUL;r64,r64
+IMUL;r64,r64,i
+IMUL;r64/m64
+IMUL;r8
+IN;
+INC;m
+INC;r
+INSERTF128;y,x
+INSERTPS;x,m32,i
+INSERTQ;xmm,xmm
+INSERTQ;xmm,xmm,i,i
+J(E)CXZ;short
+J(E/R)CXZ;short
+JMP;far
+JMP;m(far)
+JMP;r/m
+JMP;short/near
+LDDQU;xmm, m128
+LDDQU;xmm,m
+LDS;m
+LEA;r,[r*i]
+LEA;r,[r+r*i+i]
+LEA;r,[r+r*i]
+LEA;r,[r+r+i]
+LEA;r,[r+r/i]
+LEA;r,m
+LEA;r16,[m]
+LEA;r16,m
+LEA;r32,[m]
+LEA;r32/64,[m]
+LES;m
+LFS;m
+LGS;m
+LOCK;m,r
+LOCK;m,r16/32/64
+LOCK;m,r32/64
+LOCK;m,r8/16
+LOCK;m128
+LOCK;m16,r16
+LOCK;m64
+LOCK;m8,r8
+LODS;
+LOOP;short
+LSS;m
+MASKMOVDQU;x,x
+MASKMOVDQU;xmm,xmm
+MASKMOVQ;mm,mm
+MAXPS/D;r,r/m
+MAXSS/DMINPS/D;r,r/m
+MINSS/D;r,r/m
+MOV;m,r32/64
+MOV;r,m
+MOV;r,m32/64
+MOV;r,sr
+MOV;r32/64,r32/64
+MOV;sr , r/m
+MOV;sr,r/m
+MOVAPS/D;m128,xmm
+MOVAPS/D;r,r
+MOVAPS/D;x, x
+MOVAPS/D;x,x
+MOVAPS/D;xmm,m128
+MOVD;m32/64,mm/x
+MOVD;mm, r32
+MOVD;mm/x,m32/64
+MOVD;r32, mm
+MOVD;r32, xmm
+MOVD;xmm, r32
+MOVDDUP;r,r
+MOVDDUP;x,x
+MOVDDUP;xmm,xmm
+MOVDQ2Q;mm,xmm
+MOVDQA/U;x,x
+MOVDQA;m128, xmm
+MOVDQA;x, x
+MOVDQA;x,x
+MOVDQA;xmm, m128
+MOVDQA;xmm,xmm
+MOVDQU;m,xmm
+MOVDQU;m128, xmm
+MOVDQU;x,x
+MOVDQU;xmm, m128
+MOVDQU;xmm,m
+MOVHLPS;r,r
+MOVHLPS;x,x
+MOVLHPS;r,r
+MOVLHPS;x,x
+MOVMSKPS/D;r32,r
+MOVNTDQ;m,x
+MOVNTDQ;m,xmm
+MOVNTDQ;m128,x
+MOVNTDQ;m128,xmm
+MOVNTI;m,r
+MOVNTPS/D;m,v
+MOVNTPS/D;m128,x
+MOVNTPS/D;m128,xmm
+MOVNTQ;m,mm
+MOVNTQ;m64,mm
+MOVQ2DQ;xmm,mm
+MOVQ;m64, mm/x
+MOVQ;mm/x,m64
+MOVQ;xmm,xmm
+MOVS;
+MOVS;large n
+MOVS;small n
+MOVSB;
+MOVSD;
+MOVSD;r,r
+MOVSH/LDUP;r,r
+MOVSH/LDUP;v,m
+MOVSHDUP;xmm,xmm
+MOVSLDUP;xmm,xmm
+MOVSQ;
+MOVSS/D;m32/64,x
+MOVSS/D;x,m32/64
+MOVSS;r,r
+MOVSW;
+MOVSX;r , r/m
+MOVSX;r,m
+MOVUPS/D;m,r
+MOVUPS/D;m128,xmm
+MOVUPS/D;r,m
+MOVUPS/D;r,r
+MOVUPS/D;xmm,m128
+MOVZX;r , r/m
 MOVZX;r,m
 MOVZX;r32/64,r8
-VPERMILPS/PD;v,v,v/m
-PSUBB/W/D;r,r/m
-VBROADCASTSS/D;v,x
-XCHG;r,m
-ROR;r/m, i(><1)
-VMOVDDUP;v,v
-LODS;
-IMUL;r16,r16,i
-RCR;r/m, 1
-CVTPS2PD;xmm,xmm
-LDDQU;xmm,m
-FNSTCW;m16
-ADDSUBPS/D;x,x/m
-PCLMULQDQ;x,x,i
-FSCALE;
-VSQRTPD;z,z
-ROR;r/m, 1
-PADDB/W/D;r,r/m
-VMULPD;y,y,y/m
-VPBLENDMD/Q;v{k},v,v
-FSINCOS;
-DIVPS;r,r/m
-DIVSD;x,x/m
-LDDQU;xmm, m128
-MOV;r,m
-PALIGNR;x,x,i
-PUSH;sr
-SHLD;m,r,i/CL
-LOCK;m,r16/32/64
-VPERMPS/PD;v,v,v/m
-FIDIV(R);m32
-(V)PSHUFD;v,v,i
-AESENC;xmm,xmm
-MOVNTPS/D;m,v
-PSLL/RLW/D/Q;r,i/r/m
-VFMADDPS/PD;y,y,y,y/m
-PBLENDVB;x,x,xmm0
-DIV;m8
-AESENC;x,x
-MOV;m,r32/64
-POPF;
-FCHS;
-PUSHA;
-VSHUFF32X4;z,z,z,i
-LOCK;m,r
-PCMPESTRM;x,x,i
-FMUL(P);r/m
-SQRTSD/PD;xmm,xmm
-ROL;r/m, CL
-XSTORE;Data available
-MOVDQU;xmm, m128
-CALL;r/m
-SHLD;m, i/CL
-COMISS/D;r,r/m
-LOCK;m16,r16
-VEXPANDPS/D;z{k},z
-SUBPS/D;r,r/m
-FMUL;m
-DIVPD;xmm,m128
-VEXTRACTF32X4;x,z
-XORPS/D;r,r/m
-VSHUFI64X2;z,z,z,i
-MOVD;xmm, r32
-MOVDQU;xmm,m
-SQRTPD;r,r/m
-CMPXCHG;m,r32/64
-ADDSS;xmm,xmm
-INSERTPS;x,m32,i
-LEA;r,[r*i]
-PAVGB/W;r,r/m
-VPERMILPS/PD;v,v/m,i
-VPSHUFL/HW;y,y,i
-SUBSD;xmm,xmm
-MOVNTQ;m64,mm
-LEA;r32/64,[m]
-FDIV(R)(P);r/m
-JMP;short/near
-DQ;mm,r/m
-AESDECLAST;xmm,xmm
-AESIMC;x,x
-CALL;far
-ROL;r/m, 1
-REP;large n
-IDIV;m8
-CMPXCHG;m8,r8
-FYL2X;
-PMIN/MAXSW;r,r/m
-VMOVAPS/D;y,y
-MOVSH/LDUP;r,r
-MOVUPS/D;m,r
-MULPD;x,x/m
-VPBLENDVB;v,v,v,v
-SHRD;m, i/CL
-c);r64
-VPERMT2Q;v,v,v
-d);mm,mm
-DIVPS;v,v/m
-POPA;
-NOT;m
-PSHUFW;mm,mm,i
-VALIGND/Q;z,z,z,i
-AESENCLAST;x,x
-VSHUFI32X4;z,z,z,i
-XSHA256;
-RCR;r8,1
-VINSERTI32x4;z,z,m,i
-MASKMOVDQU;x,x
-DEC;r
-FCMOVcc;st0,r
-MOVSD;
-MOVNTQ;m,mm
-DIVPD;r,r/m
-MOVAPS/D;xmm,m128
-MASKMOVDQU;xmm,xmm
-XOR;m,i
-LSS;m
-SQRTPS;xmm,xmm
-ADDSD;xmm,xmm
-MOVSW;
-MULPS;x,x/m
-BSR;r , r/m
-MOVAPS/D;x,x
-CVTPD2PS;r,r/m
-FPREM;
-SHLD;r, i/CL
-MOVSD;r,r
-XCRYPTCFB;128 bits key
-VMASKMOVPS/D;m256,y,y
-FADD(P)FSUB(R)(P);r/m
-PCMPGTB/W/D;r,r/m
-CVTSI2SS;xmm,r32
-IDIV;m16
-g);xmm, m128
-VFMADDPS/PD;x,x,x,x/m
-MOVDQA;x, x
-XCRYPTCTR;128 bits key
-FXTRACT;
-VSQRTPS;y,y/m
-REP;Quality factor = 0
-DIV;m64
-IDIV;r32/m32
-UCOMISS/D;r,r/m
-CVTSI2SD;xmm,r32
-DIV;m16
-conditional;short/near
-MOVLHPS;r,r
-SBB;m,r/i
-SQRTSD;r,r/m
-MOVDDUP;x,x
-MOVLHPS;x,x
-;xmm, m128
-MOVUPS/D;r,m
-AESKEYGENASSIST;xmm,xmm,i
-SQRTSS;xmm,xmm
-SQRTSD;xmm,xmm
-ROR;r/m, CL
-VINSERTF64X4;z,z,y
-VPALIGNR;y,y,y,i
-BSWAP;r
-MOVUPS/D;m128,xmm
-MOVUPS/D;xmm,m128
-CMPXCHG16B;m128
-RCR;r/m, CL
-MAXPS/D;r,r/m
-DIVSD;xmm,xmm
-MOVHLPS;r,r
-LEA;r,[r+r+i]
-FNSAVE;m864
-FIMUL;m16
-MOVAPS/D;x, x
-RDTSC;
-MOVDQU;x,x
-RETN;
-PACKUSWB;mm,r/m
-PXOR;r,r/m
-PHSUBD;mm/x, mm/x
-DIV;r64
-RCR;r16/32/64,i/cl
-MOV;r,m32/64
-DIV;r/m 64
-DIVPS;x,x
-FADD(P)FSUB(R)(P);r
-;r16
-PSHUFL/HW;x,x,i
-FMUL(P);m
-OR;m,r
-MOVDQA/U;x,x
-RETN;i
-ORPS/D;r,r/m
-FPREM1;
-VPERMT2D;v,v,v
-LGS;m
-CLI;
-MOVZX;r , r/m
-BTS;r, r/i
-VFMADD132PS/PD;y,y,y/m
-PMOVMSKB;r,v
-VPERMI2Q;v,v,v
-SQRTSD/PD;x,x/m
-DIVPD;x,x/m
-AESENCLAST;xmm,xmm
-DIV;r32
-RCL;r/m, i(><1)
-VSQRTPD;y,y/m
-FXAM;
-VMOVAPS/D;z,z
-AND;m,r
+MUL;all other versions
 MUL;r16
-VPERMI2D;v,v,v
-PMIN/MAXUB;r,r/m
-Conditional;short/near
-PACKSSWB/DW;mm,r/m
-PADDQ;mm,r/m
-SQRTSD/PD;x,x
-ADDSS/D;x,x/m
-n);xmm,xmm
-PSHUFB;mm,mm
-NOT;r/m
-IN;
-VSQRTPD;y,y
-DIVPS;xmm,m128
-MOVDDUP;r,r
-ADDPS/D;x,x/m
-PMULHW;r,r/m
-INSERTQ;xmm,xmm,i,i
-c);r32
-SQRTSS/PS;x,x/m
-PMULHUW;r,r/m
-IDIV;r64/m64
-SQRTPD;x,x
-RCPSS;r,r/m
-IMUL;r8
-DIVPD;v,v/m
-LEA;r,m
-PMULLW;r,r/m
-UNPCKLPS/D;r,r/m
-FNCLEX;
-FYL2X ;
-FRNDINT;
-VPUNPCKH/LBW/WD;y/z,y/z,y/z
-LOCK;m,r8/16
-SCAS;
-MOVMSKPS/D;r32,r
-PANDN;r,r/m
-FRSTOR;m
-MOVSHDUP;xmm,xmm
-SQRTSS;r,r/m
-PACKSSWB/DW;xmm,r/m
-MUL;r32
-RCR;r/m, i(><1)
-FBLD;m80
-VPERM2I128;v,v,v,i
-MOVSX;r,m
-VFMADD132PS/PD;x,x,x/m
-XCRYPTOFB;128 bits key
-FADD(P);m
-DEC;m
-INC;m
-NEG;r/m
-VMOVNTDQ;m256,y
-REP(N)E;
-PUNPCKLBW/WD/DQ/QDQ;xmm,r/m
-AND;m,i
-MOVAPS/D;m128,xmm
-c);r16
-;r32
-LEA;r,[r+r/i]
-VMOVNTPS/D;m256,y
-FCOS;
-F2XM1;
-INC;r
-CMPccPS/D;r,r/m
-PAND;r,r/m
-PUSHF;
-XOR;m,r
-VINSERTI64X4;z,z,y,i
-PSHUFD;xmm,xmm,i
-FABS;
-DIVPS;xmm,xmm
-ADD;m,i
-DIV;r16/m16
-MOVNTPS/D;m128,xmm
-CVTSS2SD;r,r/m
-LEA;r16,m
-XCRYPTECB;256 bits key
-VPSCATTERDPS;[r+s*z]{k},z
-PHADDD;mm/x, mm/x
-MOVSB;
-BTC;m, i
-VINSERTF128;y,y,m128,i
-IMUL;r32,r32,i
-PSADBW;r,r/m
-BTS;m, i
-HSUBPS/D;r,r/m
-VPEXPANDD/Q;z{k},z
 MUL;r16/m16
-FNSTSW;m16
-MOVSS;r,r
-MASKMOVQ;mm,mm
-CMPXCHG8B;m64
-PCMPEQB/W/D;r,r/m
-LOCK;m128
-JMP;far
-FYL2XP1;
-MOVD;mm/x,m32/64
-VPERMPD;y,y,i
-STOS;large n
-MOVQ;m64, mm/x
-CVTPI2PD;xmm,mm
-XCHG;r , m
-XCRYPTCFB;192 bits key
-POP;sr
-PSRLDQ;xmm,i
-FLDCW;m16
-SQRTSD;x,x
-VADDSUBPS/D;y,y,y/m
-ADC;m,r/i
-VPACKUSWB/DW;y/z,y/z,y/z
-VINSERTF32X4;z,z,x
-OR;m,r/i
-SHL;r/m, CL
-IMUL;r64/m64
-VSHUFPS/D;v,v,v,i
-ANDPS/D;r,r/m
-DIV;r16
-SQRTPD;xmm,xmm
-IMUL;r64,r64,i
-MINSS/D;r,r/m
-FSIN;
-XCRYPTCBC;192 bits key
-DIV;r/m16
-MULSS/D;r,r/m
+MUL;r32
+MUL;r32/m32
 MUL;r64
-JMP;m(far)
-ENTER;
-AND;m,r/i
-IDIV;r16/m16
+MUL;r64/m64
+MUL;r8
+MULPD;x,x/m
+MULPS/D;r,r/m
+MULPS;x,x/m
+MULSD;x,x/m
+MULSS/D;r,r/m
+MULSS;x,x/m
+NEG;m
+NEG;r/m
+NOT;m
+NOT;r/m
+OR;m,i
+OR;m,r
+OR;m,r/i
+ORPS/D;r,r/m
+OUT;
+PACKSSWB/DW;mm,r/m
+PACKSSWB/DW;xmm,r/m
+PACKUSWB;mm,r/m
+PACKUSWB;xmm,r/m
+PADD(U)SB/W;r,r/m
+PADDB/W/D;r,r/m
+PADDQ;mm,r/m
+PADDQ;xmm,r/m
+PALIGNR;mm,mm,i
+PALIGNR;x,x,i
+PAND;r,r/m
+PANDN;r,r/m
+PAVGB/W;r,r/m
+PBLENDVB;x,x,xmm0
+PCLMULQDQ;x,x,i
+PCMPEQB/W/D;r,r/m
+PCMPESTRM;x,x,i
+PCMPGTB/W/D;r,r/m
+PHADDD;mm/x, mm/x
+PHSUBD;mm/x, mm/x
+PMADDWD;r,r/m
+PMIN/MAXSW;r,r/m
+PMIN/MAXUB;r,r/m
+PMOVMSKB;r,v
+PMULHUW;r,r/m
+PMULHW;r,r/m
+PMULLW;r,r/m
+PMULUDQ;r,r/m
+POP;sr
+POPA;
+POPF;
+POR;r,r/m
+PSADBW;r,r/m
+PSHUFB;mm,mm
+PSHUFB;x,x
+PSHUFD;xmm,xmm,i
+PSHUFL/HW;x,x,i
+PSHUFL/HW;xmm,xmm,i
+PSHUFW;mm,mm,i
+PSLL/RLW/D/Q;r,i/r/m
+PSLLDQ;xmm,i
+PSRAW/D;r,i/r/m
+PSRLDQ;xmm,i
+PSUB(U)SB/W;r,r/m
+PSUBB/W/D;r,r/m
+PSUBQ;mm,r/m
+PSUBQ;xmm,r/m
+PUNPCKH/LBW/WD/;mm,r/m
+PUNPCKH/LBW/WD/DQ;mm/x, mm/x
+PUNPCKH/LQDQ;mm/x, mm/x
+PUNPCKHBW/WD/DQ/QDQ;xmm,r/m
+PUNPCKLBW/WD/DQ/QDQ;xmm,r/m
+PUSH;sr
+PUSHA;
+PUSHF;
+PXOR;r,r/m
+RCL;r,i/cl
+RCL;r/m, 1
+RCL;r/m, CL
+RCL;r/m, i(><1)
+RCL;r/m,i/cl
+RCL;r16/32/64,i/cl
+RCPPS;r,r/m
+RCPSS;r,r/m
+RCR;r,i/cl
+RCR;r/m, 1
+RCR;r/m, CL
+RCR;r/m, i(><1)
+RCR;r/m,i/cl
+RCR;r16/32/64,i/cl
+RCR;r8,1
+RDTSC;
+REP(N)E;
+REP;
+REP;128 bits key
+REP;192 bits key
+REP;256 bits key
+REP;Quality factor = 0
+REP;Quality factor > 0
+REP;large n
+REP;small n
+RETF;
+RETF;i
+RETN;
+RETN;i
+ROL;r/m, 1
+ROL;r/m, CL
+ROL;r/m, i(><1)
+ROR;r/m, 1
+ROR;r/m, CL
+ROR;r/m, i(><1)
+RSQRTPS;r,r/m
+RSQRTSS;r,r/m
+SAL;r/m, CL
+SAR;r/m, CL
+SBB;m,r/i
+SCAS;
+SETcc;r/m
+SHL;r/m, CL
+SHLD;m, i/CL
+SHLD;m,r,i/CL
+SHLD;r, i/CL
+SHR;r/m, CL
+SHRD;m, i/CL
+SHRD;m,r,i/CL
+SHRD;r, i/CL
+SHUFPS/D;r,r/m,i
+SQRTPD;r,r/m
+SQRTPD;x,x
+SQRTPD;xmm,xmm
+SQRTPS;r,r/m
+SQRTPS;xmm,xmm
+SQRTSD/PD;x,x
+SQRTSD/PD;x,x/m
+SQRTSD/PD;xmm,xmm
+SQRTSD;r,r/m
+SQRTSD;x,x
+SQRTSD;xmm,xmm
+SQRTSS/PS;x,x
+SQRTSS/PS;x,x/m
+SQRTSS/PS;xmm,xmm
+SQRTSS;r,r/m
+SQRTSS;xmm,xmm
+STI;
+STOS;
+STOS;large n
+STOS;small n
+SUB;m,i
+SUB;m,r
+SUBPD;xmm,xmm
+SUBPS/D;r,r/m
+SUBPS/D;x,x/m
+SUBPS;xmm,xmm
+SUBSD;xmm,xmm
+SUBSS/D;r,r/m
+SUBSS/D;x,x/m
+SUBSS;xmm,xmm
+UCOMISS/D;r,r/m
+UNPCKH/LPS;xmm,xmm
+UNPCKHPS/D;r,r/m
+UNPCKLPS/D;r,r/m
+VADDPS/D;y,y,y/m
+VADDSUBPS/D;y,y,y/m
+VALIGND/Q;z,z,z,i
+VBROADCASTSS/D;v,x
+VCOMPRESSPS/D;z{k},z
+VCVTPH2PS;v,x
+VCVTPH2PS;z,y
+VCVTPS2PH;x,v,i
+VCVTPS2PH;y,z,i
+VDIVPD;y,y,y
+VDIVPD;y,y,y/m
+VDIVPS;y,y,y
+VDIVPS;y,y,y/m
+VEXPANDPS/D;z{k},z
+VEXTRACTF128;x,y,i
+VEXTRACTF32X4;x,z
+VEXTRACTF64X4;y,z
+VEXTRACTI128;x,y,i
+VFMADD132PS/PD;x,x,x/m
+VFMADD132PS/PD;y,y,y/m
+VFMADD132SS/SD;x,x,x/m
+VFMADDPS/PD;x,x,x,x/m
+VFMADDPS/PD;y,y,y,y/m
+VFMADDSS/SD;x,x,x,x/m
+VINSERTF128;y,y,m128,i
+VINSERTF32X4;z,z,x
+VINSERTF64X4;z,z,y
+VINSERTI128;y,y,m,i
+VINSERTI128;y,y,x,i
+VINSERTI32X4;z,z,x,i
+VINSERTI32x4;z,z,m,i
+VINSERTI64X4;z,z,y,i
+VINSERTI64x4;z,z,m,i
+VMASKMOVPS/D;m128,x,x
+VMASKMOVPS/D;m256,y,y
+VMASKMOVPS/D;v,v,m
+VMOVAPS/D;y,y
+VMOVAPS/D;z,z
+VMOVDDUP;v,v
+VMOVDQA/U;y,y
+VMOVDQA/U;z,z
+VMOVNTDQ;m,y
+VMOVNTDQ;m256,y
+VMOVNTPS/D;m256,y
+VMULPD;y,y,y/m
+VMULPS;y,y,y/m
+VPACKSSWB/DW;mm/x, mm/x
+VPACKSSWB/DW;y/z,y/z,y/z
+VPACKUSWB/DW;mm/x, mm/x
+VPACKUSWB/DW;y/z,y/z,y/z
+VPALIGNR;y,y,y,i
+VPBLENDMD/Q;v{k},v,v
+VPBLENDVB;v,v,v,v
+VPCOMPRESSD/Q;z{k},z
+VPERM2F128;y,y,y/m,i
+VPERM2I128;v,v,v,i
+VPERMD;v,v,v
+VPERMI2D;v,v,v
+VPERMI2PS/PD;z,z,z/m
+VPERMI2Q;v,v,v
+VPERMILPS/PD;v,v,v/m
+VPERMILPS/PD;v,v/m,i
+VPERMPD;y,y,i
+VPERMPS/PD;v,v,v/m
+VPERMQ;v,v,i
+VPERMT2D;v,v,v
+VPERMT2Q;v,v,v
+VPEXPANDD/Q;z{k},z
+VPMASKMOVD/Q;m,v,v
+VPMASKMOVD/Q;m,x,x
+VPMASKMOVD/Q;m,y,y
+VPSCATTERDD;[r+s*z]{k},z
+VPSCATTERDPS;[r+s*z]{k},z
+VPSHUFB;y,y,y
+VPSHUFL/HW;y,y,i
+VPUNPCKH/L(Q)DQ;y/z,y/z,y/z
+VPUNPCKH/LBW/WD;y/z,y/z,y/z
+VRSQRTPS;y,y/m
+VSHUFF32X4;z,z,z,i
+VSHUFF64X2;z,z,z,i
+VSHUFI32X4;z,z,z,i
+VSHUFI64X2;z,z,z,i
+VSHUFPS/D;v,v,v,i
+VSQRTPD;y,y
+VSQRTPD;y,y/m
+VSQRTPD;z,z
+VSQRTPS;y,y/m
+VSUBPS/D;y,y,y/m
+VUNPCKH/LPS/D;v,v,v
+XADD;m,r
+XCHG;r , m
+XCHG;r,m
+XCRYPTCBC;128 bits key
+XCRYPTCBC;192 bits key
+XCRYPTCBC;256 bits key
+XCRYPTCFB;128 bits key
+XCRYPTCFB;192 bits key
+XCRYPTCFB;256 bits key
+XCRYPTCTR;128 bits key
+XCRYPTCTR;192 bits key
+XCRYPTCTR;256 bits key
+XCRYPTECB;128 bits key
+XCRYPTECB;192 bits key
+XCRYPTECB;256 bits key
+XCRYPTOFB;128 bits key
+XCRYPTOFB;192 bits key
+XCRYPTOFB;256 bits key
+XOR;m,i
+XOR;m,r
+XOR;m,r/i
+XORPS/D;r,r/m
+XSAVEOPT;m
+XSHA1;
+XSHA256;
+XSTORE;Data available
+XSTORE;No data available
+XSTORE;Quality factor = 0
+XSTORE;Quality factor > 0
+c);r16
+c);r32
+c);r64
+c);r8
+conditional;short/near
+d);mm,mm
+etc.;
+g);xmm, m128
+jump;short/near
+n);xmm,xmm
+n);xmm,xmm,i
