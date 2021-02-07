@@ -3,6 +3,7 @@
 # NOTE THAT THE OUTPUT FILE WILL CONTAIN WRONG VALUES
 
 from helpers import read_lines, split_names
+from pathlib import Path
 import sys
 
 instr = set()
@@ -17,6 +18,6 @@ for name in sys.argv[1:]:
 	# update set with the new tuples
 	instr.update(*instr_names_ops)
 
-outfile = open("../merged.txt", "w")
+outfile = open("{}/../merged.txt".format(Path(__file__).parent.absolute()), "w")
 outfile.write('\n'.join(sorted([i[0] + ";" + i[1] for i in instr])))
 outfile.close()

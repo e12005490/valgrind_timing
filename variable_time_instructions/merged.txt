@@ -1,15 +1,6 @@
 (V)MOVNTPS/D;m,v
 (V)MOVSH/LDUP;v,v
 (V)PSHUFD;v,v,i
-;
-;mm,mm,i
-;r,r/m
-;r/m16
-;r/m32
-;r16
-;r32
-;r8
-;xmm, m128
 ADC;m,r/i
 ADD;m,i
 ADD;m,r
@@ -62,7 +53,6 @@ CALL;r/m
 CALL;short/near
 CLI;
 CMOVcc;r,r/m
-CMPS;
 CMPXCHG16B;m128
 CMPXCHG8B;m64
 CMPXCHG;m,r
@@ -261,7 +251,6 @@ LOCK;m128
 LOCK;m16,r16
 LOCK;m64
 LOCK;m8,r8
-LODS;
 LOOP;short
 LSS;m
 MASKMOVDQU;x,x
@@ -322,21 +311,14 @@ MOVQ2DQ;xmm,mm
 MOVQ;m64, mm/x
 MOVQ;mm/x,m64
 MOVQ;xmm,xmm
-MOVS;
-MOVS;large n
-MOVS;small n
-MOVSB;
-MOVSD;
 MOVSD;r,r
 MOVSH/LDUP;r,r
 MOVSH/LDUP;v,m
 MOVSHDUP;xmm,xmm
 MOVSLDUP;xmm,xmm
-MOVSQ;
 MOVSS/D;m32/64,x
 MOVSS/D;x,m32/64
 MOVSS;r,r
-MOVSW;
 MOVSX;r , r/m
 MOVSX;r,m
 MOVUPS/D;m,r
@@ -442,15 +424,40 @@ RCR;r/m,i/cl
 RCR;r16/32/64,i/cl
 RCR;r8,1
 RDTSC;
-REP(N)E;
-REP;
-REP;128 bits key
-REP;192 bits key
-REP;256 bits key
-REP;Quality factor = 0
-REP;Quality factor > 0
-REP;large n
-REP;small n
+REP CMPS;
+REP LODS;
+REP MOVS;
+REP MOVS;large n
+REP MOVS;small n
+REP MOVSB;
+REP MOVSD;
+REP MOVSQ;
+REP MOVSW;
+REP SCAS;
+REP STOS;
+REP STOS;large n
+REP STOS;small n
+REP XCRYPTCBC;128 bits key
+REP XCRYPTCBC;192 bits key
+REP XCRYPTCBC;256 bits key
+REP XCRYPTCFB;128 bits key
+REP XCRYPTCFB;192 bits key
+REP XCRYPTCFB;256 bits key
+REP XCRYPTCTR;128 bits key
+REP XCRYPTCTR;192 bits key
+REP XCRYPTCTR;256 bits key
+REP XCRYPTECB;128 bits key
+REP XCRYPTECB;192 bits key
+REP XCRYPTECB;256 bits key
+REP XCRYPTOFB;128 bits key
+REP XCRYPTOFB;192 bits key
+REP XCRYPTOFB;256 bits key
+REP XSHA1;
+REP XSHA256;
+REP XSTORE;Quality factor = 0
+REP XSTORE;Quality factor > 0
+REP(N)E CMPS;
+REP(N)E SCAS;
 RETF;
 RETF;i
 RETN;
@@ -466,7 +473,6 @@ RSQRTSS;r,r/m
 SAL;r/m, CL
 SAR;r/m, CL
 SBB;m,r/i
-SCAS;
 SETcc;r/m
 SHL;r/m, CL
 SHLD;m, i/CL
@@ -494,9 +500,6 @@ SQRTSS/PS;xmm,xmm
 SQRTSS;r,r/m
 SQRTSS;xmm,xmm
 STI;
-STOS;
-STOS;large n
-STOS;small n
 SUB;m,i
 SUB;m,r
 SUBPD;xmm,xmm
@@ -603,32 +606,13 @@ VUNPCKH/LPS/D;v,v,v
 XADD;m,r
 XCHG;r , m
 XCHG;r,m
-XCRYPTCBC;128 bits key
-XCRYPTCBC;192 bits key
-XCRYPTCBC;256 bits key
-XCRYPTCFB;128 bits key
-XCRYPTCFB;192 bits key
-XCRYPTCFB;256 bits key
-XCRYPTCTR;128 bits key
-XCRYPTCTR;192 bits key
-XCRYPTCTR;256 bits key
-XCRYPTECB;128 bits key
-XCRYPTECB;192 bits key
-XCRYPTECB;256 bits key
-XCRYPTOFB;128 bits key
-XCRYPTOFB;192 bits key
-XCRYPTOFB;256 bits key
 XOR;m,i
 XOR;m,r
 XOR;m,r/i
 XORPS/D;r,r/m
 XSAVEOPT;m
-XSHA1;
-XSHA256;
 XSTORE;Data available
 XSTORE;No data available
-XSTORE;Quality factor = 0
-XSTORE;Quality factor > 0
 c);r16
 c);r32
 c);r64

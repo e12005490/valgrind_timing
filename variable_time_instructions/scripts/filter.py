@@ -4,6 +4,7 @@
 
 from helpers import read_lines
 import os
+from pathlib import Path
 import sys
 
 def parse(line):
@@ -28,6 +29,6 @@ for name in sys.argv[1:]:
 	# latencies
 	instr = [i for i in instr if i[2] and not is_int(i[2])]
 
-	outfile = open("../filtered/filtered-" + os.path.basename(name), "w")
+	outfile = open("{}/../filtered/filtered-{}".format(Path(__file__).parent.absolute(), os.path.basename(name)), "w")
 	outfile.write('\n'.join(i[3] for i in instr))
 	outfile.close()

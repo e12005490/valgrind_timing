@@ -4,6 +4,7 @@
 
 from helpers import read_lines, split_names
 import itertools
+from pathlib import Path
 import sys
 
 instr = list()
@@ -30,6 +31,6 @@ for i in instr:
 # list of ((name, operands), count)
 items = list(occurrences.items())
 
-outfile = open("../count.txt", "w")
+outfile = open("{}/../count.txt".format(Path(__file__).parent.absolute()), "w")
 outfile.write('\n'.join(sorted(["{:02d};{};{}".format(i[1], i[0][0], i[0][1]) for i in items])))
 outfile.close()
