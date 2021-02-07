@@ -24,6 +24,6 @@ for name in sys.argv[1:]:
 	instr = [parse(l) for l in lines]
 	instr = [i for i in instr if i[2] and not is_int(i[2])]
 
-	outfile = open("filtered/filtered-{}".format(name), "w")
+	outfile = open("filtered-{}".format(name), "w")
 	outfile.write('\n'.join(i[3] for i in instr))
 	outfile.close()
