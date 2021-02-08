@@ -1,1 +1,1 @@
-MASKMOVQ d);mm,mm;2-8
+MASKMOVQ;mm,mm;2-8

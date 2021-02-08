@@ -12,7 +12,7 @@ MOVSX MOVZX;r,m;
 CMOVcc;r,r;2
 CMOVcc;r,m;
 XCHG;r,r;2
-XCHG;r,m;high b)
+XCHG;r,m;high
 XLAT;;
 PUSH;r;1
 PUSH;i;1
@@ -58,12 +58,12 @@ MUL IMUL;m8;4
 MUL IMUL;m16/m32;5
 IMUL;r,m;4
 IMUL;r,m,i;4
-DIV IDIV;r8;15-16 c)
-DIV IDIV;r16;15-24 c)
-DIV IDIV;r32;15-39 c)
-DIV IDIV;m8;15-16 c)
-DIV IDIV;m16;15-24 c)
-DIV IDIV;m32;15-39 c)
+DIV IDIV;r8;15-16
+DIV IDIV;r16;15-24
+DIV IDIV;r32;15-39
+DIV IDIV;m8;15-16
+DIV IDIV;m16;15-24
+DIV IDIV;m32;15-39
 CBW CWDE;;1
 CWD CDQ;;1
 AND OR XOR;r,r/i;1
@@ -147,7 +147,7 @@ FBSTP;m80;
 FXCH;r;0
 FILD;m;5
 FIST(P);m;5
-FISTTP g);m;5
+FISTTP;m;5
 FLDZ;;
 FLD1 FLDPI FLDL2E etc.;;
 FCMOVcc;r;2
@@ -164,8 +164,8 @@ FADD(P) FSUB(R)(P);r;3
 FADD(P) FSUB(R)(P);m;3
 FMUL(P);r;5
 FMUL(P);m;5
-FDIV(R)(P);r;9-38 c)
-FDIV(R)(P);m;9-38 c)
+FDIV(R)(P);r;9-38
+FDIV(R)(P);m;9-38
 FABS;;1
 FCHS;;1
 FCOM(P) FUCOM;r;1
@@ -174,7 +174,7 @@ FCOMPP FUCOMPP;;1
 FCOMI(P) FUCOMI(P);r;1
 FIADD FISUB(R);m;3
 FIMUL;m;5
-FIDIV(R);m;9-38 c)
+FIDIV(R);m;9-38
 FICOM(P);m;
 FTST;;
 FXAM;;
@@ -182,7 +182,7 @@ FPREM FPREM1;;37
 FRNDINT;;19
 FSCALE;;43
 FXTRACT;;9
-FSQRT;;9 h)
+FSQRT;;9
 FSIN FCOS;;
 FSINCOS;;
 F2XM1;;
@@ -213,7 +213,7 @@ MOVDQA;xmm, m128;
 MOVDQA;m128, xmm;
 MOVDQU;xmm, m128;
 MOVDQU;m128, xmm;
-LDDQU g);xmm, m128;
+LDDQU;xmm, m128;
 MOVDQ2Q;mm, xmm;1
 MOVQ2DQ;xmm,mm;1
 MOVNTQ;m64,mm;
@@ -306,9 +306,9 @@ MOVMSKPS/D;r32,xmm;2
 MOVNTPS/D;m128,xmm;
 SHUFPS/D;xmm,xmm,i;2
 SHUFPS/D;xmm,m128,i;
-MOVDDUP g);xmm,xmm;1
-MOVSH/LDUP g);xmm,xmm;2
-MOVSH/LDUP g);xmm,m128;
+MOVDDUP;xmm,xmm;1
+MOVSH/LDUP;xmm,xmm;2
+MOVSH/LDUP;xmm,m128;
 UNPCKH/LPS;xmm,xmm;3-4
 UNPCKH/LPS;xmm,m128;
 UNPCKH/LPD;xmm,xmm;1
@@ -348,9 +348,9 @@ ADDSS/D SUBSS/D;xmm,xmm;3
 ADDSS/D SUBSS/D;xmm,m32/64;3
 ADDPS/D SUBPS/D;xmm,xmm;3
 ADDPS/D SUBPS/D;xmm,m128;3
-ADDSUBPS/D g);xmm,xmm;3
-HADDPS HSUBPS g);xmm,xmm;7
-HADDPD HSUBPD g);xmm,xmm;4
+ADDSUBPS/D;xmm,xmm;3
+HADDPS HSUBPS;xmm,xmm;7
+HADDPD HSUBPD;xmm,xmm;4
 MULSS;xmm,xmm;4
 MULSD;xmm,xmm;5
 MULSS;xmm,m32;4
@@ -359,14 +359,14 @@ MULPS;xmm,xmm;4
 MULPD;xmm,xmm;5
 MULPS;xmm,m128;4
 MULPD;xmm,m128;5
-DIVSS;xmm,xmm;9-18 c)
-DIVSD;xmm,xmm;9-32 c)
-DIVSS;xmm,m32;9-18 c)
-DIVSD;xmm,m64;9-32 c)
-DIVPS;xmm,xmm;16-34 c)
-DIVPD;xmm,xmm;16-62 c)
-DIVPS;xmm,m128;16-34 c)
-DIVPD;xmm,m128;16-62 c)
+DIVSS;xmm,xmm;9-18
+DIVSD;xmm,xmm;9-32
+DIVSS;xmm,m32;9-18
+DIVSD;xmm,m64;9-32
+DIVPS;xmm,xmm;16-34
+DIVPD;xmm,xmm;16-62
+DIVPS;xmm,m128;16-34
+DIVPD;xmm,m128;16-62
 CMPccSS/D;xmm,xmm;3
 CMPccSS/D;xmm,m32/64;
 CMPccPS/D;xmm,xmm;3

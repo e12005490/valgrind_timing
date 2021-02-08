@@ -1,9 +1,6 @@
-XCHG;r,m;high b)
-LEA;r,m;1 c)
+XCHG;r,m;high
 IN;;>300
 OUT;;>300
 FADD(P) FSUB(R)(P);m;3-4
 FMUL(P);m;5-6
-FDIV(R)(P);r;38 h)
-FDIV(R)(P);m;38 h)
-MASKMOVQ d);mm,mm;2-8
+MASKMOVQ;mm,mm;2-8

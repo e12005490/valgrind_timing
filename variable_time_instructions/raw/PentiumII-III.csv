@@ -10,7 +10,7 @@ MOVSX MOVZX;r,m;
 CMOVcc;r,r;
 CMOVcc;r,m;
 XCHG;r,r;
-XCHG;r,m;high b)
+XCHG;r,m;high
 XLAT;;
 PUSH;r/i;
 POP;r;
@@ -24,7 +24,7 @@ POPF(D);;
 PUSHA(D);;
 POPA(D);;
 LAHF SAHF;;
-LEA;r,m;1 c)
+LEA;r,m;1
 LDS LES LFS LGS;;
 LSS;m;
 ADD SUB AND OR XOR;r,r/i;
@@ -114,9 +114,9 @@ CPUID;;
 RDTSC;;
 IN;;>300
 OUT;;>300
-PREFETCHNTA d);m;
-PREFETCHT0/1/2 d);m;
-SFENCE d);;
+PREFETCHNTA;m;
+PREFETCHT0/1/2;m;
+SFENCE;;
 FLD;r;
 FLD;m32/64;1
 FLD;m80;
@@ -139,8 +139,8 @@ FADD(P) FSUB(R)(P);r;3
 FADD(P) FSUB(R)(P);m;3-4
 FMUL(P);r;5
 FMUL(P);m;5-6
-FDIV(R)(P);r;38 h)
-FDIV(R)(P);m;38 h)
+FDIV(R)(P);r;38
+FDIV(R)(P);m;38
 FABS;;
 FCHS;;2
 FCOM(P) FUCOM;r;1
@@ -190,22 +190,22 @@ PSRA PSRL PSLL;mm,m64;
 PACK PUNPCK;mm,mm;1
 PACK PUNPCK;mm,m64;
 EMMS;;6
-MASKMOVQ d);mm,mm;2-8
-PMOVMSKB d);r32,mm;1
-MOVNTQ d);m64,mm;
-PSHUFW d);mm,mm,i;1
-PSHUFW d);mm,m64,i;2
-PEXTRW d);r32,mm,i;2
-PINSRW d);mm,r32,i;1
-PINSRW d);mm,m16,i;2
-PAVGB PAVGW d);mm,mm;1
-PAVGB PAVGW d);mm,m64;2
-PMIN/MAXUB/SW d);mm,mm;1
-PMIN/MAXUB/SW d);mm,m64;2
-PMULHUW d);mm,mm;3
-PMULHUW d);mm,m64;4
-PSADBW d);mm,mm;5
-PSADBW d);mm,m64;6
+MASKMOVQ;mm,mm;2-8
+PMOVMSKB;r32,mm;1
+MOVNTQ;m64,mm;
+PSHUFW;mm,mm,i;1
+PSHUFW;mm,m64,i;2
+PEXTRW;r32,mm,i;2
+PINSRW;mm,r32,i;1
+PINSRW;mm,m16,i;2
+PAVGB PAVGW;mm,mm;1
+PAVGB PAVGW;mm,m64;2
+PMIN/MAXUB/SW;mm,mm;1
+PMIN/MAXUB/SW;mm,m64;2
+PMULHUW;mm,mm;3
+PMULHUW;mm,m64;4
+PSADBW;mm,mm;5
+PSADBW;mm,m64;6
 MOVAPS;xmm,xmm;1
 MOVAPS;xmm,m128;2
 MOVAPS;m128,xmm;3
