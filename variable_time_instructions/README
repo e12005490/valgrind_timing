@@ -4,14 +4,13 @@ The following actions are taken:
 
 1. The instruction_tables.ods spreadsheet is initially downloaded from https://www.agner.org/optimize/instruction_tables.ods.
    The sheets here are already somewhat parsed to only include instructions, operands and latencies for the available CPUs.
-   The data is based on the 2021-01-31 version of the spreadsheet.
+   The data is based on the 2021-01-31 version of the spreadsheet
 2. The raw data in raw/ is filtered into filtered/ using filter.py. Possible filters are:
    - 'simple': takes anything that is not clearly a constant; may contain many false positives
    - 'clear': takes anything that is clearly a variable latency; may filter-out some weird-formatted instructions
    - 'strong': same as clear, but only accepts latencies that vary by more than one cycle
-3. The filtered data is merged as merged.txt using merge.py
-4. The merged data is manually filtered into variable.txt, since there are false positives
-5. variable.txt contains all instructions that are variable time in AT LEAST ONE OF THE LISTED CPUs,
-   MEANING A LOT OF FALSE POSITIVES
+3. The filtered data is merged using count.py. The result contains the number of CPUs in the dataset on which the instructions
+   are variable-time
+4. The merged data is manually filtered, since there may be false positives depending on the filter used
 
 To avoid false positives, it may be useful to consider only a subset of the data in raw/, e.g. only modern processors.

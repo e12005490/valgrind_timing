@@ -1,6 +1,4 @@
 # Filter potentially variable-time isntructions from a raw csv file
-# In the dataset, constant-time instuctions have a number as latency,
-# so it is easy to filter them out
 
 from helpers import read_lines
 import os
@@ -14,9 +12,7 @@ def parse(line):
 	s.append(line)
 	return s
 
-#
 # Filter definitions
-#
 
 def is_int(s):
 	try:
@@ -52,9 +48,7 @@ else:
 	print("Unknown filter type: " + sys.argv[1])
 	exit(1)
 
-#
 # Filter loop
-#
 
 for name in sys.argv[2:]:
 	lines = read_lines(name)

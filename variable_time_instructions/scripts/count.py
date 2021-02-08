@@ -1,11 +1,24 @@
 # Takes filtered csv files and lists instructions with the
 # number of microarchitectures executing them in variable time
-# NOTE THAT THE OUTPUT FILE WILL CONTAIN WRONG VALUES
 
-from helpers import read_lines, split_names
-import itertools
-from pathlib import Path
+from helpers import read_lines
 import sys
+
+def split_names(line):
+	"""
+	given a line, splits it into the possibly multiple instructions
+	it describes
+	"""
+	# different format
+	if line[0].startswith("REP"):
+		return [tuple(line)]
+	# remove commas in names
+	line[0] = line[0].replace(",", "")
+	# split names
+	names = line[0].split(' ')
+	# return (name, op) for each name
+	return [(n, line[1]) for n in names if n]
+
 
 instr = list()
 
@@ -31,7 +44,4 @@ for i in instr:
 # list of ((name, operands), count)
 items = list(occurrences.items())
 
-outfile = open("{}/../count.txt".format(Path(__file__).parent.absolute()), "w")
-outfile.write('\n'.join(sorted(["{:02d};{};{}".format(i[1], i[0][0], i[0][1]) for i in items])))
-outfile.write('\n')
-outfile.close()
+print('\n'.join(sorted(["{:02d};{};{}".format(i[1], i[0][0], i[0][1]) for i in items])))
