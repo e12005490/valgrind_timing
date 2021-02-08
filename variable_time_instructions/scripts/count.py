@@ -28,10 +28,9 @@ for name in sys.argv[1:]:
 	# list of [names, ops]
 	instr_names_ops = [l.split(';')[0:2] for l in lines]
 	# split lines in case multiple names are specified
-	instr_names_ops = [split_names(l) for l in instr_names_ops]
+	instr_names_ops = [i for l in instr_names_ops for i in split_names(l)]
 	# update list of all names
-	for l in instr_names_ops:
-		instr = [*instr, *l]
+	instr += instr_names_ops
 
 # now group instructions and occurrences
 occurrences = {}
