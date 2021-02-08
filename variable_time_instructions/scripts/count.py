@@ -2,6 +2,7 @@
 # number of microarchitectures executing them in variable time
 
 from helpers import read_lines
+import itertools
 import sys
 
 def split_names(line):
@@ -20,6 +21,22 @@ def split_names(line):
 	return [(n, line[1]) for n in names if n]
 
 
+def split_operands(line):
+	"""
+	given a (name, ops), splits it into the possible operand
+	combinations it describes (e.g. with 'r/m,r/m' have 'r,r', 'r,m', ...)
+	"""
+	name = line[0]
+	# separate ops
+	ops = line[1].split(',')
+	# for each operand, split its possible types
+	ops = [o.split('/') for o in ops]
+	# list of type combinations for the instruction
+	prod = itertools.product(*ops)
+	# generate simple instructions
+	return [(name, ','.join(o)) for o in prod]
+
+
 instr = list()
 
 for name in sys.argv[1:]:
@@ -29,6 +46,8 @@ for name in sys.argv[1:]:
 	instr_names_ops = [l.split(';')[0:2] for l in lines]
 	# split lines in case multiple names are specified
 	instr_names_ops = [i for l in instr_names_ops for i in split_names(l)]
+	# split operands in case multiple types are possible
+#	instr_names_ops = [i for t in instr_names_ops for i in split_operands(t)]
 	# update list of all names
 	instr += instr_names_ops
 
