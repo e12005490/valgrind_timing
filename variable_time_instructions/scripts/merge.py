@@ -20,4 +20,5 @@ for name in sys.argv[1:]:
 
 outfile = open("{}/../merged.txt".format(Path(__file__).parent.absolute()), "w")
 outfile.write('\n'.join(sorted([i[0] + ";" + i[1] for i in instr])))
+outfile.write('\n')
 outfile.close()

@@ -1,0 +1,5 @@
+UNPCKH/LPS;xmm,xmm;3-4
+SQRTSS;xmm,xmm;6-30
+SQRTSD;xmm,xmm;5-58
+SQRTPS;xmm,xmm;8-56
+SQRTPD;xmm,xmm;16-114

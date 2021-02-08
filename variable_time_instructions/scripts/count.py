@@ -33,4 +33,5 @@ items = list(occurrences.items())
 
 outfile = open("{}/../count.txt".format(Path(__file__).parent.absolute()), "w")
 outfile.write('\n'.join(sorted(["{:02d};{};{}".format(i[1], i[0][0], i[0][1]) for i in items])))
+outfile.write('\n')
 outfile.close()
