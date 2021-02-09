@@ -10,9 +10,9 @@ IDIV;r64;37-100
 RCR RCL;r16/r32/r64,i/cl;12-13
 REP LODS;;40+12n
 REP STOS;small n;12+n
-REP STOS;large n;1 clk / 16 bytes
+REP STOS;large n;1 clk/16 bytes
 REP MOVS;small n;12+n
-REP MOVS;large n;1 clk / 16 bytes
+REP MOVS;large n;1 clk/16 bytes
 REP SCAS;;40+2n
 REP CMPS;;42+2n
 ENTER;a,b;79+5b

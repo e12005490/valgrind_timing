@@ -97,7 +97,7 @@ RCL;r,i;5
 RCR;r,i;4
 RCL;r,CL;5
 RCR;r,CL;4
-SHL,SHR,SAR,ROL, ROR;m,i /CL;6
+SHL,SHR,SAR,ROL, ROR;m,i/CL;6
 RCL, RCR;m,1;
 RCL;m,i;
 RCR;m,i;
@@ -245,7 +245,7 @@ MOVD;r32, x;4
 MOVD;x, r32;6
 MOVD;x,m32;4
 MOVD;m32,mm/x;3
-MOVD / MOVQ;r64,mm/x;4
+MOVD/MOVQ;r64,mm/x;4
 MOVQ;mm,r64;6
 MOVQ;x,r64;6
 MOVQ;mm,mm;1

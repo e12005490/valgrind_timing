@@ -87,7 +87,7 @@ RCL;r,i;5
 RCR;r,i;4
 RCL;r,CL;6
 RCR;r,CL;5
-SHL,SHR,SAR,ROL, ROR;m,i /CL;7
+SHL,SHR,SAR,ROL, ROR;m,i/CL;7
 RCL, RCR;m,1;7
 RCL;m,i;
 RCR;m,i;18

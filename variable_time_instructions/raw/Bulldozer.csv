@@ -292,7 +292,7 @@ PMULHRSW;mm/x,r/m;4
 PMADDWD;mm/x,r/m;4
 PMADDUBSW;mm/x,r/m;4
 PAVGB/W;mm/x,r/m;2
-PMIN/MAX SB/SW/ SD UB/UW/UD;mm/x,r/m;2
+PMIN/MAX SB/SW/SD UB/UW/UD;mm/x,r/m;2
 PHMINPOSUW;xmm,r/m;4
 PABSB/W/D;mm/x,r/m;2
 PSIGNB/W/D;mm/x,r/m;2
@@ -300,7 +300,7 @@ PSADBW;mm/x,r/m;4
 MPSADBW;x,x,i;8
 VPCOMB/W/D/Q;x,x,x/m,i;2
 VPCOMUB/W/D/Q;x,x,x/m,i;2
-VPHADDBW/BD/BQ/ WD/WQ/DQ;x,x/m;2
+VPHADDBW/BD/BQ/WD/WQ/DQ;x,x/m;2
 VPHADDUBW/BD/BQ/WD/WQ/DQ;x,x/m;2
 VPHSUBBW/WD/DQ;x,x/m;2
 VPMACSWW/WD;x,x,x/m,x;4
@@ -435,7 +435,7 @@ COMISS/D UCOMISS/D;x,x/m;
 MAXSS/SD/PS/PD MINSS/SD/PS/PD;x,x/m;2
 VMAXPS/D VMINPS/D;y,y,y/m;2
 ROUNDSS/SD/PS/PD;x,x/m,i;4
-VROUNDSS/SD/PS/ PD;y,y/m,i;4
+VROUNDSS/SD/PS/PD;y,y/m,i;4
 DPPS;x,x,i;25
 DPPS;x,m128,i;
 VDPPS;y,y,y,i;27
@@ -453,7 +453,7 @@ RSQRTSS/PS;x,x/m;5
 VRSQRTPS;y,y/m;5
 VFRCZSS/SD/PS/PD;x,x;10
 VFRCZSS/SD/PS/PD;x,m;10
-AND/ANDN/OR/XORPS/ PD;x,x/m;2
+AND/ANDN/OR/XORPS/PD;x,x/m;2
 VAND/ANDN/OR/XORPS/PD;y,y,y/m;2
 VZEROUPPER;;
 VZEROUPPER;;

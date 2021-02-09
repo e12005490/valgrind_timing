@@ -290,9 +290,9 @@ VMOVDQA/U;z,z;0-1
 VMOVDQA32/64;xy{k},xy;1
 VMOVDQA32/64;z{k},z;1
 VMOVDQA/U/32/64;yz,m;3
-VMOVDQA/U /8/16/32/64;v{k},m;4
+VMOVDQA/U/8/16/32/64;v{k},m;4
 VMOVDQA/U/32/64;m,v;3
-VMOVDQA/U /8/16/32/64;m{k},v;14
+VMOVDQA/U/8/16/32/64;m{k},v;14
 LDDQU;x, m128;3
 MOVDQ2Q;mm, x;2
 MOVQ2DQ;x,mm;2
@@ -302,14 +302,14 @@ VMOVNTDQ;m256,y;~700
 MOVNTDQA;v,m;3
 PACKSSWB/DW PACKUSWB;mm,mm;2
 PACKSSWB/DW PACKUSWB;mm,m64;
-PACKSSWB/DW PACKUSWB;x,x / v,v,v;1
-PACKSSWB/DW PACKUSWB;x,m / y,y,m;
-PACKUSDW;x,x / v,v,v;1
-PACKUSDW;x,m / v,v,m;
-PUNPCKH/L BW/WD/DQ;v,v / v,v,v;1
-PUNPCKH/L BW/WD/DQ;v,m / v,v,m;
-PUNPCKH/L QDQ;x,x / y,y,y;1
-PUNPCKH/L QDQ;x,m / y,y,m;
+PACKSSWB/DW PACKUSWB;x,x/v,v,v;1
+PACKSSWB/DW PACKUSWB;x,m/y,y,m;
+PACKUSDW;x,x/v,v,v;1
+PACKUSDW;x,m/v,v,m;
+PUNPCKH/L BW/WD/DQ;v,v/v,v,v;1
+PUNPCKH/L BW/WD/DQ;v,m/v,v,m;
+PUNPCKH/L QDQ;x,x/y,y,y;1
+PUNPCKH/L QDQ;x,m/y,y,m;
 PMOVSX/ZX BW BD BQ DW DQ;x,x;1
 PMOVSX/ZX BW BD BQ DW DQ;x,m;
 VPMOVSX/ZX BW BD BQ DW DQ;y,x;3
@@ -317,8 +317,8 @@ VPMOVSX/ZX BW BD BQ DW DQ;z,xy;3
 VPMOVSX/ZX BW BD BQ DW DQ;y,m;
 VPMOVWB/DB/QB/DW/QW/QD WPMOVSWB/DB/QB/DW/QW/QD WPMOVUSWB/DB/QB/DW/QW/QD;v,v;4
 PSHUFB;mm,mm;3
-PSHUFB;x,x / v,v,v;1
-PSHUFB;v,m / v,v,m;
+PSHUFB;x,x/v,v,v;1
+PSHUFB;v,m/v,v,m;
 PSHUFW;mm,mm,i;1
 PSHUFW;mm,m64,i;
 PSHUFD;v,v,i;1
@@ -327,16 +327,16 @@ PSHUFL/HW;v,v,i;1
 PSHUFL/HW;v,m,i;
 VSHUFI32X4;v,v,v,i;3
 VSHUFI64X2;v,v,v,i;3
-PALIGNR;v,v,i / v,v,v,i;1
-PALIGNR;v,m,i / v,v,m,i;
+PALIGNR;v,v,i/v,v,v,i;1
+PALIGNR;v,m,i/v,v,m,i;
 VALIGND/Q;v,v,v,i;3
 VALIGND/Q;v,v,m,i;
 PBLENDVB;x,x,xmm0;1
 PBLENDVB;x,m,xmm0;
 VPBLENDVB;v,v,v,v;2
 VPBLENDVB;v,v,m,v;
-PBLENDW;x,x,i / v,v,v,i;1
-PBLENDW;x,m,i / v,v,m,i;
+PBLENDW;x,x,i/v,v,v,i;1
+PBLENDW;x,m,i/v,v,m,i;
 VPBLENDD;v,v,v,i;1
 VPBLENDD/Q;v,v,m,i;
 VPBLENDMB/W;v{k},v,v;3
@@ -421,83 +421,83 @@ VPSCATTERQQ;[r+s*x]{k},x;
 VPSCATTERQQ;[r+s*y]{k},y;
 VPSCATTERQQ;[r+s*z]{k},z;
 PADD/SUB(S,US) B/W/D/Q;mm,mm;1
-PADD/SUB(S,US) B/W/D/Q;x,x / xy,xy,xy;1
+PADD/SUB(S,US) B/W/D/Q;x,x/xy,xy,xy;1
 PADD/SUB(S,US) B/W/D/Q;z,z,z;1
-PADD/SUB(S,US) B/W/D/Q;v,m / v,v,m;
-PHADD(S)W/D PHSUB(S)W/D;v,v / v,v,v;3
-PHADD(S)W/D PHSUB(S)W/D;v,m / v,v,m;
+PADD/SUB(S,US) B/W/D/Q;v,m/v,v,m;
+PHADD(S)W/D PHSUB(S)W/D;v,v/v,v,v;3
+PHADD(S)W/D PHSUB(S)W/D;v,m/v,v,m;
 PCMPEQB/W/D PCMPGTB/W/D;mm,mm;1
-PCMPEQB/W/D PCMPGTB/W/D;x,x / y,y,y;1
-PCMPEQB/W/D PCMPGTB/W/D;x,m / y,y,m;
-PCMPEQQ;v,v / v,v,v;1
-PCMPEQQ;v,m / v,v,m;
-PCMPGTQ;v,v / v,v,v;3
-PCMPGTQ;v,m / v,v,m;
+PCMPEQB/W/D PCMPGTB/W/D;x,x/y,y,y;1
+PCMPEQB/W/D PCMPGTB/W/D;x,m/y,y,m;
+PCMPEQQ;v,v/v,v,v;1
+PCMPEQQ;v,m/v,v,m;
+PCMPGTQ;v,v/v,v,v;3
+PCMPGTQ;v,m/v,v,m;
 VPCMP..B/W/D/Q;k{k},v,v;3
 PMULL/HW PMULHUW;mm,mm;5
-PMULL/HW PMULHUW;x,x / y,y,y;5
+PMULL/HW PMULHUW;x,x/y,y,y;5
 VPMULL/HW VPMULHUW;z,z,z;5
-PMULL/HW PMULHUW;x,m / xy,xy,m;
+PMULL/HW PMULHUW;x,m/xy,xy,m;
 VPMULLQ;v,v,v;15
 PMULHRSW;mm,mm;5
-PMULHRSW;x,x / y,y,y;5
-PMULHRSW;x,m / y,y,m;
-PMULLD;x,x / y,y,y;10
+PMULHRSW;x,x/y,y,y;5
+PMULHRSW;x,m/y,y,m;
+PMULLD;x,x/y,y,y;10
 PMULLD;z,z,z;10
-PMULLD;x,m / y,y,m;
-PMULDQ;x,x / y,y,y;5
+PMULLD;x,m/y,y,m;
+PMULDQ;x,x/y,y,y;5
 PMULDQ;z,z,z;10
-PMULDQ;x,m / y,y,m;
+PMULDQ;x,m/y,y,m;
 PMULUDQ;mm,mm;5
-PMULUDQ;x,x / y,y,y;5
+PMULUDQ;x,x/y,y,y;5
 PMULUDQ;z,z,z;5
-PMULUDQ;x,m / y,y,m;
+PMULUDQ;x,m/y,y,m;
 PMADDWD;mm,mm;5
-PMADDWD;x,x / y,y,y;5
+PMADDWD;x,x/y,y,y;5
 PMADDWD;z,z,z;5
-PMADDWD;x,m / y,y,m;
+PMADDWD;x,m/y,y,m;
 PMADDUBSW;mm,mm;5
-PMADDUBSW;x,x / y,y,y;5
+PMADDUBSW;x,x/y,y,y;5
 PMADDUBSW;z,z,z;5
-PMADDUBSW;x,m / y,y,m;
+PMADDUBSW;x,m/y,y,m;
 PAVGB/W;mm,mm;1
-PAVGB/W;x,x / y,y,y;1
+PAVGB/W;x,x/y,y,y;1
 PAVGB/W;z,z,z;1
-PAVGB/W;x,m / y,y,m;
+PAVGB/W;x,m/y,y,m;
 PMIN/PMAX SB/SW/SD UB/UW/UD;mm,mm;1
-PMIN/PMAX SB/SW/SD UB/UW/UD;x,x / y,y,y;1
+PMIN/PMAX SB/SW/SD UB/UW/UD;x,x/y,y,y;1
 PMIN/PMAX SB/SW/SD UB/UW/UD;z,z,z;1
-PMIN/PMAX SB/SW/SD UB/UW/UD;x,m / y,y,m;
+PMIN/PMAX SB/SW/SD UB/UW/UD;x,m/y,y,m;
 PHMINPOSUW;x,x;4
 PHMINPOSUW;x,m128;
 PABSB/W/D;mm,mm;1
-PABSB/W/D;x,x / y,y;1
+PABSB/W/D;x,x/y,y;1
 PABSB/W/D;z,z,z;1
-PABSB/W/D;x,m / y,m;
+PABSB/W/D;x,m/y,m;
 PSIGNB/W/D;mm,mm;1
-PSIGNB/W/D;x,x / y,y,y;1
-PSIGNB/W/D;x,m / y,y,m;
-PSADBW;v,v / v,v,v;3
-PSADBW;v,m / v,v,m;
-MPSADBW;x,x,i / v,v,v,i;4
-MPSADBW;x,m,i / v,v,m,i;
+PSIGNB/W/D;x,x/y,y,y;1
+PSIGNB/W/D;x,m/y,y,m;
+PSADBW;v,v/v,v,v;3
+PSADBW;v,m/v,v,m;
+MPSADBW;x,x,i/v,v,v,i;4
+MPSADBW;x,m,i/v,v,m,i;
 PAND PANDN POR PXOR;mm,mm;1
-PAND PANDN POR PXOR;x,x / y,y,y;1
+PAND PANDN POR PXOR;x,x/y,y,y;1
 PAND PANDN POR PXOR;z,z,z;1
-PAND PANDN POR PXOR;v,m / v,v,m;
+PAND PANDN POR PXOR;v,m/v,v,m;
 PTEST;v,v;3
 PTEST;v,m;
 VPTESTMB/W/D/Q VPTESTNMB/W/D/Q;k,v,v;3
 PSLLW/D/Q PSRLW/D/Q PSRAW/D/Q;mm,mm;1
-PSLLW/D/Q PSRLW/D/Q PSRAW/D/Q;x,x / v,v,x;1
-PSLLW/D/Q PSRLW/D/Q PSRAW/D/Q;x,m / v,v,m;
+PSLLW/D/Q PSRLW/D/Q PSRAW/D/Q;x,x/v,v,x;1
+PSLLW/D/Q PSRLW/D/Q PSRAW/D/Q;x,m/v,v,m;
 PSLLW/D/Q PSRLW/D/Q PSRAW/D/Q;mm,i;1
-PSLLW/D/Q PSRLW/D/Q PSRAW/D/Q;x,i / y,y,i;1
+PSLLW/D/Q PSRLW/D/Q PSRAW/D/Q;x,i/y,y,i;1
 VPSLLW/D/Q VPSRLW/D/Q VPSRAW/D/Q;z,z,i;1
 VPSLLW/D/Q VPSRLW/D/Q VPSRAW/D/Q;v,v,x;2
 VPSLLVD/Q VPSRAVD VPSRLVD/Q;xy,xy,xy;1
 VPSLLVW/D/Q VPSRAVW/D/Q VPSRLVW/D/Q;z,z,z;1
-PSLLDQ PSRLDQ;x,i / v,v,i;1
+PSLLDQ PSRLDQ;x,i/v,v,i;1
 VPROL/RD/Q;xy,xy,i;1
 VPROL/RD/Q;z,z,i;1
 VPROL/RVD/Q;xy,xy,xy;1
@@ -548,8 +548,8 @@ MOVMSKPS/D;r32,x;2
 VMOVMSKPS/D;r32,y;3
 MOVNTPS/D;m128,x;~400
 VMOVNTPS/D;m256,y;~400
-SHUFPS/D;x,x,i / v,v,v,i;1
-SHUFPS/D;x,m,i / v,v,m,i;
+SHUFPS/D;x,x,i/v,v,v,i;1
+SHUFPS/D;x,m,i/v,v,m,i;
 VSHUFF32X4;v,v,v,i;3
 VSHUFF64X2;v,v,v,i;3
 VPERMILPS/PD;v,v,i;1
@@ -564,8 +564,8 @@ VPERMPD;y,y,i;3
 VPERMPD;y,m,i;
 VPERMI2PS/PD;v,v,v;3
 VPERMT2PS/PD;v,v,v;3
-BLENDPS/PD;x,x,i / v,v,v,i;1
-BLENDPS/PD;x,m,i / v,v,m,i;
+BLENDPS/PD;x,x,i/v,v,v,i;1
+BLENDPS/PD;x,m,i/v,v,m,i;
 BLENDVPS/PD;x,x,xmm0;1
 BLENDVPS/PD;x,m,xmm0;
 VBLENDVPS/PD;v,v,v,v;2
@@ -584,8 +584,8 @@ VBROADCASTSD;v,x;3
 VBROADCASTF128;y,m128;3
 MOVSH/LDUP;v,v;1
 MOVSH/LDUP;v,m;3-4
-UNPCKH/LPS/D;x,x / v,v,v;1
-UNPCKH/LPS/D;x,m / v,v,m;
+UNPCKH/LPS/D;x,x/v,v,v;1
+UNPCKH/LPS/D;x,m/v,v,m;
 EXTRACTPS;r32,x,i;3
 EXTRACTPS;m32,x,i;5
 VEXTRACTF128;x,y,i;3
@@ -635,9 +635,9 @@ VPSCATTERQPD;[r+s*x]{k},x;
 VPSCATTERQPD;[r+s*y]{k},y;
 VPSCATTERQPD;[r+s*z]{k},z;
 CVTPD2PS;x,x;5
-VCVTPD2PS;x,y / y,z;7
+VCVTPD2PS;x,y/y,z;7
 CVTPS2PD;x,x;5
-VCVTPS2PD;y,x / z,y;7
+VCVTPS2PD;y,x/z,y;7
 CVTSS2SD;x,x;5
 CVTSD2SS;x,x;5
 CVT(T) PS2DQ;x,x;4
@@ -687,16 +687,16 @@ CVT(T)SD2SI;r32/r64,x;6
 CVTSI2SD;x,r32/r64;6
 CVT(T)SD2USI;r32/r64,x;6
 CVTUSI2SD;x,r32/r64;6
-ADDSS/D PS/D SUBSS/D PS/D;x,x / y,y,y;4
+ADDSS/D PS/D SUBSS/D PS/D;x,x/y,y,y;4
 VADDPS/D VSUBPS/D;z,z,z;4
-ADDSS/D PS/D SUBSS/D PS/D;x,m / v,v,m;
-ADDSUBPS/D;x,x / v,v,v;4
-ADDSUBPS/D;x,m / v,v,m;
-HADDPS/D HSUBPS/D;x,x / v,v,v;6
-HADDPS/D HSUBPS/D;x,m / v,v,m;
-MULSS/D PS/D;x,x / v,v,v;4
+ADDSS/D PS/D SUBSS/D PS/D;x,m/v,v,m;
+ADDSUBPS/D;x,x/v,v,v;4
+ADDSUBPS/D;x,m/v,v,m;
+HADDPS/D HSUBPS/D;x,x/v,v,v;6
+HADDPS/D HSUBPS/D;x,m/v,v,m;
+MULSS/D PS/D;x,x/v,v,v;4
 VMULPS/D;z,z,z;4
-MULSS/D PS/D;x,m / v,v,m;
+MULSS/D PS/D;x,m/v,v,m;
 DIVSS;x,x;11
 DIVPS;x,x;11
 DIVSS DIVPS;x,m;
@@ -713,20 +713,20 @@ RCPSS/PS;v,v;4
 RCPSS/PS;v,m;
 VRCP14SS/PS;xy,xy;4
 VRCP14SS/PS;z,z;7
-CMPccSS/D CMPccPS/D;x,x / v,v,v;4
-CMPccSS/D CMPccPS/D;x,m / v,v,m;
+CMPccSS/D CMPccPS/D;x,x/v,v,v;4
+CMPccSS/D CMPccPS/D;x,m/v,v,m;
 VCMPPS/PD;k,v,v;3
 (U)COMISS/D;x,x;2
 (U)COMISS/D;x,m32/m64;
-MAXSS/SD/PS/PD MINSS/SD/PS/PD;x,x / v,v,v;4
-MAXSS/SD/PS/PD MINSS/SD/PS/PD;x,m / v,v,m;
+MAXSS/SD/PS/PD MINSS/SD/PS/PD;x,x/v,v,v;4
+MAXSS/SD/PS/PD MINSS/SD/PS/PD;x,m/v,v,m;
 VRANGESS/SD/PS/PD;v,v,v;4
 ROUNDSS/SD/PS/PD;v,v,i;8
 ROUNDSS/SD/PS/PD;v,m,i;
 VRNDSCALE SS/PS/SD/PD;v,v,v,i;8
 VREDUCE SS/PS/SD/PD;v,v,v,i;4
-DPPS;x,x,i / v,v,v,i;13
-DPPS;x,m,i / v,v,m,i;
+DPPS;x,x,i/v,v,v,i;13
+DPPS;x,m,i/v,v,m,i;
 DPPD;x,x,i;9
 DPPD;x,m128,i;
 VDBPSADBW;v,v,v,i;3
@@ -758,10 +758,10 @@ VGETEXPPS/PD;v,v,v;4
 VGETMANTSS/SD;x,x,x;4
 VGETMANTPS/PD;v,v,v;4
 VSCALESS/SD/PS/PD;v,v,v;4
-AND/ANDN/OR/ XORPS/PD;x,x / y,y,y;1
-AND/ANDN/OR/ XORPS/PD;z,z,z;1
-AND/ANDN/OR/ XORPS/PD;x,m / y,y,m;
-AND/ANDN/OR/ XORPS/PD;z,z,m;
+AND/ANDN/OR/XORPS/PD;x,x/y,y,y;1
+AND/ANDN/OR/XORPS/PD;z,z,z;1
+AND/ANDN/OR/XORPS/PD;x,m/y,y,m;
+AND/ANDN/OR/XORPS/PD;z,z,m;
 VTESTPS/PD;v,v;
 VZEROUPPER;;
 VZEROALL;;

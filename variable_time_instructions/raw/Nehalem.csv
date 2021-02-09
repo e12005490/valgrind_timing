@@ -143,10 +143,10 @@ LODS;;
 REP LODS;;40+12n
 STOS;;
 REP STOS;small n;12+n
-REP STOS;large n;1 clk / 16 bytes
+REP STOS;large n;1 clk/16 bytes
 MOVS;;
 REP MOVS;small n;12+n
-REP MOVS;large n;1 clk / 16 bytes
+REP MOVS;large n;1 clk/16 bytes
 SCAS;;
 REP SCAS;;40+2n
 CMPS;;
