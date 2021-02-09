@@ -201,14 +201,14 @@ MOVD;mm/x,r;4
 MOVD;mm/x,m;2
 MOVQ;v,v;1
 MOVQ;mm/x,m64;2
-MOVQ;m64, mm/x;2
+MOVQ;m64,mm/x;2
 MOVDQA;x,x;1
-MOVDQA;x, m128;2
-MOVDQA;m128, x;2
-MOVDQU;m128, x;2
-MOVDQU;x, m128;2
-LDDQU;x, m128;2
-MOVDQ2Q;mm, x;1
+MOVDQA;x,m128;2
+MOVDQA;m128,x;2
+MOVDQU;m128,x;2
+MOVDQU;x,m128;2
+LDDQU;x,m128;2
+MOVDQ2Q;mm,x;1
 MOVQ2DQ;x,mm;1
 MOVNTQ;m64,mm;~360
 MOVNTDQ;m128,x;~360
@@ -227,7 +227,7 @@ PALIGNR;x,x,i;1
 MASKMOVQ;mm,mm;
 MASKMOVDQU;x,x;
 PMOVMSKB;r32,mm/x;3
-PEXTRW;r32 ,mm/x,i;3
+PEXTRW;r32,mm/x,i;3
 PEXTRB/D/Q;r32/r64,x,i;3
 PINSRW;mm/x,r32,i;5
 PINSRB/D/Q;x,r32/r64,i;5

@@ -201,20 +201,20 @@ MOVD;m32,mm;
 MOVD;r32,xmm;1
 MOVD;xmm,r32;
 MOVD;xmm,m32;
-MOVD;m32, xmm;
+MOVD;m32,xmm;
 MOVQ;mm,mm;
 MOVQ;mm,m64;
 MOVQ;m64,mm;
 MOVQ;xmm,xmm;1
 MOVQ;xmm,m64;
-MOVQ;m64, xmm;
-MOVDQA;xmm, xmm;1
-MOVDQA;xmm, m128;
-MOVDQA;m128, xmm;
-MOVDQU;xmm, m128;
-MOVDQU;m128, xmm;
-LDDQU;xmm, m128;
-MOVDQ2Q;mm, xmm;1
+MOVQ;m64,xmm;
+MOVDQA;xmm,xmm;1
+MOVDQA;xmm,m128;
+MOVDQA;m128,xmm;
+MOVDQU;xmm,m128;
+MOVDQU;m128,xmm;
+LDDQU;xmm,m128;
+MOVDQ2Q;mm,xmm;1
 MOVQ2DQ;xmm,mm;1
 MOVNTQ;m64,mm;
 MOVNTDQ;m128,xmm;
@@ -227,15 +227,15 @@ PUNPCKH/LBW/WD/DQ;mm,m64;
 PUNPCKH/LBW/WD/DQ;xmm,xmm;2
 PUNPCKH/LBW/WD/DQ;xmm,m128;
 PUNPCKHQDQ;xmm,xmm;1
-PUNPCKHQDQ;xmm, m128;
+PUNPCKHQDQ;xmm,m128;
 PUNPCKLQDQ;xmm,xmm;1
-PUNPCKLQDQ;xmm, m128;
+PUNPCKLQDQ;xmm,m128;
 PSHUFW;mm,mm,i;1
 PSHUFW;mm,m64,i;
 PSHUFD;xmm,xmm,i;2
 PSHUFD;xmm,m128,i;
 PSHUFL/HW;xmm,xmm,i;
-PSHUFL/HW;xmm, m128,i;
+PSHUFL/HW;xmm,m128,i;
 MASKMOVQ;mm,mm;
 MASKMOVDQU;xmm,xmm;
 PMOVMSKB;r32,mm;1

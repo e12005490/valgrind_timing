@@ -16,10 +16,10 @@ FRNDINT;;28-29
 FPREM;;220-221
 FPREM1;;220-221
 FSQRT;;45-46
-MOVD;r32, mm;6-7
-MOVD;mm, r32;3-4
-MOVD;r32, xmm;7-8
-MOVD;xmm, r32;4-5
+MOVD;r32,mm;6-7
+MOVD;mm,r32;3-4
+MOVD;r32,xmm;7-8
+MOVD;xmm,r32;4-5
 MOVQ;xmm,xmm;2-3
 MOVDQ2Q;mm,xmm;10-11
 MOVQ2DQ;xmm,mm;10-11

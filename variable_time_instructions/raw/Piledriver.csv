@@ -254,8 +254,8 @@ FNCLEX;;
 FNINIT;;
 FNSAVE;m864;300
 FRSTOR;m864;236
-MOVD;r32/r64, mm/x;8
-MOVD;mm/x, r32/r64;10
+MOVD;r32/r64,mm/x;8
+MOVD;mm/x,r32/r64;10
 MOVD;mm/x,m32;6
 MOVD;m32,mm/x;5
 MOVQ;mm/x,mm/x;2

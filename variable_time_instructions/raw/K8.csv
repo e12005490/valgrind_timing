@@ -230,13 +230,13 @@ FNSAVE;;
 FRSTOR;;
 FXSAVE;;
 FXRSTOR;;
-MOVD;r32, mm;4
-MOVD;mm, r32;9
+MOVD;r32,mm;4
+MOVD;mm,r32;9
 MOVD;mm,m32;
-MOVD;r32, xmm;2
-MOVD;xmm, r32;3
+MOVD;r32,xmm;2
+MOVD;xmm,r32;3
 MOVD;xmm,m32;
-MOVD;m32, r;
+MOVD;m32,r;
 MOVD (MOVQ);r64,mm/xmm;4
 MOVD (MOVQ);mm,r64;9
 MOVD (MOVQ);xmm,r64;9
