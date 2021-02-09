@@ -1,6 +1,6 @@
 DIV;r/m16;25-29
 DIV;r/m32;25-39
-DIV;r/m 64;34-94
+DIV;r/m64;34-94
 IDIV;r/m8;24-35
 IDIV;r/m16;37-41
 IDIV;r/m32;29-46
