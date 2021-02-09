@@ -213,7 +213,7 @@ RDPMC;;
 RDRAND;r;
 RDSEED;r;
 FLD;r;1
-FLD;m32/64;3
+FLD;m32/m64;3
 FLD;m80;4
 FBLD;m80;46
 FST(P);r;1
@@ -273,9 +273,9 @@ WAIT;;
 FNCLEX;;
 FNINIT;;
 MOVD;r32/r64,mm/x;2
-MOVD;m32/64,mm/x;3
+MOVD;m32/m64,mm/x;3
 MOVD;mm/x,r32/r64;2
-MOVD;mm/x,m32/64;2
+MOVD;mm/x,m32/m64;2
 MOVQ;r64,mm/x;2
 MOVQ;mm/x,r64;2
 MOVQ;mm,mm;1
@@ -536,8 +536,8 @@ VMOVAPS/D VMOVUPS/D;v,m;3
 MOVAPS/D MOVUPS/D;m128,x;3
 VMOVAPS/D VMOVUPS/D;m256,y;3
 MOVSS/D;x,x;1
-MOVSS/D;x,m32/64;2
-MOVSS/D;m32/64,x;3
+MOVSS/D;x,m32/m64;2
+MOVSS/D;m32/m64,x;3
 MOVHPS/D;x,m64;4
 MOVHPS/D;m64,x;3
 MOVLPS/D;x,m64;4
@@ -717,7 +717,7 @@ CMPccSS/D CMPccPS/D;x,x / v,v,v;4
 CMPccSS/D CMPccPS/D;x,m / v,v,m;
 VCMPPS/PD;k,v,v;3
 (U)COMISS/D;x,x;2
-(U)COMISS/D;x,m32/64;
+(U)COMISS/D;x,m32/m64;
 MAXSS/SD/PS/PD MINSS/SD/PS/PD;x,x / v,v,v;4
 MAXSS/SD/PS/PD MINSS/SD/PS/PD;x,m / v,v,m;
 VRANGESS/SD/PS/PD;v,v,v;4

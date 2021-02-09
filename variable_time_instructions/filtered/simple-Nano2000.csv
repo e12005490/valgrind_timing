@@ -30,8 +30,8 @@ FYL2X ;;~60
 FYL2XP1;;~170
 FPTAN;;300-370
 FPATAN;;~170
-MOVD;m32/64,mm/x;2-3
-MOVD;mm/x,m32/64;2-3
+MOVD;m32/m64,mm/x;2-3
+MOVD;mm/x,m32/m64;2-3
 MOVQ;mm/x,m64;2-3
 MOVQ;m64, mm/x;2-3
 MOVDQA;xmm, m128;2-3
@@ -45,8 +45,8 @@ MOVAPS/D;xmm,m128;2-3
 MOVAPS/D;m128,xmm;2-3
 MOVUPS/D;xmm,m128;2-3
 MOVUPS/D;m128,xmm;2-3
-MOVSS/D;x,m32/64;2-3
-MOVSS/D;m32/64,x;2-3
+MOVSS/D;x,m32/m64;2-3
+MOVSS/D;m32/m64,x;2-3
 MOVNTPS/D;m128,xmm;~300
 CVTPD2PS;xmm,xmm;3-4
 CVTPS2PD;xmm,xmm;3-4

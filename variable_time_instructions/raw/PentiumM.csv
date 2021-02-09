@@ -81,7 +81,7 @@ RCR RCL;r16/r32,i/CL;9
 RCR RCL;m,1;
 RCR ;m8,i/CL;
 RCL;m8,i/CL;
-RCR RCL;m16/32,i/CL;
+RCR RCL;m16/m32,i/CL;
 SHLD SHRD;r,r,i/CL;2
 SHLD SHRD;m,r,i/CL;
 BT;r,r/i;1
@@ -137,7 +137,7 @@ LEAVE;;
 CPUID;;ca. 130
 RDTSC;;
 FLD;r;1
-FLD;m32/64;1
+FLD;m32/m64;1
 FLD;m80;
 FBLD;m80;
 FST(P);r;
@@ -297,8 +297,8 @@ MOVAPS/D;m128,xmm;3
 MOVUPS/D;xmm,m128;2
 MOVUPS/D;m128,xmm;3
 MOVSS/D;xmm,xmm;1
-MOVSS/D;xmm,m32/64;1
-MOVSS/D;m32/64,xmm;1
+MOVSS/D;xmm,m32/m64;1
+MOVSS/D;m32/m64,xmm;1
 MOVHPS/D MOVLPS/D;xmm,m64;1
 MOVHPS/D MOVLPS/D;m64,xmm;1
 MOVLHPS MOVHLPS;xmm,xmm;1
@@ -345,7 +345,7 @@ CVTSI2SD;xmm,m32;
 CVT(T)SD2SI;r32,xmm;4
 CVT(T)SD2SI;r32,m64;
 ADDSS/D SUBSS/D;xmm,xmm;3
-ADDSS/D SUBSS/D;xmm,m32/64;3
+ADDSS/D SUBSS/D;xmm,m32/m64;3
 ADDPS/D SUBPS/D;xmm,xmm;3
 ADDPS/D SUBPS/D;xmm,m128;3
 ADDSUBPS/D;xmm,xmm;3
@@ -368,13 +368,13 @@ DIVPD;xmm,xmm;16-62
 DIVPS;xmm,m128;16-34
 DIVPD;xmm,m128;16-62
 CMPccSS/D;xmm,xmm;3
-CMPccSS/D;xmm,m32/64;
+CMPccSS/D;xmm,m32/m64;
 CMPccPS/D;xmm,xmm;3
 CMPccPS/D;xmm,m128;
 COMISS/D UCOMISS/D;xmm,xmm;
-COMISS/D UCOMISS/D;xmm,m32/64;
+COMISS/D UCOMISS/D;xmm,m32/m64;
 MAXSS/D MINSS/D;xmm,xmm;3
-MAXSS/D MINSS/D;xmm,m32/64;3
+MAXSS/D MINSS/D;xmm,m32/m64;3
 MAXPS/D MINPS/D;xmm,xmm;3
 MAXPS/D MINPS/D;xmm,m128;3
 RCPSS;xmm,xmm;3

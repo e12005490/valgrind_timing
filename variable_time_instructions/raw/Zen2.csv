@@ -3,8 +3,8 @@ MOV;r16,r16;1
 MOV;r32,r32;0
 MOV;r64,r64;0
 MOV;r,i;
-MOV;r,m8/16;4
-MOV;r,m32/64;0-4
+MOV;r,m8/m16;4
+MOV;r,m32/m64;0-4
 MOV;m,r8/r16;3
 MOV;m,r32/r64;0-3
 MOV;m,i;
@@ -50,21 +50,21 @@ MFENCE;;
 ADD, SUB;r,r;1
 ADD, SUB;r,i;1
 ADD, SUB;r,m;
-ADD, SUB;m8/16,r;7
-ADD, SUB;m32/64,r;1
+ADD, SUB;m8/m16,r;7
+ADD, SUB;m32/m64,r;1
 ADC, SBB;r,r;1
 ADC, SBB;r,i;1
 ADC, SBB;r,m;1
-ADC, SBB;m8/16,r/i;7
-ADC, SBB;m32/64,r/i;1
+ADC, SBB;m8/m16,r/i;7
+ADC, SBB;m32/m64,r/i;1
 ADCX ADOX;r,r;1
 CMP;r,r;1
 CMP;r,i;1
 CMP;r,m;
 CMP;m,i;
 INC, DEC, NEG;r;1
-INC, DEC, NEG;m8/16;7
-INC, DEC, NEG;m32/64;1
+INC, DEC, NEG;m8/m16;7
+INC, DEC, NEG;m32/m64;1
 AAA, AAS;;6
 DAA;;9
 DAS;;9
@@ -98,15 +98,15 @@ CWD;;1
 AND, OR, XOR;r,r;1
 AND, OR, XOR;r,i;1
 AND, OR, XOR;r,m;
-AND, OR, XOR;m8/16,r/i;7
-AND, OR, XOR;m32/64,r/i;1
+AND, OR, XOR;m8/m16,r/i;7
+AND, OR, XOR;m32/m64,r/i;1
 TEST;r,r;1
 TEST;r,i;1
 TEST;m,r;
 TEST;m,i;
 NOT;r;1
-NOT;m8/16;7
-NOT;m32/64;1
+NOT;m8/m16;7
+NOT;m32/m64;1
 ANDN;r,r,r;1
 SHL, SHR, SAR;r,i/CL;1
 ROL, ROR;r,i/CL;1
@@ -203,11 +203,11 @@ CRC32;r32,r32;3
 RDRAND RDSEED;r16/r32;
 RDRAND RDSEED;r64;
 FLD;r;1
-FLD;m32/64;6
+FLD;m32/m64;6
 FLD;m80;7
 FBLD;m80;
 FST(P);r;1
-FST(P);m32/64;5
+FST(P);m32/m64;5
 FSTP;m80;8
 FBSTP;m80;
 FXCH;r;0
@@ -394,8 +394,8 @@ VMOVAPS/D VMOVUPS/D;y,m256;5
 MOVAPS/D MOVUPS/D;m128,x;4
 VMOVAPS/D VMOVUPS/D;m256,y;4
 MOVSS/D;x,x;1
-MOVSS/D;x,m32/64;4
-MOVSS/D;m32/64,x;4
+MOVSS/D;x,m32/m64;4
+MOVSS/D;m32/m64,x;4
 MOVHPS/D;x,m64;5
 MOVLPS/D;x,m64;5
 MOVHPS/D;m64,x;5

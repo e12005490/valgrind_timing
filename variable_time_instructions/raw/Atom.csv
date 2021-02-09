@@ -215,9 +215,9 @@ WAIT;;5
 FNCLEX;;
 FNINIT;;74
 MOVD;r32/r64,mm/x;4
-MOVD;m32/64,mm/x;5
+MOVD;m32/m64,mm/x;5
 MOVD;mm/x,r32/r64;3
-MOVD;mm/x,m32/64;4
+MOVD;mm/x,m32/m64;4
 MOVQ;mm/x, mm/x;1
 MOVQ;mm/x,m64;4
 MOVQ;m64, mm/x;5
@@ -278,8 +278,8 @@ MOVAPS/D;m128,xmm;5
 MOVUPS/D;xmm,m128;6
 MOVUPS/D;m128,xmm;6
 MOVSS/D;xmm,xmm;1
-MOVSS/D;xmm,m32/64;4
-MOVSS/D;m32/64,xmm;5
+MOVSS/D;xmm,m32/m64;4
+MOVSS/D;m32/m64,xmm;5
 MOVHPS/D MOVLPS/D;xmm,m64;5
 MOVHPS/D;m64,xmm;4
 MOVLPS/D;m64,xmm;4

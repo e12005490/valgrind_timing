@@ -5,7 +5,7 @@ MOV;r16,m16;4
 MOV;r32,m32;3
 MOV;m8,r8H;8
 MOV;m8,r8L;2
-MOV;m16/32,r;2
+MOV;m16/m32,r;2
 MOV;m,i;2
 MOV;r,sr;2
 MOV;sr,r/m;9-13
@@ -151,11 +151,11 @@ CPUID;;44-74
 RDTSC;;
 RDPMC ;;
 FLD;r;2
-FLD;m32/64;4
+FLD;m32/m64;4
 FLD;m80;16
 FBLD;m80;41
 FST(P);r;2
-FST(P);m32/64;3
+FST(P);m32/m64;3
 FSTP;m80;7
 FBSTP;m80;
 FXCH;r;0
