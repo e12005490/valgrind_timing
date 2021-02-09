@@ -149,7 +149,7 @@ CLI;;
 STI;;
 CPUID;;44-74
 RDTSC;;
-RDPMC ;;
+RDPMC;;
 FLD;r;2
 FLD;m32/m64;4
 FLD;m80;16
@@ -261,8 +261,8 @@ RCPPS;r,r/m;3
 MAXSS MINSS;r,r/m;2
 MAXPS MINPS;r,r/m;2
 CMPccSS;r,r/m;2
-CMPccPS ;r,r/m;2
-COMISS UCOMISS ;r,r/m;2
+CMPccPS;r,r/m;2
+COMISS UCOMISS;r,r/m;2
 ANDPS/D ANDNPS/D ORPS/D XORPS/D;r,r/m;2
 SQRTSS;r,r/m;19
 SQRTPS;r,r/m;36

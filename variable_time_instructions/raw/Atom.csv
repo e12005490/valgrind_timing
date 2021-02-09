@@ -32,8 +32,8 @@ SALC;;7
 LEA;r,m;1-4
 BSWAP;r;1
 LDS LES LFS LGS LSS;m;30
-PREFETCHNTA ;m;
-PREFETCHT0/1/2 ;m;
+PREFETCHNTA;m;
+PREFETCHT0/1/2;m;
 LFENCE;;
 MFENCE;;
 SFENCE;;
@@ -43,8 +43,8 @@ ADD SUB;m,r/i;2
 ADC SBB;r,r/i;2
 ADC SBB;r,m;2
 ADC SBB;m,r/i;2
-CMP ;r,r/i;1
-CMP ;m,r/i;
+CMP;r,r/i;1
+CMP;m,r/i;
 INC DEC NEG NOT;r;1
 INC DEC NEG NOT;m;1
 AAA;;16
@@ -67,9 +67,9 @@ MUL IMUL;m8;6
 MUL IMUL;m16;7
 MUL IMUL;m32;7
 MUL IMUL;m64;14
-DIV ;r/m8;22
-DIV ;r/m16;33
-DIV ;r/m32;49
+DIV;r/m8;22
+DIV;r/m16;33
+DIV;r/m32;49
 DIV;r/m 64;183
 IDIV;r/m8;38
 IDIV;r/m16;45
@@ -198,7 +198,7 @@ FIDIV(R);m;
 FICOM(P);m;
 FTST;;1
 FXAM;;1
-FPREM ;;~110
+FPREM;;~110
 FPREM1;;~130
 FRNDINT;;48
 FSCALE;;56
@@ -226,7 +226,7 @@ MOVDQA;xmm, m128;4
 MOVDQA;m128, xmm;5
 MOVDQU;m128, xmm;6
 MOVDQU;xmm, m128;6
-LDDQU ;xmm, m128;6
+LDDQU;xmm, m128;6
 MOVDQ2Q;mm, xmm;1
 MOVQ2DQ;xmm,mm;1
 MOVNTQ;m64,mm;~400
@@ -236,16 +236,16 @@ PUNPCKH/LBW/WD/DQ;mm/x, mm/x;1
 PUNPCKH/LQDQ;mm/x, mm/x;1
 PSHUFB;mm,mm;1
 PSHUFB;xmm,xmm;6
-PSHUFW ;mm,mm,i;1
+PSHUFW;mm,mm,i;1
 PSHUFL/HW;xmm,xmm,i;1
 PSHUFD;xmm,xmm,i;1
 PALIGNR;xmm, xmm,i;1
 MASKMOVQ;mm,mm;
 MASKMOVDQU;xmm,xmm;
 PMOVMSKB;r32,mm/x;4
-PINSRW ;mm/x,r32,i;3
-PEXTRW ;r32,mm/x,i;5
-PADD/SUB(U)(S)B/W/D ;mm/x, mm/x;1
+PINSRW;mm/x,r32,i;3
+PEXTRW;r32,mm/x,i;5
+PADD/SUB(U)(S)B/W/D;mm/x, mm/x;1
 PADDQ PSUBQ;mm/x, mm/x;5
 PHADD(S)W PHSUB(S)W;mm/x, mm/x;8
 PHADDD PHSUBD;mm/x, mm/x;6

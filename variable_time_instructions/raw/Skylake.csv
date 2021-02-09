@@ -52,8 +52,8 @@ ADD SUB;m,r/i;5
 ADC SBB;r,r/i;1
 ADC SBB;r,m;
 ADC SBB;m,r/i;5
-CMP ;r,r/i;1
-CMP ;m,r/i;1
+CMP;r,r/i;1
+CMP;m,r/i;1
 INC DEC NEG NOT;r;1
 INC DEC NOT;m;5-6
 NEG;m;5-6
@@ -263,7 +263,7 @@ FSIN;;50-120
 FCOS;;50-130
 FSINCOS;;55-150
 F2XM1;;65-80
-FYL2X ;;103
+FYL2X;;103
 FYL2XP1;;77
 FPTAN;;140-160
 FPATAN;;100-160
@@ -311,13 +311,13 @@ VPMOVSX/ZX BW BD BQ DW DQ;y,x;3
 VPMOVSX/ZX BW BD BQ DW DQ;y,m;
 PSHUFB;v,v / v,v,v;1
 PSHUFB;v,m / v,v,m;
-PSHUFW ;mm,mm,i;1
-PSHUFW ;mm,m64,i;
+PSHUFW;mm,mm,i;1
+PSHUFW;mm,m64,i;
 PSHUFD;v,v,i;1
 PSHUFD;v,m,i;
 PSHUFL/HW;v,v,i;1
 PSHUFL/HW;v,m,i;
-PALIGNR ;v,v,i / v,v,v,i;1
+PALIGNR;v,v,i / v,v,v,i;1
 PALIGNR;v,m,i / v,v,m,i;
 PBLENDVB;x,x,xmm0;1
 PBLENDVB;x,m,xmm0;
@@ -344,8 +344,8 @@ VEXTRACTI128;x,y,i;3
 VEXTRACTI128;m,y,i;4
 PINSRB;x,r32,i;3
 PINSRB;x,m8,i;
-PINSRW ;mm/x,r32,i;3
-PINSRW ;mm/x,m16,i;
+PINSRW;mm/x,r32,i;3
+PINSRW;mm/x,m16,i;
 PINSRD/Q;x,r32,i;3
 PINSRD/Q;x,m32,i;
 VINSERTI128;y,y,x,i;3

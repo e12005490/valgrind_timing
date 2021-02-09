@@ -32,8 +32,8 @@ SALC;;4
 LEA;r,m;1
 BSWAP;r;4
 LDS LES LFS LGS LSS;m;
-PREFETCHNTA ;m;
-PREFETCHT0/1/2 ;m;
+PREFETCHNTA;m;
+PREFETCHT0/1/2;m;
 LFENCE;;
 MFENCE;;
 SFENCE;;
@@ -46,8 +46,8 @@ ADD SUB;m,r/i;6
 ADC SBB;r,r/i;2
 ADC SBB;r,m;2
 ADC SBB;m,r/i;7
-CMP ;r,r/i;1
-CMP ;m,r/i;1
+CMP;r,r/i;1
+CMP;m,r/i;1
 INC DEC NEG NOT;r;1
 INC DEC NEG NOT;m;6
 AAA AAS DAA DAS;;
@@ -99,7 +99,7 @@ RCR;r8,i/cl;12
 RCL;r8,i/cl;11
 RCR RCL;r,i/cl;11
 RCR RCL;m,1;7
-RCR ;m8,i/cl;14
+RCR;m8,i/cl;14
 RCL;m8,i/cl;13
 RCR RCL;m,i/cl;13
 SHLD SHRD;r,r,i/cl;2
@@ -296,8 +296,8 @@ PINSRD;xmm,r32,i;1
 PINSRD;xmm,m32,i;
 PINSRQ;xmm,r64,i;1
 PINSRQ;xmm,m64,i;
-PADD/SUB(U)(S)B/W/D ;v,v;1
-PADD/SUB(U)(S)B/W/D ;mm/x,m;
+PADD/SUB(U)(S)B/W/D;v,v;1
+PADD/SUB(U)(S)B/W/D;mm/x,m;
 PADDQ PSUBQ;v,v;2
 PADDQ PSUBQ;mm/x,m;
 PHADD(S)W PHSUB(S)W;v,v;3

@@ -32,8 +32,8 @@ LEA;r,m;1
 BSWAP;r32;1
 BSWAP;r64;3
 LDS LES LFS LGS LSS;m;
-PREFETCHNTA ;m;
-PREFETCHT0/1/2 ;m;
+PREFETCHNTA;m;
+PREFETCHT0/1/2;m;
 LFENCE;;
 MFENCE;;
 SFENCE;;
@@ -43,8 +43,8 @@ ADD SUB;m,r/i;6
 ADC SBB;r,r/i;2
 ADC SBB;r,m;2
 ADC SBB;m,r/i;7
-CMP ;r,r/i;1
-CMP ;m,r/i;1
+CMP;r,r/i;1
+CMP;m,r/i;1
 INC DEC NEG NOT;r;1
 INC DEC NEG NOT;m;6
 AAA AAS DAA DAS;;3
@@ -98,7 +98,7 @@ RCR;r8,i/cl;13
 RCL;r8,i/cl;11
 RCR RCL;r16/r32/r64,i/cl;12-13
 RCR RCL;m,1;7
-RCR ;m8,i/cl;16
+RCR;m8,i/cl;16
 RCL;m8,i/cl;14
 RCR RCL;m16/m32/m64,i/cl;15
 SHLD;r,r,i/cl;3

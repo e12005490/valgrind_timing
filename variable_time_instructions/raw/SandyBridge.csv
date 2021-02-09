@@ -26,8 +26,8 @@ LEA;r,m;1
 LEA;r,m;3
 BSWAP;r32;1
 BSWAP;r64;2
-PREFETCHNTA ;m;
-PREFETCHT0/1/2 ;m;
+PREFETCHNTA;m;
+PREFETCHT0/1/2;m;
 LFENCE;;
 MFENCE;;
 SFENCE;;
@@ -38,8 +38,8 @@ SUB;r,same;0
 ADC SBB;r,r/i;2
 ADC SBB;r,m;2
 ADC SBB;m,r/i;7
-CMP ;r,r/i;1
-CMP ;m,r/i;1
+CMP;r,r/i;1
+CMP;m,r/i;1
 INC DEC NEG NOT;r;1
 INC DEC NEG NOT;m;6
 AAA AAS;;4
@@ -211,7 +211,7 @@ FSIN;;47-100
 FCOS;;47-115
 FSINCOS;;43-123
 F2XM1;;61-69
-FYL2X ;;
+FYL2X;;
 FYL2XP1;;
 FPTAN;;130
 FPATAN;;93-146
@@ -261,13 +261,13 @@ PMOVSX/ZXDQ;x,x;1
 PMOVSX/ZXDQ;x,m64;
 PSHUFB;mm/x,mm/x;1
 PSHUFB;mm/x,m;
-PSHUFW ;mm,mm,i;1
-PSHUFW ;mm,m64,i;
+PSHUFW;mm,mm,i;1
+PSHUFW;mm,m64,i;
 PSHUFD;x,x,i;1
 PSHUFD;x,m128,i;
 PSHUFL/HW;x,x,i;1
 PSHUFL/HW;x, m128,i;
-PALIGNR ;mm/x,mm/x,i;1
+PALIGNR;mm/x,mm/x,i;1
 PALIGNR;mm/x,m,i;
 PBLENDVB;x,x,xmm0;2
 PBLENDVB;x,m,xmm0;
@@ -278,7 +278,7 @@ MASKMOVDQU;x,x;
 PMOVMSKB;r32,mm/x;2
 PEXTRB;r32,x,i;2
 PEXTRB;m8,x,i;
-PEXTRW ;r32,mm/x,i;2
+PEXTRW;r32,mm/x,i;2
 PEXTRW;m16,mm/x,i;
 PEXTRD;r32,x,i;2
 PEXTRD;m32,x,i;
@@ -286,8 +286,8 @@ PEXTRQ;r64,x,i;2
 PEXTRQ;m64,x,i;
 PINSRB;x,r32,i;2
 PINSRB;x,m8,i;
-PINSRW ;mm/x,r32,i;2
-PINSRW ;mm/x,m16,i;
+PINSRW;mm/x,r32,i;2
+PINSRW;mm/x,m16,i;
 PINSRD;x,r32,i;2
 PINSRD;x,m32,i;
 PINSRQ;x,r64,i;2

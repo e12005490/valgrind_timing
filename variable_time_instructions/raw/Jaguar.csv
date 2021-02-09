@@ -178,7 +178,7 @@ CPUID;;70-230
 XGETBV;;
 RDTSC;;
 RDTSCP;;
-RDPMC ;;
+RDPMC;;
 CRC32;r,r;3
 CRC32;r,m;
 FLD;r;2
@@ -426,8 +426,8 @@ MAXSS/D MINSS/D;x,x/m;2
 MAXPS/D MINPS/D;x,x/m;2
 VMAXPS/D VMINPS/D;y,y/m;2
 CMPccSS/D;x,x/m;2
-CMPccPS/D ;x,x/m;2
-VCMPccPS/D ;y,y/m;2
+CMPccPS/D;x,x/m;2
+VCMPccPS/D;y,y/m;2
 (U)COMISS/D;x,x/m;
 ROUNDSS/SD/PS/PD;x,x/m,i;4
 VROUNDSS/D/PS/D;y,y/m,i;4

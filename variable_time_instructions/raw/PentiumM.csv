@@ -31,8 +31,8 @@ SALC;;
 LEA;r,m;1
 BSWAP;r;
 LDS LES LFS LGS LSS;m;
-PREFETCHNTA ;m;
-PREFETCHT0/1/2 ;m;
+PREFETCHNTA;m;
+PREFETCHT0/1/2;m;
 SFENCE/LFENCE/MFENCE;;
 IN;;>300
 OUT;;>300
@@ -42,9 +42,9 @@ ADD SUB;m,r/i;
 ADC SBB;r,r/i;2
 ADC SBB;r,m;
 ADC SBB;m,r/i;
-CMP ;r,r/i;1
-CMP ;m,r;1
-CMP ;m,i;
+CMP;r,r/i;1
+CMP;m,r;1
+CMP;m,i;
 INC DEC NEG NOT;r;1
 INC DEC NEG NOT;m;
 AAA AAS DAA DAS;;
@@ -79,7 +79,7 @@ RCR;r8,i/CL;11
 RCL;r8,i/CL;10
 RCR RCL;r16/r32,i/CL;9
 RCR RCL;m,1;
-RCR ;m8,i/CL;
+RCR;m8,i/CL;
 RCL;m8,i/CL;
 RCR RCL;m16/m32,i/CL;
 SHLD SHRD;r,r,i/CL;2
@@ -195,13 +195,13 @@ WAIT;;
 FNCLEX;;
 FNINIT;;
 MOVD;r32,mm;1
-MOVD ;mm,r32;1
-MOVD ;mm,m32;
-MOVD ;m32,mm;
+MOVD;mm,r32;1
+MOVD;mm,m32;
+MOVD;m32,mm;
 MOVD;r32,xmm;1
-MOVD ;xmm,r32;
-MOVD ;xmm,m32;
-MOVD ;m32, xmm;
+MOVD;xmm,r32;
+MOVD;xmm,m32;
+MOVD;m32, xmm;
 MOVQ;mm,mm;
 MOVQ;mm,m64;
 MOVQ;m64,mm;
@@ -230,8 +230,8 @@ PUNPCKHQDQ;xmm,xmm;1
 PUNPCKHQDQ;xmm, m128;
 PUNPCKLQDQ;xmm,xmm;1
 PUNPCKLQDQ;xmm, m128;
-PSHUFW ;mm,mm,i;1
-PSHUFW ;mm,m64,i;
+PSHUFW;mm,mm,i;1
+PSHUFW;mm,m64,i;
 PSHUFD;xmm,xmm,i;2
 PSHUFD;xmm,m128,i;
 PSHUFL/HW;xmm,xmm,i;
@@ -240,12 +240,12 @@ MASKMOVQ;mm,mm;
 MASKMOVDQU;xmm,xmm;
 PMOVMSKB;r32,mm;1
 PMOVMSKB;r32,xmm;1
-PEXTRW ;r32,mm,i;2
-PEXTRW ;r32,xmm,i;3
-PINSRW ;mm,r32,i;1
-PINSRW ;xmm,r32,i;1
-PADD/SUB(U)(S)B/W/D ;mm,mm;1
-PADD/SUB(U)(S)B/W/D ;mm,m64;
+PEXTRW;r32,mm,i;2
+PEXTRW;r32,xmm,i;3
+PINSRW;mm,r32,i;1
+PINSRW;xmm,r32,i;1
+PADD/SUB(U)(S)B/W/D;mm,mm;1
+PADD/SUB(U)(S)B/W/D;mm,m64;
 PADD/SUB(U)(S)B/W/D;xmm,xmm;1
 PADD/SUB(U)(S)B/W/D;xmm,m128;
 PADDQ PSUBQ;mm,mm;2
@@ -278,8 +278,8 @@ PMIN/MAXUB/SW;xmm,xmm;1
 PMIN/MAXUB/SW;xmm,m128;
 PSADBW;mm,mm;4
 PSADBW;mm,m64;4
-PSADBW ;xmm,xmm;4
-PSADBW ;xmm,m128;4
+PSADBW;xmm,xmm;4
+PSADBW;xmm,m128;4
 PAND(N) POR PXOR;mm,mm;1
 PAND(N) POR PXOR;mm,m64;
 PAND(N) POR PXOR;xmm,xmm;1
