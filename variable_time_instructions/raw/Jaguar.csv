@@ -97,7 +97,7 @@ RCL;r,i;5
 RCR;r,i;4
 RCL;r,CL;5
 RCR;r,CL;4
-SHL,SHR,SAR,ROL, ROR;m,i/CL;6
+SHL, SHR, SAR, ROL, ROR;m,i/CL;6
 RCL, RCR;m,1;
 RCL;m,i;
 RCR;m,i;
@@ -200,9 +200,9 @@ FNSTSW;AX;
 FNSTSW;m16;
 FNSTCW;m16;
 FLDCW;m16;
-FADD(P),FSUB(R)(P);r;3
-FADD(P),FSUB(R)(P);m;
-FIADD,FISUB(R);m;
+FADD(P), FSUB(R)(P);r;3
+FADD(P), FSUB(R)(P);m;
+FIADD, FISUB(R);m;
 FMUL(P);r;5
 FMUL(P);m;
 FIMUL;m;

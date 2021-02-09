@@ -11,7 +11,7 @@ IDIV;r32/m32;22-48
 IDIV;r64/m64;22-79
 AND, OR, XOR;m,r;7-8
 AND, OR, XOR;m,i;7-8
-FADD(P),FSUB(R)(P);r/m;5-6
+FADD(P), FSUB(R)(P);r/m;5-6
 FMUL(P);r/m;5-6
 FDIV(R)(P);r;10-42
 FPREM;;19-62
