@@ -2,11 +2,11 @@ PUSHF;;3-5
 POPF;;4-6
 PUSHA POPA;;5-9
 NEG NOT;r/m;1-3
-SHR SHL SAR SAL;r/m,CL;4-5
+SHR SHL SAR SAL;r/m,cl;4-5
 ROR ROL RCR RCL;r/m,1;1-3
 ROR ROL;r/m,i(><1);1-3
 RCR RCL;r/m,i(><1);8-10
-RCR RCL;r/m,CL;7-9
+RCR RCL;r/m,cl;7-9
 BSF BSR;r,r/m;7-73
 conditional jump;short/near;1-6
 CALL JMP;r/m;2-5

@@ -123,18 +123,18 @@ NOT;m;5
 SHL;r,i;1
 SHR, SAR;r8/r16/r32,i;1
 SHR, SAR;r64,i;7
-SHL;r,CL;2
-SHR, SAR;r8/r16/r32,CL;2
-SHR, SAR;r64,CL;8
+SHL;r,cl;2
+SHR, SAR;r8/r16/r32,cl;2
+SHR, SAR;r64,cl;8
 ROL, ROR;r8/r16/r32,i;1
 ROL, ROR;r64,i;7
-ROL, ROR;r8/r16/r32,CL;2
-ROL, ROR;r64,CL;8
+ROL, ROR;r8/r16/r32,cl;2
+ROL, ROR;r64,cl;8
 RCL, RCR;r,1;7
 RCL;r,i;31
 RCR;r,i;25
-RCL;r,CL;31
-RCR;r,CL;25
+RCL;r,cl;31
+RCR;r,cl;25
 SHL, SHR, SAR;m8/m16/m32,i;10
 ROL. ROR;m8/m16/m32,i;10
 SHL, SHR, SAR;m8/m16/m32,cl;10
@@ -149,7 +149,7 @@ SHLD, SHRD;r8/r16/r32,r,cl;9
 SHLD;r64,r64,cl;14
 SHRD;r64,r64,cl;12
 SHLD, SHRD;m,r,i;20
-SHLD, SHRD;m,r,CL;20
+SHLD, SHRD;m,r,cl;20
 BT;r,i;8
 BT;r,r;9
 BT;m,i;8

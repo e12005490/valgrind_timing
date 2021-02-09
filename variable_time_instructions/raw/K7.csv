@@ -82,14 +82,14 @@ ROL, ROR;r,i/CL;1
 RCL, RCR;r,1;1
 RCL;r,i;4
 RCR;r,i;3
-RCL;r,CL;3
-RCR;r,CL;3
+RCL;r,cl;3
+RCR;r,cl;3
 SHL, SHR, SAR, ROL, ROR;m,i/CL;7
 RCL, RCR;m,1;7
 RCL;m,i;5
 RCR;m,i;8
-RCL;m,CL;6
-RCR;m,CL;7
+RCL;m,cl;6
+RCR;m,cl;7
 SHLD, SHRD;r,r,i;4
 SHLD, SHRD;r,r,cl;4
 SHLD, SHRD;m,r,i/CL;7
