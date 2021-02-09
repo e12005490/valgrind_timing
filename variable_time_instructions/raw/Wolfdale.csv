@@ -8,7 +8,7 @@ MOV;sr,r;
 MOV;sr,m;
 MOVNTI;m,r;
 MOVSX MOVZX MOVSXD;r,r;1
-MOVSX MOVZX;r16/32,m;
+MOVSX MOVZX;r16/r32,m;
 MOVSX MOVSXD;r64,m;
 CMOVcc;r,r;2
 CMOVcc;r,m;

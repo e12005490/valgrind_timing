@@ -1,9 +1,9 @@
 MOV;r,r;1
-MOV;r8/16/32,i;1
+MOV;r8/r16/r32,i;1
 MOV;r64,i32;
 MOV;r64,i64;
-MOV;r8/16,m;3
-MOV;r32/64,m;2
+MOV;r8/r16,m;3
+MOV;r32/r64,m;2
 MOV;m,r;
 MOV;m,i;
 MOV;m64,i32;
@@ -16,7 +16,7 @@ MOVZX;r,r;1
 MOVZX;r16,r8;2
 MOVZX;r,m;2
 MOVSX;r16,r8;2
-MOVSX;r32/64,r8/16;1
+MOVSX;r32/r64,r8/r16;1
 MOVSX;r,m;3
 MOVSXD;r64,r32;1
 CMOVcc;r,r/m;9.5
@@ -121,14 +121,14 @@ TEST;r,m;1
 NOT;r;1
 NOT;m;5
 SHL;r,i;1
-SHR, SAR;r8/16/32,i;1
+SHR, SAR;r8/r16/r32,i;1
 SHR, SAR;r64,i;7
 SHL;r,CL;2
-SHR, SAR;r8/16/32,CL;2
+SHR, SAR;r8/r16/r32,CL;2
 SHR, SAR;r64,CL;8
-ROL, ROR;r8/16/32,i;1
+ROL, ROR;r8/r16/r32,i;1
 ROL, ROR;r64,i;7
-ROL, ROR;r8/16/32,CL;2
+ROL, ROR;r8/r16/r32,CL;2
 ROL, ROR;r64,CL;8
 RCL, RCR;r,1;7
 RCL;r,i;31
@@ -142,10 +142,10 @@ ROL. ROR;m8/16/32,cl;10
 RCL, RCR;m8/16/32,1;27
 RCL, RCR;m8/16/32,i;38
 RCL, RCR;m8/16/32,cl;37
-SHLD, SHRD;r8/16/32,r,i;8
+SHLD, SHRD;r8/r16/r32,r,i;8
 SHLD;r64,r64,i;10
 SHRD;r64,r64,i;10
-SHLD, SHRD;r8/16/32,r,cl;9
+SHLD, SHRD;r8/r16/r32,r,cl;9
 SHLD;r64,r64,cl;14
 SHRD;r64,r64,cl;12
 SHLD, SHRD;m,r,i;20

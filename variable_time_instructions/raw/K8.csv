@@ -121,7 +121,7 @@ BTC;m,i;7
 BTR, BTS;m,i;7
 BTC;m,r;5
 BTR, BTS;m,r;8
-BSF;r16/32,r;8
+BSF;r16/r32,r;8
 BSF;r64,r;9
 BSR;r,r;10
 BSF;r16,m;8

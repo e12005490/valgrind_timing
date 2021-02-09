@@ -24,8 +24,8 @@ POP;m;
 POPF(D/Q);;
 POPA(D);;
 LEA;r16,[m];3
-LEA;r32/64,[m];1
-LEA;r32/64,[m];2-4
+LEA;r32/r64,[m];1
+LEA;r32/r64,[m];2-4
 LEA;r64,[m];
 LAHF;;4
 SAHF;;1

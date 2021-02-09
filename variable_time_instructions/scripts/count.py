@@ -47,7 +47,7 @@ for name in sys.argv[1:]:
 	# split lines in case multiple names are specified
 	instr_names_ops = [i for l in instr_names_ops for i in split_names(l)]
 	# split operands in case multiple types are possible
-#	instr_names_ops = [i for t in instr_names_ops for i in split_operands(t)]
+	instr_names_ops = [i for t in instr_names_ops for i in split_operands(t)]
 	# update list of all names
 	instr += instr_names_ops
 

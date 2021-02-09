@@ -1,7 +1,7 @@
 MOV;r,m32/64;0-4
-MOV;m,r32/64;0-3
+MOV;m,r32/r64;0-3
 MOVZX, MOVSX;r,m;3-4
-LEA;r32/64,[m];1-2
+LEA;r32/r64,[m];1-2
 DIV;r8/m8;12-15
 DIV;r16/m16;13-20
 DIV;r32/m32;13-28

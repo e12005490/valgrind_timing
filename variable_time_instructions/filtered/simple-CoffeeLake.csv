@@ -1,4 +1,4 @@
-MOV;r32/64,r32/64;0-1
+MOV;r32/r64,r32/r64;0-1
 MOVNTI;m,r;~470
 LEA;r16,m;2-4
 INC DEC NOT;m;5-6

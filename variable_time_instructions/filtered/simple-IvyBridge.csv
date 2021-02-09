@@ -1,6 +1,6 @@
-MOV;r32/64,r32/64;0-1
+MOV;r32/r64,r32/r64;0-1
 MOVNTI;m,r;~340
-MOVZX;r32/64,r8;0-1
+MOVZX;r32/r64,r8;0-1
 LEA;r16,m;2-4
 ADC SBB;m,r/i;7-8
 DIV;r8;19-22

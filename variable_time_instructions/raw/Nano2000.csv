@@ -200,9 +200,9 @@ FNOP;;
 WAIT;;0
 FNCLEX;;
 FNINIT;;
-MOVD;r32/64,mm/x;3
+MOVD;r32/r64,mm/x;3
 MOVD;m32/64,mm/x;2-3
-MOVD;mm/x,r32/64;4
+MOVD;mm/x,r32/r64;4
 MOVD;mm/x,m32/64;2-3
 MOVQ;mm/x, mm/x;1
 MOVQ;mm/x,m64;2-3

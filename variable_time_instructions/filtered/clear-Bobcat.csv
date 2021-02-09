@@ -1,4 +1,4 @@
-LEA;r32/64,[m];2-4
+LEA;r32/r64,[m];2-4
 ADC, SBB;m,r/i;6-7
 MUL, IMUL;r16/m16;3-5
 MUL, IMUL;r32/m32;3-4

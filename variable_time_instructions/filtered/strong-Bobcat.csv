@@ -1,4 +1,4 @@
-LEA;r32/64,[m];2-4
+LEA;r32/r64,[m];2-4
 MUL, IMUL;r16/m16;3-5
 CPUID;;70-830
 FPREM;;11-16

@@ -96,7 +96,7 @@ ROR ROL;m,i/cl;6
 RCR RCL;r,1;2
 RCR;r8,i/cl;12
 RCL;r8,i/cl;11
-RCR RCL;r16/32/64,i/cl;11
+RCR RCL;r16/r32/r64,i/cl;11
 RCR RCL;m,1;7
 RCR ;m8,i/cl;14
 RCL;m8,i/cl;13
@@ -217,9 +217,9 @@ FNOP;;
 WAIT;;
 FNCLEX;;
 FNINIT;;
-MOVD;r32/64,mm/x;2
+MOVD;r32/r64,mm/x;2
 MOVD;m32/64,mm/x;3
-MOVD;mm/x,r32/64;2
+MOVD;mm/x,r32/r64;2
 MOVD;mm/x,m32/64;2
 MOVQ;mm/x, mm/x;1
 MOVQ;mm/x,m64;2

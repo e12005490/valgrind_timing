@@ -7,7 +7,7 @@ IDIV;r8;10-22
 IDIV;r16;18-23
 IDIV;r32;17-28
 IDIV;r64;37-100
-RCR RCL;r16/32/64,i/cl;12-13
+RCR RCL;r16/r32/r64,i/cl;12-13
 REP LODS;;40+12n
 REP STOS;small n;12+n
 REP STOS;large n;1 clk / 16 bytes

@@ -34,8 +34,8 @@ POP;SS;26
 POPF(D/Q);;16
 POPA(D);;6
 LEA;r16,[m];3
-LEA;r32/64,[m];1
-LEA;r32/64,[m];2
+LEA;r32/r64,[m];1
+LEA;r32/r64,[m];2
 LAHF;;3
 SAHF;;1
 SALC;;1

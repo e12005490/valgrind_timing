@@ -1,10 +1,10 @@
 MOV;r,i;
-MOV;r8/16,r8/16;1
-MOV;r32/64,r32/64;0-1
+MOV;r8/r16,r8/r16;1
+MOV;r32/r64,r32/r64;0-1
 MOV;r8l,m;
 MOV;r8h,m;
 MOV;r16,m;
-MOV;r32/64,m;2
+MOV;r32/r64,m;2
 MOV;m,r;3
 MOV;m,i;
 MOVNTI;m,r;~400
@@ -30,9 +30,9 @@ POPA(D);;
 LAHF SAHF;;1
 SALC;;1
 LEA;r16,m;2-4
-LEA;r32/64,m;1
-LEA;r32/64,m;3
-LEA;r32/64,m;
+LEA;r32/r64,m;1
+LEA;r32/r64,m;3
+LEA;r32/r64,m;
 BSWAP;r32;1
 BSWAP;r64;2
 MOVBE;r16,m16;
@@ -270,9 +270,9 @@ FNOP;;
 WAIT;;
 FNCLEX;;
 FNINIT;;
-MOVD;r32/64,mm/x;1
+MOVD;r32/r64,mm/x;1
 MOVD;m32/64,mm/x;3
-MOVD;mm/x,r32/64;1
+MOVD;mm/x,r32/r64;1
 MOVD;mm/x,m32/64;3
 MOVQ;r64,mm/x;1
 MOVQ;mm/x,r64;1
@@ -540,9 +540,9 @@ CVTSI2SS;x,r64;5
 CVTSI2SS;x,m32;
 CVT(T)SS2SI;r32,x;4
 CVT(T)SS2SI;r32,m32;
-CVTSI2SD;x,r32/64;4
+CVTSI2SD;x,r32/r64;4
 CVTSI2SD;x,m32;
-CVT(T)SD2SI;r32/64,x;4
+CVT(T)SD2SI;r32/r64,x;4
 CVT(T)SD2SI;r32,m64;
 VCVTPS2PH;x,v,i;4-6
 VCVTPS2PH;m,v,i;
