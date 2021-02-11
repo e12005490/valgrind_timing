@@ -1,0 +1,4 @@
+RCL, RCR;m,i/cl;18-28
+CPUID;;200-500
+FCMOVcc;st0,r;2-5
+FLDCW;m16;3-143

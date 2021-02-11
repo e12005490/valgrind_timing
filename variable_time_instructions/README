@@ -1,5 +1,3 @@
-(Pentium 4 data is not taken into account (yet) because I have no clue what I'm supposed to think when I see floating-point latencies)
-
 The following actions are taken:
 
 1. The instruction_tables.ods spreadsheet is initially downloaded from https://www.agner.org/optimize/instruction_tables.ods.
