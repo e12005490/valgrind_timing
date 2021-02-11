@@ -14,27 +14,37 @@ def parse(line):
 
 # Filter definitions
 
-def is_int(s):
+def is_float(s):
+	"""returns whether the given string is a float"""
 	try:
-		i = int(s)
+		f = float(s)
 		return True
 	except ValueError:
 		return False
 
 def non_constant_filter(line):
 	"""accepts the line if the latency exists and is not a clear constant"""
-	return line[2] and not is_int(line[2])
+	return line[2] and not is_float(line[2])
 
-regex = re.compile("\d+-\d+")
+def parse_variation(l):
+	"""expects a string of the form <float>-<float>, and returns the floats"""
+	s = l.split('-')
+	if len(s) != 2:
+		return None
+	try:
+		return (float(s[0]), float(s[1]))
+	except ValueError:
+		return None
+
 def clear_variation_filter(line):
 	"""accepts the line if the latency clearly varies (e.g. rejects '~20')"""
-	return regex.fullmatch(line[2])
+	return parse_variation(line[2]) is not None
 
 def strong_variation_filter(line):
 	"""accepts the line if the latency clearly varies by more than one cycle"""
-	if clear_variation_filter(line):
-		s = line[2].split('-')
-		return (int(s[1]) - int(s[0])) > 1
+	t = parse_variation(line[2])
+	if t is not None:
+		return (t[1] - t[0]) > 1
 	return False
 
 filter = None

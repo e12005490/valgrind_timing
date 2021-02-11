@@ -6,7 +6,6 @@ DIV;r64/m64;15-78
 IDIV;r16/m16;24-39
 IDIV;r32/m32;24-55
 IDIV;r64/m64;24-87
-SHLD, SHRD;m,r,i/CL;7.5
 JMP;far;23-32
 JMP;m(far);25-33
 CALL;far;23-32
@@ -20,7 +19,3 @@ FCOS;;~90?
 FSINCOS;;~125?
 FPTAN;;~119
 FPATAN;;151?
-MOVQ;xmm,xmm;2.5
-MOVDQA;xmm,xmm;2.5
-MOVAPS/D;r,r;2.5
-MOVUPS/D;r,r;2.5

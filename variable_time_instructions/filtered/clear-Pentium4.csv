@@ -1,10 +1,27 @@
+MOV;r,r;0.5-1.5
+MOV;r,i;0.5-1.5
+MOVZX;r,r;0.5-1.5
+MOVSX;r,r;0.5-1.5
 MOVSX;r,m;3-4
+XCHG;r,r;1.5-2.5
+LEA;r,[r+r]/[r+i];0.5-1.5
+LEA;r,[r+r+i];1.5-2.5
 LEA;r,[r*i];4-5
 LEA;r,[r+r*i];4-5
 LEA;r,[r+r*i+i];4-5
+SAHF;;0.5-1.5
+ADD, SUB;r,r;0.5-1.5
+ADD, SUB;r,m;1.5-2.5
+CMP;r,r;0.5-1.5
 CMP;r,m;1-2
+INC, DEC;r;0.5-1.5
+NEG;r;0.5-1.5
 CBW;;1-2
 CWD, CDQ;;1-2
+CWDE;;0.5-1.5
+AND, OR, XOR;r,r;0.5-1.5
+TEST;r,r;0.5-1.5
+NOT;r;0.5-1.5
 SHL, SHR, SAR;r,i;4-5
 ROL, ROR;r,i;4-5
 RCL, RCR;r,1;4-5

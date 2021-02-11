@@ -1,10 +1,4 @@
-CMOVcc;r,r/m;9.5
 XCHG;r,m;≈100
-LEA;r,[r+r/i];2.5
-LEA;r,[r+r+i];3.5
-LEA;r,[r*i];3.5
-LEA;r,[r+r*i];3.5
-LEA;r,[r+r*i+i];3.5
 REP LODS;;≈ 4n+50
 REP STOS;;≈ 3n
 REP MOVSB;;≈.3n
