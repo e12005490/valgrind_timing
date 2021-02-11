@@ -54,8 +54,8 @@ ROR ROL;r/m,i(><1);1-3
 ROR ROL;r/m,cl;4/5
 RCR RCL;r/m,i(><1);8-10
 RCR RCL;r/m,cl;7-9
-SHLD SHRD;r,i/CL;4
-SHLD SHRD;m,i/CL;5
+SHLD SHRD;r,i/cl;4
+SHLD SHRD;m,i/cl;5
 BT;r,r/i;4
 BT;m,i;4
 BT;m,i;9

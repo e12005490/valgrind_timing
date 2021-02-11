@@ -105,8 +105,8 @@ TEST;m,i;
 NOT;r;1
 NOT;m;6
 ANDN;r,r,r;1
-SHL, SHR, SAR;r,i/CL;1
-ROL, ROR;r,i/CL;1
+SHL, SHR, SAR;r,i/cl;1
+ROL, ROR;r,i/cl;1
 RCL;r,1;1
 RCL;r,i;4
 RCL;r,cl;4
@@ -115,7 +115,7 @@ RCR;r,i;3
 RCR;r,cl;3
 SHLD, SHRD;r,r,i;3
 SHLD, SHRD;r,r,cl;3
-SHLD, SHRD;m,r,i/CL;
+SHLD, SHRD;m,r,i/cl;
 SARX;r,r,r;1
 SHLX;r,r,r;1
 SHRX;r,r,r;1

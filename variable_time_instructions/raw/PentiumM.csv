@@ -72,18 +72,18 @@ AND OR XOR;m,r/i;
 TEST;r,r/i;1
 TEST;m,r;1
 TEST;m,i;
-SHR SHL SAR ROR ROL;r,i/CL;1
-SHR SHL SAR ROR ROL;m,i/CL;
+SHR SHL SAR ROR ROL;r,i/cl;1
+SHR SHL SAR ROR ROL;m,i/cl;
 RCR RCL;r,1;2
-RCR;r8,i/CL;11
-RCL;r8,i/CL;10
-RCR RCL;r16/r32,i/CL;9
+RCR;r8,i/cl;11
+RCL;r8,i/cl;10
+RCR RCL;r16/r32,i/cl;9
 RCR RCL;m,1;
-RCR;m8,i/CL;
-RCL;m8,i/CL;
-RCR RCL;m16/m32,i/CL;
-SHLD SHRD;r,r,i/CL;2
-SHLD SHRD;m,r,i/CL;
+RCR;m8,i/cl;
+RCL;m8,i/cl;
+RCR RCL;m16/m32,i/cl;
+SHLD SHRD;r,r,i/cl;2
+SHLD SHRD;m,r,i/cl;
 BT;r,r/i;1
 BT;m,r;
 BT;m,i;

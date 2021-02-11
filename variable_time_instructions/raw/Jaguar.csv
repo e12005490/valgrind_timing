@@ -90,14 +90,14 @@ TEST;r,r;1
 TEST;r,m;
 NOT;r;1
 NOT;m;6
-SHL, SHR, SAR;r,i/CL;1
-ROL, ROR;r,i/CL;1
+SHL, SHR, SAR;r,i/cl;1
+ROL, ROR;r,i/cl;1
 RCL, RCR;r,1;1
 RCL;r,i;5
 RCR;r,i;4
 RCL;r,cl;5
 RCR;r,cl;4
-SHL, SHR, SAR, ROL, ROR;m,i/CL;6
+SHL, SHR, SAR, ROL, ROR;m,i/cl;6
 RCL, RCR;m,1;
 RCL;m,i;
 RCR;m,i;
@@ -105,7 +105,7 @@ RCL;m,cl;
 RCR;m,cl;
 SHLD, SHRD;r,r,i;3
 SHLD, SHRD;r,r,cl;4
-SHLD, SHRD;m,r,i/CL;
+SHLD, SHRD;m,r,i/cl;
 BT;r,r/i;
 BT;m,i;
 BT;m,r;
