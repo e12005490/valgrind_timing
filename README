@@ -15,3 +15,11 @@ To build the sources, run
 	make install
 
 The Valgrind binary can then be found under inst/bin/valgrind.
+
+
+The timecop-data.xz file contains SUPERCOP (version 20210125) output data
+related to TIMECOP tests obtained using the modified Valgrind build.
+
+
+The variable_time_instructions directory contains data on instructions
+that are variable-time on different microarchitectures.
