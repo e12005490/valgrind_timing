@@ -19,3 +19,8 @@ The following actions are taken:
 4. The merged data is manually filtered, since there may be false positives depending on the filter used
 
 To avoid false positives, it may be useful to consider only a subset of the data in raw/, e.g. only modern processors.
+
+
+##uops.info
+
+uops.info/ contains data coming from https://uops.info similarly processed.
