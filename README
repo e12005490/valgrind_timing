@@ -23,3 +23,10 @@ related to TIMECOP tests obtained using the modified Valgrind build.
 
 The variable_time_instructions directory contains data on instructions
 that are variable-time on different microarchitectures.
+
+
+The benchmark directory contains a small kernel module adapted from
+https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-32-ia-64-benchmark-code-execution-paper.pdf
+to gather some data about the average cycle count of instructions. Currently,
+the module outputs the mean and variance of the execution time of the code
+to benchmark.
