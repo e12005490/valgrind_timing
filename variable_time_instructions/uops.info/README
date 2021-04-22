@@ -1,0 +1,18 @@
+The raw data in uops.info.csv has been downloaded from https://uops.info/table.html
+on 2021-04-21.
+
+This data is split into files corresponding to individual microarchitecture
+in uops.info/<arch>.csv.
+
+The script uops.info/filter.py generates corresponding uops.info/filtered-<arch>.csv
+containing instructions that are
+	1. present in the microarchitecture (i.e. the latency is not empty)
+	2. not marked as constant time (i.e. the latency is not just a number)
+
+The script uops.info/count.py takes filtered files as input and writes to
+standard output instructions along with the number of architectures on
+which they are marked variable-time.
+
+The script uops.info/without-memory calls uops.info/count.py, but filters
+the output to remove instructions containing memory operands to remove
+cache effects, which are already known to produce timing variations.
