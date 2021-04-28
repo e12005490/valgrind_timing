@@ -1,22 +1,18 @@
 ifneq ($(KERNELRELEASE),)
-	# call from kernel build system
-	lifo-objs := benchmark.o
-	obj-m   := benchmark.o
+
+# call from kernel build system
+obj-m := benchmark.o
+benchmark-y := benchmark_main.o benchmark_histogram.o
+
 else
-	KERNELDIR ?= /lib/modules/$(shell uname -r)/build
-	PWD       := $(shell pwd)
-modules:
-	echo $(MAKE) -C $(KERNELDIR) M=$(PWD) LDDINC=$(PWD)/../include modules
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) LDDINC=$(PWD)/../include modules
+
+KERNELDIR ?= /lib/modules/$(shell uname -r)/build
+PWD       := $(shell pwd)
+
+default:
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+
 endif
 
 clean:
-	rm -rf *.o *~ core .depend *.mod.o .*.cmd *.ko *.mod.c *.mod \
-	.tmp_versions *.markers *.symvers modules.order
-
-depend .depend dep:
-	$(CC) $(CFLAGS) -M *.c > .depend
-
-ifeq (.depend,$(wildcard .depend))
-	include .depend
-endif
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) clean
