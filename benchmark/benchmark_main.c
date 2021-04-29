@@ -12,23 +12,17 @@ static int __init benchmark_start(void) {
 
 	printk(KERN_INFO "Loading benchmark module\n");
 
-	for(i = 0; i < 1000; ++i) {
+	for(i = 1; i < 1000; ++i) {
 		histogram_init(&hist);
 
 		multiplier = i;
 
 		FILL_TIMES(&hist, asm volatile ("mul %0\n\t":: "r" (multiplier) : "%rax"));
 
-//		mean = histogram_mean(&hist);
-//		variance = histogram_variance(&hist, mean);
 		median = histogram_median(&hist);
 		mad = histogram_mad(&hist, median);
 
-//		printk(KERN_ERR "mean: %llu", mean);
-//		printk(KERN_ERR "variance: %llu", variance);
 		printk("%llu median %llu, mad %llu", i, median, mad);
-
-//		histogram_print(&hist);
 
 		histogram_free(&hist);
 	}

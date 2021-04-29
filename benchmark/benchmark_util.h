@@ -8,7 +8,7 @@
 #include <linux/preempt.h>
 #include <linux/sched.h>
 
-#define SAMPLE_SIZE ((uint64_t)10000)
+#define SAMPLE_SIZE ((uint64_t)1000)
 
 // these are all macros to force code inlining
 
