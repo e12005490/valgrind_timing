@@ -4,27 +4,34 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 
+#define LOOP_SIZE ((uint64_t)100)
+
 static int __init benchmark_start(void) {
 	histogram hist;
-	uint64_t i;
+	uint64_t i, j;
 	uint64_t median, mad;
+	unsigned int accumulator;
 	unsigned int multiplier;
 
 	printk(KERN_INFO "Loading benchmark module\n");
 
-	for(i = 1; i < 1000; ++i) {
-		histogram_init(&hist);
+	for(i = 0; i < LOOP_SIZE; ++i) {
+		accumulator = i;
 
-		multiplier = i;
+		for(j = 0; j < LOOP_SIZE; ++j) {
+			histogram_init(&hist);
 
-		FILL_TIMES(&hist, asm volatile ("mul %0\n\t":: "r" (multiplier) : "%rax"));
+			multiplier = j;
 
-		median = histogram_median(&hist);
-		mad = histogram_mad(&hist, median);
+			FILL_TIMES(&hist, asm volatile ("mov %0, %%eax\n\tmul %1\n\t":: "r" (accumulator), "r" (multiplier) : "%rax"));
 
-		printk("%llu median %llu, mad %llu", i, median, mad);
+			median = histogram_median(&hist);
+			mad = histogram_mad(&hist, median);
 
-		histogram_free(&hist);
+			printk("%llu *= %llu median %llu, mad %llu", i, j, median, mad);
+
+			histogram_free(&hist);
+		}
 	}
 
 	return 0;
