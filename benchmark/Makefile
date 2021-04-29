@@ -2,7 +2,7 @@ ifneq ($(KERNELRELEASE),)
 
 # call from kernel build system
 obj-m := benchmark.o
-benchmark-y := benchmark_main.o benchmark_histogram.o
+benchmark-y := benchmark_histogram.o benchmark_main.o
 
 else
 

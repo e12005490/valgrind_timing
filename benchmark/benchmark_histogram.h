@@ -1,3 +1,6 @@
+#ifndef BENCHMARK_HISTOGRAM_H
+#define BENCHMARK_HISTOGRAM_H
+
 #include <linux/types.h>
 
 typedef struct {
@@ -42,3 +45,5 @@ uint64_t histogram_median(const histogram *hist);
  * Median Absolute Deviation
  */
 uint64_t histogram_mad(const histogram *hist, uint64_t median);
+
+#endif
