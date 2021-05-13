@@ -1038,6 +1038,18 @@ static IRAtom* mkPCastTo( MCEnv* mce, IRType dst_ty, IRAtom* vbits )
                                        unop(Iop_CmpNEZ64, tmp4));
          break;
       }
+      case Ity_V256: {
+         IRAtom* tmp2 = assignNew('V', mce, Ity_I64, unop(Iop_V256to64_0, vbits));
+         IRAtom* tmp3 = assignNew('V', mce, Ity_I64, unop(Iop_V256to64_1, vbits));
+         IRAtom* tmp4 = assignNew('V', mce, Ity_I64, unop(Iop_V256to64_2, vbits));
+         IRAtom* tmp5 = assignNew('V', mce, Ity_I64, unop(Iop_V256to64_3, vbits));
+         IRAtom* tmp6 = assignNew('V', mce, Ity_I64, binop(Iop_Or64, tmp2, tmp3));
+         IRAtom* tmp7 = assignNew('V', mce, Ity_I64, binop(Iop_Or64, tmp4, tmp5));
+         IRAtom* tmp8 = assignNew('V', mce, Ity_I64, binop(Iop_Or64, tmp6, tmp7));
+         tmp1         = assignNew('V', mce, Ity_I1, unop(Iop_CmpNEZ64, tmp8));
+
+         break;
+      }
       default:
          ppIRType(src_ty);
          VG_(tool_panic)("mkPCastTo(1)");
@@ -1583,6 +1595,7 @@ static void complainIfUndefined ( MCEnv* mce, IRAtom* atom, IRExpr *guard )
          break;
       case 2:
       case 16:
+      case 32:
          if (origin) {
             fn    = &MC_(helperc_value_checkN_fail_w_o);
             nm    = "MC_(helperc_value_checkN_fail_w_o)";
@@ -3731,6 +3744,7 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
          /* Same scheme as with all other shifts.  Note: 22 Oct 05:
             this is wrong now, scalar shifts are done properly lazily.
             Vector shifts should be fixed too. */
+         complainIfUndefined(mce, atom1, NULL);
          complainIfUndefined(mce, atom2, NULL);
          return assignNew('V', mce, Ity_V128, binop(op, vatom1, atom2));
 
@@ -3749,6 +3763,8 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Rol8x16:
       case Iop_Sh8Sx16:
       case Iop_Sh8Ux16:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
          return mkUifUV128(mce,
                    assignNew('V', mce, Ity_V128, binop(op, vatom1, atom2)),
                    mkPCast8x16(mce,vatom2)
@@ -3761,6 +3777,8 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Rol16x8:
       case Iop_Sh16Sx8:
       case Iop_Sh16Ux8:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
          return mkUifUV128(mce,
                    assignNew('V', mce, Ity_V128, binop(op, vatom1, atom2)),
                    mkPCast16x8(mce,vatom2)
@@ -3773,6 +3791,8 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Rol32x4:
       case Iop_Sh32Sx4:
       case Iop_Sh32Ux4:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
          return mkUifUV128(mce,
                    assignNew('V', mce, Ity_V128, binop(op, vatom1, atom2)),
                    mkPCast32x4(mce,vatom2)
@@ -3785,6 +3805,8 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Rol64x2:
       case Iop_Sh64Sx2:
       case Iop_Sh64Ux2:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
          return mkUifUV128(mce,
                    assignNew('V', mce, Ity_V128, binop(op, vatom1, atom2)),
                    mkPCast64x2(mce,vatom2)
@@ -3822,15 +3844,19 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
          complainIfUndefined(mce, atom2, NULL);
          return mkPCast32x2(mce, vatom1);
 
+      case Iop_CmpGT8Sx16:
+      case Iop_CmpGT8Ux16:
       case Iop_QSub8Ux16:
       case Iop_QSub8Sx16:
       case Iop_Sub8x16:
+      case Iop_QSal8x16:
+      case Iop_QShl8x16:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
       case Iop_Min8Ux16:
       case Iop_Min8Sx16:
       case Iop_Max8Ux16:
       case Iop_Max8Sx16:
-      case Iop_CmpGT8Sx16:
-      case Iop_CmpGT8Ux16:
       case Iop_CmpEQ8x16:
       case Iop_Avg8Ux16:
       case Iop_Avg8Sx16:
@@ -3838,8 +3864,6 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_QAdd8Sx16:
       case Iop_QAddExtUSsatSS8x16:
       case Iop_QAddExtSUsatUU8x16:
-      case Iop_QSal8x16:
-      case Iop_QShl8x16:
       case Iop_Add8x16:
       case Iop_Mul8x16:
       case Iop_MulHi8Sx16:
@@ -3848,9 +3872,15 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_PolynomialMulAdd8x16:
          return binary8Ix16(mce, vatom1, vatom2);
 
+      case Iop_CmpGT16Sx8:
+      case Iop_CmpGT16Ux8:
       case Iop_QSub16Ux8:
       case Iop_QSub16Sx8:
       case Iop_Sub16x8:
+      case Iop_QSal16x8:
+      case Iop_QShl16x8:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
       case Iop_Mul16x8:
       case Iop_MulHi16Sx8:
       case Iop_MulHi16Ux8:
@@ -3858,8 +3888,6 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Min16Ux8:
       case Iop_Max16Sx8:
       case Iop_Max16Ux8:
-      case Iop_CmpGT16Sx8:
-      case Iop_CmpGT16Ux8:
       case Iop_CmpEQ16x8:
       case Iop_Avg16Ux8:
       case Iop_Avg16Sx8:
@@ -3867,8 +3895,6 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_QAdd16Sx8:
       case Iop_QAddExtUSsatSS16x8:
       case Iop_QAddExtSUsatUU16x8:
-      case Iop_QSal16x8:
-      case Iop_QShl16x8:
       case Iop_Add16x8:
       case Iop_QDMulHi16Sx8:
       case Iop_QRDMulHi16Sx8:
@@ -3880,18 +3906,20 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_PwExtUSMulQAdd8x16:
          return binary16Ix8(mce, vatom1, vatom2);
 
-      case Iop_Sub32x4:
       case Iop_CmpGT32Sx4:
       case Iop_CmpGT32Ux4:
+      case Iop_Sub32x4:
+      case Iop_QSub32Sx4:
+      case Iop_QSub32Ux4:
+      case Iop_QSal32x4:
+      case Iop_QShl32x4:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
       case Iop_CmpEQ32x4:
       case Iop_QAdd32Sx4:
       case Iop_QAdd32Ux4:
-      case Iop_QSub32Sx4:
-      case Iop_QSub32Ux4:
       case Iop_QAddExtUSsatSS32x4:
       case Iop_QAddExtSUsatUU32x4:
-      case Iop_QSal32x4:
-      case Iop_QShl32x4:
       case Iop_Avg32Ux4:
       case Iop_Avg32Sx4:
       case Iop_Add32x4:
@@ -3907,7 +3935,15 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_PolynomialMulAdd32x4:
          return binary32Ix4(mce, vatom1, vatom2);
 
+      case Iop_CmpGT64Sx2:
+      case Iop_CmpGT64Ux2:
       case Iop_Sub64x2:
+      case Iop_QSub64Ux2:
+      case Iop_QSub64Sx2:
+      case Iop_QSal64x2:
+      case Iop_QShl64x2:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
       case Iop_Add64x2:
       case Iop_Avg64Ux2:
       case Iop_Avg64Sx2:
@@ -3916,14 +3952,8 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Min64Sx2:
       case Iop_Min64Ux2:
       case Iop_CmpEQ64x2:
-      case Iop_CmpGT64Sx2:
-      case Iop_CmpGT64Ux2:
-      case Iop_QSal64x2:
-      case Iop_QShl64x2:
       case Iop_QAdd64Ux2:
       case Iop_QAdd64Sx2:
-      case Iop_QSub64Ux2:
-      case Iop_QSub64Sx2:
       case Iop_QAddExtUSsatSS64x2:
       case Iop_QAddExtSUsatUU64x2:
       case Iop_PolynomialMulAdd64x2:
@@ -3935,8 +3965,10 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_MulI128by10ECarry:
         return binary64Ix2(mce, vatom1, vatom2);
 
-      case Iop_Add128x1:
       case Iop_Sub128x1:
+        complainIfUndefined(mce, atom1, NULL);
+        complainIfUndefined(mce, atom2, NULL);
+      case Iop_Add128x1:
       case Iop_CmpNEZ128x1:
          return binary128Ix1(mce, vatom1, vatom2);
 
@@ -4169,6 +4201,8 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_PackEvenLanes8x16:
       case Iop_PackEvenLanes16x8:
       case Iop_PackEvenLanes32x4:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
          return assignNew('V', mce, Ity_V128, binop(op, vatom1, vatom2));
 
       case Iop_GetElem8x16:
@@ -4255,6 +4289,7 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
          /* Same scheme as with all other shifts.  Note: 10 Nov 05:
             this is wrong now, scalar shifts are done properly lazily.
             Vector shifts should be fixed too. */
+         complainIfUndefined(mce, atom1, NULL);
          complainIfUndefined(mce, atom2, NULL);
          return assignNew('V', mce, Ity_V128, binop(op, vatom1, atom2));
 
@@ -4742,8 +4777,12 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Xor64:
          return mkUifU64(mce, vatom1, vatom2);
       case Iop_XorV128:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
          return mkUifUV128(mce, vatom1, vatom2);
       case Iop_XorV256:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
          return mkUifUV256(mce, vatom1, vatom2);
 
       /* V256-bit SIMD */
@@ -4759,17 +4798,20 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
          /* Same scheme as with all other shifts.  Note: 22 Oct 05:
             this is wrong now, scalar shifts are done properly lazily.
             Vector shifts should be fixed too. */
+         complainIfUndefined(mce, atom1, NULL);
          complainIfUndefined(mce, atom2, NULL);
          return assignNew('V', mce, Ity_V256, binop(op, vatom1, atom2));
 
+      case Iop_CmpGT8Sx32:
       case Iop_QSub8Ux32:
       case Iop_QSub8Sx32:
       case Iop_Sub8x32:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom1, NULL);
       case Iop_Min8Ux32:
       case Iop_Min8Sx32:
       case Iop_Max8Ux32:
       case Iop_Max8Sx32:
-      case Iop_CmpGT8Sx32:
       case Iop_CmpEQ8x32:
       case Iop_Avg8Ux32:
       case Iop_QAdd8Ux32:
@@ -4777,9 +4819,12 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Add8x32:
          return binary8Ix32(mce, vatom1, vatom2);
 
+      case Iop_CmpGT16Sx16:
       case Iop_QSub16Ux16:
       case Iop_QSub16Sx16:
       case Iop_Sub16x16:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
       case Iop_Mul16x16:
       case Iop_MulHi16Sx16:
       case Iop_MulHi16Ux16:
@@ -4787,7 +4832,6 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Min16Ux16:
       case Iop_Max16Sx16:
       case Iop_Max16Ux16:
-      case Iop_CmpGT16Sx16:
       case Iop_CmpEQ16x16:
       case Iop_Avg16Ux16:
       case Iop_QAdd16Ux16:
@@ -4795,8 +4839,10 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Add16x16:
          return binary16Ix16(mce, vatom1, vatom2);
 
-      case Iop_Sub32x8:
       case Iop_CmpGT32Sx8:
+      case Iop_Sub32x8:
+         complainIfUndefined(mce, atom1, NULL);
+         complainIfUndefined(mce, atom2, NULL);
       case Iop_CmpEQ32x8:
       case Iop_Add32x8:
       case Iop_Max32Ux8:
@@ -4806,10 +4852,12 @@ IRAtom* expr2vbits_Binop ( MCEnv* mce,
       case Iop_Mul32x8:
          return binary32Ix8(mce, vatom1, vatom2);
 
-      case Iop_Sub64x4:
-      case Iop_Add64x4:
-      case Iop_CmpEQ64x4:
       case Iop_CmpGT64Sx4:
+      case Iop_Sub64x4:
+        complainIfUndefined(mce, atom1, NULL);
+        complainIfUndefined(mce, atom2, NULL);
+      case Iop_CmpEQ64x4:
+      case Iop_Add64x4:
          return binary64Ix4(mce, vatom1, vatom2);
 
       case Iop_I32StoF32x8:
