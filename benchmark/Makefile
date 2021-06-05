@@ -3,6 +3,7 @@ ifneq ($(KERNELRELEASE),)
 # call from kernel build system
 obj-m := benchmark.o
 benchmark-y := benchmark_histogram.o benchmark_main.o
+ccflags-y += -mmmx -msse
 
 else
 
